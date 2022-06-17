@@ -1,0 +1,48 @@
+{
+  "payload": [
+    {
+      "to":"0x52b24Ac0D06f19688E2DecC2B5a9DC20147278d4",
+      "externalId": "SBNY-1",
+      "metadata": {
+        "$schema": "https://api.startrail.io/api/v1/schema/registry-record-metadata.v2.0.schema.json",
+        "$schemaIntegrity": "sha256-f63238ce3b8c4f8a99fb453d716d5451f75508c2e403a58af0412014187e7a61",
+        "title": {
+          "en": "Startbunny Season 1 #",
+          "ja": "Startbunny Season 1 #"
+        },
+        "size": {
+          "width": 1600,
+          "height": 1600,
+          "unit": "pixel"
+        },
+        "medium": {
+          "en": "PNG generated from template SVGs"
+        },
+        "edition": {
+          "uniqueness": "non unique work",
+          "proofType": "ED",
+          "number": 1,
+          "totalNumber": 3
+        },
+        "note": {
+          "en": "Startbahn employee memorial NFT",
+          "jp": "スタートバーン会社員のNFT"
+        },
+        "thumbnailURL": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
+        "yearOfCreation": {
+          "ja": "2022",
+          "en": "2022"
+        },
+        "isDigital": false,
+        "digitalDataHash": "sha256-247e4b904322a1dd0b148cd77e8627ec7d391251380880ab4621726ecb945ef5",
+        "name": "Startbunny Season 1 #",
+        "description": "Startbahn employee memorial NFT of the first season of Startbunny",
+        "image": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
+        "external_url": "https://fearless-complete-workshop.glitch.me/"
+      },
+      "lockExternalTransfer": false,
+      "isPrimaryIssuer": true,
+      "artistAddress": "0xCc2D042Da54a35c15861A50fb6e847e095Db4A92"
+    }
+  ]
+}

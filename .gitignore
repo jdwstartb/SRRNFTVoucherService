@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+.glitchdotcom.json
+.node-gyp
+node_modules
