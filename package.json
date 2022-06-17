@@ -9,7 +9,7 @@
     "test:unit": "NODE_OPTIONS=--unhandled-rejections=warn jest --runInBand --forceExit"
   },
   "dependencies": {
-    "@types/jest": "^27.4.1",
+    "@types/jest": "^28.1.2",
     "@types/node": "^16.11.12",
     "fastify": "^3.28.0",
     "fastify-env": "^2.2.0",
@@ -36,5 +36,9 @@
     "node",
     "glitch",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12"
+  }
 }
