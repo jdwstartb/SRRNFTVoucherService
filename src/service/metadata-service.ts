@@ -1,11 +1,12 @@
 import template from "../data/template.json"
-import { EditionService } from "./edition-service"
+import {EditionService} from "./edition-service"
 
 
 export class MetadataService {
 
     editionService: EditionService
-    constructor(editionService: EditionService) {
+
+    constructor(editionService) {
         this.editionService = editionService
     }
 
@@ -13,26 +14,31 @@ export class MetadataService {
 
         const payloadEntry = template.payload[0]
 
-        const editionNumber = this.editionService.getEdition(requestBody.voucher) + 1
+        const editionNumber = this.editionService.getEdition(requestBody.voucher)
         const total = this.editionService.getEditionTotal()
 
-        const theData = {... template,
+        const theData = {
+            ...template,
             payload:
                 [
-                    {...payloadEntry,
+                    {
+                        ...payloadEntry,
                         to: requestBody.eoa,
                         externalId: `SBNYv1-${editionNumber}`,
                         metadata:
-                            {...payloadEntry.metadata,
+                            {
+                                ...payloadEntry.metadata,
                                 edition:
-                                    {...payloadEntry.metadata.edition,
+                                    {
+                                        ...payloadEntry.metadata.edition,
                                         number: editionNumber,
                                         totalNumber: total
                                     },
                                 title:
-                                    {en: `Startbunny SRR Season 1 #${editionNumber}/${total}`
+                                    {
+                                        en: `Startbunny SRR Season 1 #${editionNumber}/${total}`
                                     },
-                                image:imgUrl,
+                                image: imgUrl,
                                 thumbnailURL: imgUrl
                             }
                     }

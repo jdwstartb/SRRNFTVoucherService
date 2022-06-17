@@ -1,8 +1,12 @@
 {
   "vouchers": [
     {
-      "code": "abc",
-      "used": "true"
+      "code": "12",
+      "used": true
+    },
+    {
+      "code": "123",
+      "used": true
     }
   ]
 }

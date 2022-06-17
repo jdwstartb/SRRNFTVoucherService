@@ -1,19 +1,20 @@
-
-
-const voucherKeys: string[] = process.env.MINT_KEYS?.split(",") || []
+const voucherKeys: string[] = []
 
 export class EditionService {
 
-
-    getEdition(voucherCode) {
-        console.log(voucherKeys)
-        console.log( process.env.MINT_KEYS)
-        console.log( process.env)
-
-        return voucherKeys.findIndex((ele) => voucherCode === ele)
+    initKeys() {
+        if (voucherKeys.length === 0) {
+            voucherKeys.push(...(process.env.MINT_KEYS?.split(",") || []))
+        }
     }
 
-    getEditionTotal(){
+    getEdition(voucherCode) {
+        this.initKeys()
+
+        return (voucherKeys.findIndex((ele) => voucherCode === ele) + 1)
+    }
+
+    getEditionTotal() {
         return voucherKeys.length
     }
 

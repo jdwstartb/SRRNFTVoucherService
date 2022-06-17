@@ -1,17 +1,17 @@
-import { MintRequestProcessingService } from './src/service/mint-request-processing-service'
+import {MintRequestProcessingService} from './src/service/mint-request-processing-service'
+import {VoucherService} from './src/service/voucher-service'
+import path from 'path';
+
 const mintRequestProcessingService = new MintRequestProcessingService()
 
-import { VoucherService } from './src/service/voucher-service'
 const voucherService = new VoucherService()
-
-import path from 'path';
 
 
 const fastify = require("fastify")({
     logger: false
 });
 
-
+require('dotenv').config()
 
 
 fastify.register(require("fastify-static"), {
@@ -41,10 +41,10 @@ if (seo.url === "glitch-default") {
  *
  * Returns src/pages/index.hbs with data built into it
  */
-fastify.get("/", function(request, reply) {
+fastify.get("/", function (request, reply) {
 
     // params is an object we'll pass to our handlebars template
-    let params: any = { seo: seo };
+    let params: any = {seo: seo};
 
 
     // If someone clicked the option for a random color it'll be passed in the querystring
@@ -67,23 +67,22 @@ fastify.get("/", function(request, reply) {
     reply.view("/src/pages/index.hbs", params);
 });
 
-fastify.get("/yours", function(request, reply) {
+fastify.get("/yours", function (request, reply) {
 
-    let params: any = { seo: seo };
+    let params: any = {seo: seo};
 
     reply.view("/src/pages/get-yours.hbs", params);
 })
 
-fastify.post("/yours", function(request, reply) {
-    let params: any = { seo: seo };
+fastify.post("/yours", function (request, reply) {
+    let params: any = {seo: seo};
     const theVoucher = request.body.voucher
 
 
-
-    if(!voucherService.isValidVoucher(theVoucher)){
+    if (!voucherService.isValidVoucher(theVoucher)) {
         const error = `voucher code invalid ${theVoucher}`
         console.log(error)
-        params.error= error
+        params.error = error
         return reply.view("/src/pages/get-yours.hbs", params);
     }
 
@@ -93,7 +92,7 @@ fastify.post("/yours", function(request, reply) {
 });
 
 // Run the server and report out to the logs
-fastify.listen(process.env.PORT, '0.0.0.0', function(err, address) {
+fastify.listen(process.env.PORT, '0.0.0.0', function (err, address) {
     if (err) {
         fastify.log.error(err);
         process.exit(1);

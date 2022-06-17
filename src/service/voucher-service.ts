@@ -9,8 +9,9 @@ var adapter = new FileSync('.data/db.json');
 var db = low(adapter);
 
 // default user list
-db.defaults({ vouchers: [
-        {"code":"abc", "used":"true"},
+db.defaults({
+    vouchers: [
+        {"code": "abc", "used": "true"},
     ]
 }).write();
 
@@ -22,8 +23,7 @@ export class VoucherService {
     }
 
     isValidVoucher(voucherCode) {
-        console.log(editionService.getEdition(voucherCode))
-        if (editionService.getEdition(voucherCode) === -1){
+        if (editionService.getEdition(voucherCode) === 0) {
             return false
         }
         const usedVouchers: any[] = this.getUsedVouchers()
@@ -32,20 +32,20 @@ export class VoucherService {
         return (wasUsed < 0)
     }
 
-    getUsedVouchers(){
-        var vouchers: any[] = [];
-        var vouchersEntries = db.get('vouchers').value()
-        vouchersEntries.forEach(function(vouch) {
-            vouchers.push({code: vouch.code, used: vouch.used });
+    getUsedVouchers() {
+        let usedVouchers: any[] = [];
+        let vouchersEntries = db.get('vouchers').value()
+        vouchersEntries.forEach(function (vouch) {
+            usedVouchers.push({code: vouch.code, used: vouch.used});
         });
 
 
-        return vouchers
+        return usedVouchers
     }
 
-    addUsedVoucher(theVoucher){
+    addUsedVoucher(theVoucher) {
         db.get('vouchers')
-            .push({ code: theVoucher, used:true })
+            .push({code: theVoucher, used: true})
             .write()
     }
 
