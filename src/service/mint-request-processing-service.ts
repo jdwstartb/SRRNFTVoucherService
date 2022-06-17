@@ -5,7 +5,7 @@ const metadataService = new MetadataService()
 import { VoucherService } from './voucher-service'
 const voucherService = new VoucherService()
 import {NFTSVGBuilderService } from './nft-svg-builder-service'
-const svgBuilderService = new NFGSVGBuilderService()
+const svgBuilderService = new NFTSVGBuilderService()
 
 export class MintRequestProcessingService {
 
