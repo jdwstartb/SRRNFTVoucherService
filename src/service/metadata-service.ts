@@ -1,16 +1,20 @@
 import template from "../data/template.json"
 import { EditionService } from "./edition-service"
 
-const editionService = new EditionService()
-
 
 export class MetadataService {
+
+    editionService: EditionService
+    constructor(editionService: EditionService) {
+        this.editionService = editionService
+    }
+
     getMetadataRequest(requestBody, imgUrl): any {
 
         const payloadEntry = template.payload[0]
 
-        const editionNumber = editionService.getEdition(requestBody.voucher) + 1
-        const total = editionService.getEditionTotal()
+        const editionNumber = this.editionService.getEdition(requestBody.voucher) + 1
+        const total = this.editionService.getEditionTotal()
 
         const theData = {... template,
             payload:

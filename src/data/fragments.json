@@ -1,0 +1,21 @@
+{
+  "hair": {
+    "unicorn": "<something></something>",
+    "iro": "<something></something>",
+    "bald": "<something></something>",
+    "bangs": "<something></something>",
+    "kopftuch": "<something></something>"
+  },
+  "accessoir": {
+    "sunglasses": "<something></something>",
+    "glasses": "<something></something>",
+    "eyepatch": "<something></something>"
+  },
+  "eyes": {
+    "regular": "<something></something>",
+    "red": "<something></something>",
+    "blind": "<something></something>",
+    "buttons": "<something></something>",
+    "cute": "<something></something>"
+  }
+}
