@@ -1,18 +1,17 @@
-import { PNGFromSvgGenerator } from './svg-generator-service'
-const pngFromSvgGenerator = new PNGFromSvgGenerator()
-import { MetadataService } from './metadata-service'
-
-import { VoucherService } from './voucher-service'
-const voucherService = new VoucherService()
-import {NFTSVGBuilderService } from './nft-svg-builder-service'
+import {PNGFromSvgGenerator} from './svg-generator-service'
+import {MetadataService} from './metadata-service'
+import {VoucherService} from './voucher-service'
+import {NFTSVGBuilderService} from './nft-svg-builder-service'
 import {EditionService} from "./edition-service";
 import {PinataService} from "./pinata-service";
+
+
+const pngFromSvgGenerator = new PNGFromSvgGenerator()
+const voucherService = new VoucherService()
 const svgBuilderService = new NFTSVGBuilderService()
-
 const editionService = new EditionService()
-const metadataService = new MetadataService(editionService)
 const pinataService = new PinataService()
-
+const metadataService = new MetadataService(editionService)
 
 
 export class MintRequestProcessingService {
@@ -22,7 +21,7 @@ export class MintRequestProcessingService {
     }
 
 
-    async generateFileAndUploadAndMint (request) {
+    async generateFileAndUploadAndMint(request) {
         const theVoucher = request.body.voucher
 
         const nftImageSource = svgBuilderService.buildSVGString(request.body)

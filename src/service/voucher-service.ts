@@ -4,9 +4,10 @@ import {EditionService} from './edition-service'
 
 const editionService = new EditionService()
 
-var FileSync = require('lowdb/adapters/FileSync');
-var adapter = new FileSync('.data/db.json');
-var db = low(adapter);
+const FileSync = require('lowdb/adapters/FileSync');
+
+const adapter = new FileSync(process.env.SRR_MINTER_DB_FILE || ".data/db-test.json");
+const db = low(adapter);
 
 // default user list
 db.defaults({
@@ -19,6 +20,9 @@ db.defaults({
 export class VoucherService {
 
     invalidateVoucher(voucherCode) {
+        if (!this.isValidVoucher(voucherCode)) {
+            throw new Error("voucher code invalid")
+        }
         this.addUsedVoucher(voucherCode)
     }
 
@@ -47,6 +51,10 @@ export class VoucherService {
         db.get('vouchers')
             .push({code: theVoucher, used: true})
             .write()
+    }
+
+    resetVouchers() {
+        let vouchersEntries = db.set('vouchers', []).write()
     }
 
 }

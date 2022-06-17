@@ -3,7 +3,7 @@ import {EditionService} from "../edition-service";
 describe("EditionService", () => {
     const service = new EditionService()
 
-    process.env.MINT_KEYS = 'abc,123,2,4,5,6'
+    process.env.SRR_MINTER_MINT_KEYS = 'abc,123,2,4,5,6'
 
     it("returns the edition number based on the place in the env key list in non programmer numbering", () => {
 

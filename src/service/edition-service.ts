@@ -4,7 +4,7 @@ export class EditionService {
 
     initKeys() {
         if (voucherKeys.length === 0) {
-            voucherKeys.push(...(process.env.MINT_KEYS?.split(",") || []))
+            voucherKeys.push(...(process.env.SRR_MINTER_MINT_KEYS?.split(",") || []))
         }
     }
 
