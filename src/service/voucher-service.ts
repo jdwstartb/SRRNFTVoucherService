@@ -22,6 +22,7 @@ export class VoucherService {
     }
 
     isValidVoucher(voucherCode) {
+        console.log(editionService.getEdition(voucherCode))
         if (editionService.getEdition(voucherCode) === -1){
             return false
         }
