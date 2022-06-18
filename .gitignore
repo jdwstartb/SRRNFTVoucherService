@@ -105,3 +105,6 @@ dist
 .glitchdotcom.json
 .node-gyp
 node_modules
+/.idea/vcs.xml
+/.idea/modules.xml
+/.idea/.gitignore
