@@ -15,7 +15,6 @@ describe("SvgContentStringFactory", () => {
         for (let i = 0; i < 10; i++) {
             const generatedParams = getValidCustomParams()
             const svgFragment = getAsSVG(factory.build(generatedParams.params))
-            console.log(svgFragment)
             const pngContent = await pngFromSVGGenerator.transform(svgFragment)
             await fileBackupService.writePngToBackupLocation(pngContent, `verification/bunnies/`, `${generatedParams.contentDescription}`)
         }

@@ -1,10 +1,11 @@
-<g id="headLayer1" transform="translate(0,126.33331)">
-    <g style="display:inline" id="headLayer-g1222" transform="translate(-422.2774,8.49401)">
-        <path id="path817-98-4-8"
-              d="m 710.63694,62.090078 c 2.93024,15.995117 -2.97874,34.131057 -5.89603,40.467122 -3.86717,8.39911 -14.53616,20.17197 -19.7319,23.63954 -9.40818,6.2789 -30.93054,10.08567 -51.5439,10.08567 -13.58995,0 -33.76536,0.67106 -45.78534,-6.14968 -11.48801,-6.51886 -25.20697,-15.36334 -27.57173,-29.24882 -2.82083,-16.563445 -3.13018,-24.602105 -0.56417,-40.872706 5.29167,-33.553525 33.75057,-56.994425 75.24415,-56.994425 41.49358,-1e-5 69.53594,24.613016 75.84892,59.073299 z"
-              style="display:inline;opacity:1;fill:@mainColor;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5.29166651;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
-        <path id="path817-98-4"
-              d="m 708.20465,46.053906 c 7.16157,15.80641 6.19431,35.820696 0.0756,52.059292 -4.33953,11.516792 -13.87517,21.334802 -24.40519,27.705572 -15.07685,9.12164 -33.7344,12.35982 -51.35491,12.54252 -16.40809,0.17013 -33.88119,-2.41447 -48.0532,-10.6854 -10.93667,-6.38275 -20.9148,-16.39658 -25.41957,-28.231166 -4.89575,-12.861759 -3.52025,-28.04482 0.23208,-41.28541 3.95204,-13.945274 11.36937,-27.989147 22.60534,-37.145688 13.05315,-10.637422 30.77784,-15.7037505 47.56568,-17.0106554 13.35972,-1.0400312 27.45325,1.6301188 39.49157,7.5159164 15.65856,7.655817 32.06934,18.658649 39.2626,34.535019 z"
-              style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.29166651;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
+<g id="Snout1-layer1" transform="translate(0,126.33331)">
+    <g id="Snout1-g5807" transform="translate(36.337863,-76.962822)">
+        <g id="Snout1-g5705" style="display:inline" transform="translate(-2573.1308,-48.301391)">
+            <g id="Snout1-g926" transform="translate(439.38027,-21.370754)">
+                <path id="Snout1-path880-3-0"
+                      d="m 2337.5396,251.43617 c 1.0938,10.85717 -4.9006,23.71172 -14.1332,29.52837 -6.9692,4.39071 -17.6759,4.28432 -24.7111,0 -8.4366,-5.13778 -14.1896,-16.46845 -13.5999,-26.32875 0.9197,-15.37954 10.5534,-37.85271 25.9554,-38.2453 14.6386,-0.37313 25.0209,20.47607 26.4888,35.04568 z"
+                      style="display:inline;opacity:1;fill:@highlight;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.96875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
+            </g>
+        </g>
     </g>
 </g>

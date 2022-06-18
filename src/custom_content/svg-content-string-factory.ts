@@ -27,7 +27,7 @@ export class SvgContentStringFactory {
 
         const snoutFragment = this.adaptSkinColor(fragments.snout.base)
 
-        const facialFeatureFragment = ""
+        const facialFeatureFragment = fragments.eyesAndMouth.base
 
         const propFragment = ""
 

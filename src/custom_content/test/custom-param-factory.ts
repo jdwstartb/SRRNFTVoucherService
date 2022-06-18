@@ -14,11 +14,8 @@ const factory = {
                 bodyOffColor: getRandomHairColorId(),
                 ears: getRandomEars(),
                 eoa: "",
-                eyes: "",
-                glasses: "",
-                hair: "",
+                prop: "",
                 bodyPattern: getRandomBodyPatternId(),
-                mouth: "",
                 voucher: "",
             }, contentDescription: `factoryBunny${counter}`
         }
