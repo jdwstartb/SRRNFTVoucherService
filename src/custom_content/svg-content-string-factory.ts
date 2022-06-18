@@ -23,13 +23,15 @@ export class SvgContentStringFactory {
 
         const handsFragment = this.adaptSkinColor(fragments.hands.base)
 
+        const bodyPattern = this.adaptSkinColor(fragments.bodyPattern[params.bodyPattern])
+
         const snoutFragment = this.adaptSkinColor(fragments.snout.base)
 
         const facialFeatureFragment = ""
 
         const propFragment = ""
 
-        return `${backgroundFragment}${feetAndTailFragment}${bodyFragment}${earFragment}${headFragment}${handsFragment}${snoutFragment}${facialFeatureFragment}${propFragment}`
+        return `${backgroundFragment}${feetAndTailFragment}${bodyFragment}${earFragment}${headFragment}${handsFragment}${bodyPattern}${snoutFragment}${facialFeatureFragment}${propFragment}`
     }
 
     adaptSkinColor(fragment: string): string {

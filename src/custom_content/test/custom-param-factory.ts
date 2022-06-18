@@ -17,7 +17,7 @@ const factory = {
                 eyes: "",
                 glasses: "",
                 hair: "",
-                bodyPattern: "",
+                bodyPattern: getRandomBodyPatternId(),
                 mouth: "",
                 voucher: "",
             }, contentDescription: `factoryBunny${counter}`
@@ -42,6 +42,10 @@ const getRandomEars = (): string => {
     return keys[randomInt(0, keys.length)]
 }
 
+const getRandomBodyPatternId = (): string => {
+    const keys = Object.keys(fragments.bodyPattern)
+    return keys[randomInt(0, keys.length)]
+}
 
 export const getValidCustomParams = (): { params: CustomParams, contentDescription: string } => {
     return factory.getWithDescription()
