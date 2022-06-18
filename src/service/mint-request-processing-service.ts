@@ -5,6 +5,7 @@ import {NFTSVGBuilderService} from './nft-svg-builder-service'
 import {EditionService} from "./edition-service";
 import {PinataService} from "./pinata-service";
 import {MintRequestParams} from "../mint-request-params";
+import {SrrApiService} from "./srr-api-service";
 
 
 const pngFromSvgGenerator = new PNGFromSvgGenerator()
@@ -13,14 +14,9 @@ const svgBuilderService = new NFTSVGBuilderService()
 const editionService = new EditionService()
 const pinataService = new PinataService()
 const metadataService = new MetadataService(editionService)
-
+const srrApiService = new SrrApiService()
 
 export class MintRequestProcessingService {
-
-    async requestMinting(request) {
-
-    }
-
 
     async generateFileAndUploadAndMint(requestParams: MintRequestParams): Promise<{ success: boolean, message: string }> {
 
@@ -42,13 +38,14 @@ export class MintRequestProcessingService {
             return {success: false, message: "Error when uploading"}
         }
 
-        const nftMetadata = metadataService.getMetadataRequest(requestParams, pinataResponse.payload.url)
+        const srrMetadata = metadataService.getMetadataRequest(requestParams, pinataResponse.payload.url)
 
+        const startrailAPIResponse = await srrApiService.issueAndTransferSRR(srrMetadata)
 
-        voucherService.invalidateVoucher(theVoucher)
-
-        return {success: true, message: "ok"}
-
+        if (startrailAPIResponse.success) {
+            voucherService.invalidateVoucher(theVoucher)
+            return {success: true, message: "ok"}
+        }
+        return {success: false, message: "error"}
     }
-
 }

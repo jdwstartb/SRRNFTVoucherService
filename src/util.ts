@@ -1,0 +1,1 @@
+export const isTest = () => !(["prod"].findIndex((ele) => process.env.SRR_MINTER_ENV === ele) >= 0)
