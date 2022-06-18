@@ -7,7 +7,6 @@ export class FileBackupService {
         const parts = path.split("/")
         parts.pop()
         const folders = parts.join("/")
-        console.log(folders)
         await this.ensurePathExists(folders)
 
         const returnPromise = new Promise<string>((fulfill, reject) => {
@@ -18,7 +17,6 @@ export class FileBackupService {
                     console.log(error)
                     reject("error")
                 }
-                console.log("done")
                 fulfill("done")
             })
         })

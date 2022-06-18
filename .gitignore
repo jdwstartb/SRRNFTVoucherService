@@ -110,3 +110,4 @@ node_modules
 /.idea/.gitignore
 /.data/*
 /source-images/original-source.svg
+/source-images/baseBunny.svg
