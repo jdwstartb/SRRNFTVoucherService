@@ -36,6 +36,10 @@ export class VoucherService {
         return (wasUsed < 0)
     }
 
+    getEdition(voucherCode) {
+        return editionService.getEdition(voucherCode)
+    }
+
     getUsedVouchers() {
         let usedVouchers: any[] = [];
         let vouchersEntries = db.get('vouchers').value()

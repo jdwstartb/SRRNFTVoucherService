@@ -1,19 +1,88 @@
+import {sha256} from 'multiformats/hashes/sha2'
+import {CID} from "multiformats";
+import * as json from 'multiformats/codecs/json'
+import {base32} from "multiformats/bases/base32"
+import {base16} from "multiformats/bases/base16"
+
+import axios from 'axios'
+import FormData from 'form-data'
+import fs from 'fs'
+
+
+const isTest = !(["prod"].findIndex((ele) => process.env.SRR_MINTER_ENV === ele) >= 0)
+
 export class PinataService {
-    async uploadImage(imageData):Promise<{success: boolean, message: string, payload:{url:string}}>{
-        const cid = this.calculateCID(imageData)
+    async uploadImage(imageData, name): Promise<{ success: boolean, message: string, payload: { url: string } }> {
+        const cid = await this.calculateCID(imageData)
 
-        const uploadResponse = await this.uploadFile(imageData)
+        const uploadResponse = await this.uploadFile(imageData, cid, name)
 
 
-        return {success:true, message: "", payload:{url:`https://todo.todo.todo/todo/${cid}`}}
+        return {success: true, message: "", payload: {url: `https://todo.todo.todo/todo/${cid}`}}
     }
 
-    calculateCID(imageData):string{
-        return `Qx123` // todo: add implementation with sha and CID calculation. CID is Base5x encoded SHA-256
+    async calculateCID(imageData): Promise<string> {
+
+
+        const sameHash = await sha256.digest(Buffer.from(imageData, "base64"))
+
+
+        const cid = CID.create(1, json.code, sameHash)
+        console.log(cid.toString(base16.encoder))
+
+
+        return cid.toString(base32.encoder)
     }
 
-    async uploadFile(imageData): Promise<boolean> {
-        return true // todo: implement call. add pinata keys to env etc
-    }
 
+    async uploadFile(imageData, cid, name): Promise<boolean> {
+        const path = `./.data/images/${name}_${cid}.png`
+        console.log(path)
+        const returnPromise = new Promise((fulfill, reject) => {
+            fs.writeFile(path, imageData, "base64", (error) => {
+
+                if (error) {
+                    console.log(error)
+                    reject(error)
+                }
+                console.log("done")
+                fulfill("done")
+            })
+        })
+
+        const resultValue = await returnPromise
+
+        if (resultValue !== "done") {
+            console.log("return with error when saving file")
+            return false
+        }
+
+        if (isTest) {
+
+            console.log("return ok after saving file in test")
+            return true
+        }
+        var data = new FormData();
+        data.append('file', imageData);
+        data.append('pinataOptions', '{"cidVersion": 1}');
+        data.append('pinataMetadata', `{"name": "${name}.png", "keyvalues": {"company": "Pinata"}}`);
+
+        var config = {
+            method: 'post',
+            url: 'https://api.pinata.cloud/pinning/pinFileToIPFS',
+            headers: {
+                'Authorization': `Bearer PINATA ${process.env.SRR_PINATA_JWT}`,
+                ...data.getHeaders()
+            },
+            data: data
+        };
+
+        const res = await axios(config);
+
+        console.log(res.data);
+        if (res.data) {
+            return true
+        }
+        throw new Error("unimplemented")
+    }
 }

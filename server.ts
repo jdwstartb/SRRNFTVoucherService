@@ -86,7 +86,7 @@ fastify.post("/yours", function (request, reply) {
         return reply.view("/src/pages/get-yours.hbs", params);
     }
 
-    const fileInfo = mintRequestProcessingService.generateFileAndUploadAndMint(request)
+    const fileInfo = mintRequestProcessingService.generateFileAndUploadAndMint(request.body)
 
     reply.view("/src/pages/get-yours.hbs", params);
 });
