@@ -2,13 +2,12 @@ import {sha256} from 'multiformats/hashes/sha2'
 import {CID} from "multiformats";
 import * as json from 'multiformats/codecs/json'
 import {base32} from "multiformats/bases/base32"
-import {base16} from "multiformats/bases/base16"
 
 import axios from 'axios'
 import FormData from 'form-data'
-import fs from 'fs'
+import {FileBackupService} from "./file-backup-service";
 
-
+const fileBackupService = new FileBackupService()
 const isTest = !(["prod"].findIndex((ele) => process.env.SRR_MINTER_ENV === ele) >= 0)
 
 export class PinataService {
@@ -28,7 +27,6 @@ export class PinataService {
 
 
         const cid = CID.create(1, json.code, sameHash)
-        console.log(cid.toString(base16.encoder))
 
 
         return cid.toString(base32.encoder)
@@ -36,19 +34,21 @@ export class PinataService {
 
 
     async uploadFile(imageData, cid, name): Promise<boolean> {
-        const path = `./.data/images/${name}_${cid}.png`
-        console.log(path)
-        const returnPromise = new Promise((fulfill, reject) => {
-            fs.writeFile(path, imageData, "base64", (error) => {
+        // const path = `./.data/images/${name}_${cid}.png`
+        // console.log(path)
+        // const returnPromise = new Promise((fulfill, reject) => {
+        //     fs.writeFile(path, imageData, "base64", (error) => {
+        //
+        //         if (error) {
+        //             console.log(error)
+        //             reject(error)
+        //         }
+        //         console.log("done")
+        //         fulfill("done")
+        //     })
+        // })
 
-                if (error) {
-                    console.log(error)
-                    reject(error)
-                }
-                console.log("done")
-                fulfill("done")
-            })
-        })
+        const returnPromise = fileBackupService.writePngToBackupLocation(imageData, name, cid)
 
         const resultValue = await returnPromise
 
