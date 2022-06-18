@@ -1,6 +1,7 @@
 import {backGroundColors, hairColor} from "../colors";
 import {CustomParams} from "../custom-params";
 import {randomInt} from "crypto";
+import {fragments} from "../fragments";
 
 let counter = 0
 const factory = {
@@ -11,7 +12,7 @@ const factory = {
                 background: getRandomBackgroundColorId(),
                 bodyMainColor: getRandomHairColorId(),
                 bodyOffColor: getRandomHairColorId(),
-                ears: "",
+                ears: getRandomEars(),
                 eoa: "",
                 eyes: "",
                 glasses: "",
@@ -34,6 +35,11 @@ const getRandomBackgroundColorId = (): string => {
 const getRandomHairColorId = (): string => {
     const keys = Object.keys(hairColor)
     return hairColor[keys[randomInt(0, keys.length)]].name
+}
+
+const getRandomEars = (): string => {
+    const keys = Object.keys(fragments.ears)
+    return keys[randomInt(0, keys.length)]
 }
 
 

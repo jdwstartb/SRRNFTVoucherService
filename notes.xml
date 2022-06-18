@@ -1,8 +1,7 @@
-<g id="bellyLayerBG" transform="translate(0,126.33331)">
-    <path style="display:inline;opacity:1;fill:@mainColor;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.29166651;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-          d="m 259.4564,159.93995 c 0,8.15929 24.97824,58.61049 19.27912,67.5987 -15.67663,24.72399 -44.71293,22.13359 -65.60899,22.13359 -19.83879,0 -66.28006,9.22163 -73.29423,-24.33177 -3.66152,-17.51547 20.16078,-52.52643 20.16078,-61.99874 1e-5,-34.11024 25.66742,-57.60433 53.13345,-57.60433 27.46604,0 46.32987,20.09229 46.32987,54.20255 z"
-          id="bellyLayer-path817-3-4"/>
-    <path style="display:inline;opacity:1;fill:@highlight;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.24582934;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-          d="m 240.21687,192.27731 c 0,5.01497 15.29017,36.02393 11.80152,41.54837 -9.5963,15.19616 -27.37058,13.60403 -40.16189,13.60403 -12.14411,0 -40.57267,5.6679 -44.86633,-14.95512 -2.24135,-10.76555 12.34122,-32.28443 12.34122,-38.10643 2e-5,-20.96529 15.71205,-35.4055 32.52511,-35.40551 16.81307,1e-5 28.36037,12.34937 28.36037,33.31466 z"
-          id="bellyLayer-path817-3-4-9"/>
+<g id="snoutLayer" transform="translate(0,126.33331)">
+    <g style="display:inline" id="snoutLayer-g1205" transform="translate(-422.2774,8.49401)">
+        <path id="path880-3"
+              d="m 657.13247,87.757077 c 3.07285,12.365693 0.9314,29.785183 -9.56448,37.009393 -9.12822,6.28287 -24.78033,3.66923 -33.03516,-3.72377 -8.47356,-7.5889 -10.51784,-22.311764 -7.52335,-33.285623 3.25725,-11.936759 13.06663,-27.124431 25.43947,-27.03139 12.20153,0.09175 21.74088,15.189657 24.68352,27.03139 z"
+              style="opacity:1;fill:@mainColor;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.96875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/>
+    </g>
 </g>
