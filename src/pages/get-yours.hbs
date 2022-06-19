@@ -8,9 +8,9 @@
       - The server script passes data in here and the Handlebars code builds it into the HTML page
     -->
 
-    <meta charset="utf-8" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <link rel="icon" href="https://glitch.com/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <title>StartBunny Season 1</title>
 
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary">
 
     <!-- Import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
 <div class="wrapper">
@@ -40,14 +40,14 @@
         <div class="bunny-form">
             <form class="color-search" method="post">
                 <label for="background-color">
-
                     <!-- We use the handlebars "#if" statement so the form can adapt to its situation -->
                     {{#if color}}
                         Try another color?<br>
                     {{else}}
                         Select a Background Color<br>
                     {{/if}}
-                    <input id="background-color" list="background-color-list" name="background-color" required="required" >
+                    <input id="background-color" list="background-color-list" name="background-color"
+                           required="required">
                     <datalist id="background-color-list">
                         <option value="Blue"/>
                         <option value="Purple"/>
@@ -92,7 +92,8 @@
         </div>
 
         <div class="illo-container">
-            <img src="https://cdn.glitch.com/c62efef6-1e75-45cf-b248-afeccdda9477%2Fillustration.svg?v=1618196069568" class="illustration" alt="Node logo" />
+            <img src="https://cdn.glitch.com/c62efef6-1e75-45cf-b248-afeccdda9477%2Fillustration.svg?v=1618196069568"
+                 class="illustration" alt="Node logo"/>
         </div>
 
         <!-- Instructions on using this project -->
