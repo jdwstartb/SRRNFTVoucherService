@@ -43,6 +43,8 @@ export const hairColor = {
     "white": {color: colorSchema.offwhite, highlight: colorSchema.lightestRed, name: "white"},
     "black": {color: colorSchema.darkGrey, highlight: colorSchema.midGrey, name: "black"},
     "bright": {color: colorSchema.lightOrange, highlight: colorSchema.lightestOrange, name: "bright"},
+    "grey": {color: colorSchema.midGrey, highlight: colorSchema.lighterGrey, name: "grey"},
+    "orange": {color: colorSchema.midOrange, highlight: colorSchema.lightOrange, name: "orange"},
 }
 
 
