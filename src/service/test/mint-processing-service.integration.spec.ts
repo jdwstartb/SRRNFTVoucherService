@@ -1,6 +1,7 @@
 import faker from '@faker-js/faker';
 import {MintRequestProcessingService} from "../mint-request-processing-service";
 import {MintRequestParams} from "../../mint-request-params";
+import {getValidCustomParams} from "../../custom_content/test/custom-param-factory";
 
 
 describe("MintProcessingService Integration", () => {
@@ -21,7 +22,7 @@ describe("MintProcessingService Integration", () => {
     })
 
     it("returns a successful object", async () => {
-        const validParams = {voucher: validKey} as MintRequestParams
+        const validParams = {...getValidCustomParams().params, voucher: validKey} as any
         const result = await service.generateFileAndUploadAndMint(validParams)
         expect(result).toMatchObject({success: true})
     })

@@ -1,6 +1,7 @@
 import {CustomParams} from "./custom-params";
 import {fragments} from "./fragments";
 import {hairColor} from "./colors";
+import {isTest} from "../util";
 
 /**
  * Use this class to define your own construction of the image SVG data
@@ -31,13 +32,23 @@ export class SvgContentStringFactory {
 
         const propFragment = ""
 
-        return `${backgroundFragment}${feetAndTailFragment}${bodyFragment}${earFragment}${headFragment}${handsFragment}${bodyPattern}${snoutFragment}${facialFeatureFragment}${propFragment}`
+        const watermarkOrNothing = this.getWatermarkFragmentIfTest(params)
+
+        return `${backgroundFragment}${feetAndTailFragment}${bodyFragment}${earFragment}${headFragment}${handsFragment}${bodyPattern}${snoutFragment}${facialFeatureFragment}${propFragment}${watermarkOrNothing}`
     }
 
     adaptSkinColor(fragment: string): string {
         const mainColor = this.currentParams.bodyMainColor
         const additionalColor = this.currentParams.bodyOffColor
         return fragment.replace(/@mainColor/g, hairColor[mainColor].color).replace(/@offColor/g, hairColor[additionalColor].color).replace(/@highlight/g, hairColor[mainColor].highlight)
+    }
+
+    getWatermarkFragmentIfTest(params: CustomParams): string {
+        if (isTest()) {
+            const paramsAsString = JSON.stringify(params)
+            return fragments.testWatermark.base.replace(/@params/g, paramsAsString)
+        }
+        return ``
     }
 
 }

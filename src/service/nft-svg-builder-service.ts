@@ -1,6 +1,7 @@
 import {SvgContentStringFactory} from "../custom_content/svg-content-string-factory";
 import {MintRequestParams} from "../mint-request-params";
 import {CustomParams} from "../custom_content/custom-params";
+import {getAsSVG} from "../util";
 
 export class NFTSVGBuilderService {
 
@@ -10,7 +11,7 @@ export class NFTSVGBuilderService {
         const content = this.getContent(params)
 
 
-        return `<svg  width=\"1600\" height=\"1600\" viewBox=\"0 0 1600 1600\" fill=\"none\"  xmlns=\"http://www.w3.org/2000/svg\">${content}</svg>`
+        return getAsSVG(content)
     }
 
     getContent(params: MintRequestParams) {

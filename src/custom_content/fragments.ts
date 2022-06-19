@@ -52,5 +52,9 @@ export const fragments = {
     },
     snout: {
         base: `<g id="Snout1-layer1" transform="translate(0,126.33331)"> <g id="Snout1-g5807" transform="translate(36.337863,-76.962822)"> <g id="Snout1-g5705" style="display:inline" transform="translate(-2573.1308,-48.301391)"> <g id="Snout1-g926" transform="translate(439.38027,-21.370754)"> <path id="Snout1-path880-3-0" d="m 2337.5396,251.43617 c 1.0938,10.85717 -4.9006,23.71172 -14.1332,29.52837 -6.9692,4.39071 -17.6759,4.28432 -24.7111,0 -8.4366,-5.13778 -14.1896,-16.46845 -13.5999,-26.32875 0.9197,-15.37954 10.5534,-37.85271 25.9554,-38.2453 14.6386,-0.37313 25.0209,20.47607 26.4888,35.04568 z" style="display:inline;opacity:1;fill:@highlight;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.96875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"/> </g> </g> </g> </g>`
+    },
+    testWatermark: {
+        base: `<g id="test-watermark-layer1"> <text xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'Press Start';-inkscape-font-specification:'Press Start';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332" x="89.535286" y="112.85129" id="text817"><tspan id="test-watermark-tspan1" x="89.535286" y="112.85129" style="stroke-width:0.26458332">@params</tspan><tspan x="89.535286" y="126.08045" style="stroke-width:0.26458332" id="test-watermark-tspan819" /></text> </g>`
     }
+
 }
