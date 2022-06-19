@@ -49,6 +49,13 @@
                         <option value="Yellow"/>
                     </datalist>
                 </label>
+                <label for="background-color">
+                    <div class="cc-selector">
+                        <input id="midBlue" type="radio" name="background-color" value="midBlue"/>
+                        <label class="drinkcard-cc option-midBlue" for="midBlue"></label>
+                    </div>
+
+                </label>
                 <br>
                 <label for="voucher">
 
@@ -58,7 +65,7 @@
                     {{else}}
                         Enter your voucher code.<br>
                     {{/if}}
-                    <input id="voucher" name="voucher" required="required" type="text">
+                    <input id="voucher" name="voucher" required="required" type="text" class="text-input">
                 </label>
 
                 <br>
@@ -70,7 +77,7 @@
                     {{else}}
                         Enter your eoa<br>
                     {{/if}}
-                    <input id="eoa" name="eoa" required="required" type="text">
+                    <input id="eoa" name="eoa" required="required" type="text" class="text-input">
                 </label>
 
 

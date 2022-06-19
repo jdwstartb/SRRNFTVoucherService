@@ -75,6 +75,7 @@ fastify.get("/yours", function (request, reply) {
 })
 
 fastify.post("/yours", function (request, reply) {
+    console.log(request.body)
     let params: any = {seo: seo};
     const theVoucher = request.body.voucher
 
@@ -96,6 +97,7 @@ fastify.post("/hook", function (request, reply) {
     //todo: check api key from startbahn webhook
     // filter response for eoa, tokenid and thumbnail url and put those into a db list
     // then use this list in the gallery page
+    reply.send({message: "OK"})
 })
 
 // Run the server and report out to the logs

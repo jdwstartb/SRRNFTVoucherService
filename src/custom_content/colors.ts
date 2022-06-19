@@ -50,6 +50,8 @@ export const hairColor = {
 
 export const backGroundColors = (({
                                       midBlue,
+                                      darkBlue,
+                                      darkOrange,
                                       darkRed,
                                       darkGreen,
                                       midOrange,
@@ -63,6 +65,8 @@ export const backGroundColors = (({
     darkGreen,
     midOrange,
     darkTurquoise,
+    darkBlue,
+    darkOrange,
     deepPurple,
     midviolet,
     skyblue

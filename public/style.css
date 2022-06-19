@@ -192,10 +192,13 @@ input {
     font-family: inherit;
     font-size: 100%;
     background: #FFFFFF;
-    border: 1px solid #000000;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 0.5rem 1rem;
+}
+
+.text-input {
+    border: 1px solid #000000;
 }
 
 label {
@@ -214,4 +217,83 @@ label {
 
 h2 {
     color: #4C4C4C;
+}
+
+.cc-selector input {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.option-midBlue {
+    background-image: url(./assets/bg/bg-midBlue.png);
+}
+
+.option-darkRed {
+    background-image: url(./assets/bg/db-darkRed.png);
+}
+
+.option-darkGreen {
+    background-image: url(./assets/bg/bg-darkGreen.png);
+}
+
+.option-midOrange {
+    background-image: url(./assets/bg/bg-midOrange.png);
+}
+
+.option-darkTurquoise {
+    background-image: url(./assets/bg/bg-darkTurquoise.png);
+}
+
+.option-darkBlue {
+    background-image: url(./assets/bg/bg-darkBlue.png);
+}
+
+.option-darkOrange {
+    background-image: url(./assets/bg/bg-darkOrange.png);
+}
+
+.option-deepPurple {
+    background-image: url(./assets/bg/bg-deepPurple.png);
+}
+
+.option-midviolet {
+    background-image: url(./assets/bg/bg-midviolet.png);
+}
+
+.option-skyblue {
+    background-image: url(./assets/bg/bg-skyblue.png);
+}
+
+.cc-selector input:active + .drinkcard-cc {
+    opacity: .9;
+}
+
+.cc-selector input:checked + .drinkcard-cc {
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+}
+
+.drinkcard-cc {
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 70px;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+    filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.drinkcard-cc:hover {
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
