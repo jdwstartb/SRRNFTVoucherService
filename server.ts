@@ -1,6 +1,7 @@
 import {MintRequestProcessingService} from './src/service/mint-request-processing-service'
 import {VoucherService} from './src/service/voucher-service'
 import path from 'path';
+import {CustomParams} from "./src/custom_content/custom-params";
 
 const mintRequestProcessingService = new MintRequestProcessingService()
 
@@ -75,9 +76,12 @@ fastify.get("/yours", function (request, reply) {
 })
 
 fastify.post("/yours", function (request, reply) {
-    console.log(request.body)
+    const requestParams: CustomParams = {...request.body, ears: "long", prop: ""}
+    console.log(requestParams)
+
+
     let params: any = {seo: seo};
-    const theVoucher = request.body.voucher
+    const theVoucher = requestParams.voucher
 
 
     if (!voucherService.isValidVoucher(theVoucher)) {
@@ -87,7 +91,7 @@ fastify.post("/yours", function (request, reply) {
         return reply.view("/src/pages/get-yours.hbs", params);
     }
 
-    const fileInfo = mintRequestProcessingService.generateFileAndUploadAndMint(request.body)
+    const fileInfo = mintRequestProcessingService.generateFileAndUploadAndMint(requestParams)
 
     reply.view("/src/pages/get-yours.hbs", params);
 });

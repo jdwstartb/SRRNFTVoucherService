@@ -7,7 +7,6 @@
 
     <title>StartBunny Season 1</title>
 
-    <!-- Meta tags for SEO and social sharing -->
     <link rel="canonical" href="{{seo.url}}">
     <meta name="description" content="{{seo.description}}">
     <meta property="og:title" content="{{seo.title}}">
@@ -17,7 +16,6 @@
     <meta property="og:image" content="{{seo.image}}">
     <meta name="twitter:card" content="summary">
 
-    <!-- Import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
@@ -27,7 +25,7 @@
 
         <h1 class="title">{{seo.title}}</h1>
         {{#if error}}
-            {{error}}
+            <div class="error-message">{{error}}</div>
         {{/if}}
 
         <div class="bunny-builder">
@@ -59,38 +57,94 @@
 
                 </label>
                 <br>
-                <label for="voucher">
+                <label for="bodyMainColor">
+                    Select a Body Color Schema
+                    <div class="cc-selector">
+                        <input id="brown" type="radio" name="bodyMainColor" value="brown"/>
+                        <label
+                                class="drinkcard-cc option-base-brown" for="brown"></label>
+                        <input id="white" type="radio" name="bodyMainColor" value="white"/>
+                        <label
+                                class="drinkcard-cc option-base-white" for="white"></label>
+                        <input id="black" type="radio" name="bodyMainColor" value="black"/>
+                        <label
+                                class="drinkcard-cc option-base-black" for="black"></label>
+                        <input id="bright" type="radio" name="bodyMainColor" value="bright"/>
+                        <label
+                                class="drinkcard-cc option-base-bright" for="bright"></label>
+                        <input id="grey" type="radio" name="bodyMainColor" value="grey"/>
+                        <label
+                                class="drinkcard-cc option-base-grey" for="grey"></label>
+                        <input id="orange" type="radio" name="bodyMainColor" value="orange"/>
+                        <label
+                                class="drinkcard-cc option-base-orange" for="orange"></label>
+                    </div>
 
-                    <!-- We use the handlebars "#if" statement so the form can adapt to its situation -->
-                    {{#if voucher}}
-                        Try another color?<br>
-                    {{else}}
-                        Enter your voucher code.<br>
-                    {{/if}}
+                </label>
+                <br>
+                <label for="bodyPattern">
+                    Select a Dots Pattern
+                    <div class="cc-selector">
+                        <input id="base" type="radio" name="bodyPattern" value="base"/>
+                        <label
+                                class="drinkcard-cc option-pattern-base" for="base"></label>
+                        <input id="many" type="radio" name="bodyPattern" value="many"/>
+                        <label
+                                class="drinkcard-cc option-pattern-many" for="many"></label>
+                        <input id="forehead" type="radio" name="bodyPattern" value="forehead"/>
+                        <label
+                                class="drinkcard-cc option-pattern-forehead" for="forehead"></label>
+                        <input id="belly" type="radio" name="bodyPattern" value="belly"/>
+                        <label
+                                class="drinkcard-cc option-pattern-belly" for="belly"></label>
+                        <input id="cheeks" type="radio" name="bodyPattern" value="cheeks"/>
+                        <label
+                                class="drinkcard-cc option-pattern-cheeks" for="cheeks"></label>
+                        <input id="eye" type="radio" name="bodyPattern" value="eye"/>
+                        <label
+                                class="drinkcard-cc option-pattern-eye" for="eye"></label>
+                    </div>
+
+                </label>
+                <br>
+                <label for="bodyOffColor">
+                    Select a dots color
+                    <div class="cc-selector">
+                        <input id="oc-brown" type="radio" name="bodyOffColor" value="brown"/>
+                        <label
+                                class="drinkcard-cc option-off-color-brown" for="oc-brown"></label>
+                        <input id="oc-white" type="radio" name="bodyOffColor" value="white"/>
+                        <label
+                                class="drinkcard-cc option-off-color-white" for="oc-white"></label>
+                        <input id="oc-black" type="radio" name="bodyOffColor" value="black"/>
+                        <label
+                                class="drinkcard-cc option-off-color-black" for="oc-black"></label>
+                        <input id="oc-bright" type="radio" name="bodyOffColor" value="bright"/>
+                        <label
+                                class="drinkcard-cc option-off-color-bright" for="oc-bright"></label>
+                        <input id="oc-grey" type="radio" name="bodyOffColor" value="grey"/>
+                        <label
+                                class="drinkcard-cc option-off-color-grey" for="oc-grey"></label>
+                        <input id="oc-orange" type="radio" name="bodyOffColor" value="orange"/>
+                        <label
+                                class="drinkcard-cc option-off-color-orange" for="orange"></label>
+                    </div>
+
+                </label>
+                <br>
+                <label for="voucher">
+                    Enter your voucher code.<br>
                     <input id="voucher" name="voucher" required="required" type="text" class="text-input">
                 </label>
 
                 <br>
                 <label for="eoa">
-
-                    <!-- We use the handlebars "#if" statement so the form can adapt to its situation -->
-                    {{#if voucher}}
-                        Try another color?<br>
-                    {{else}}
-                        Enter your eoa<br>
-                    {{/if}}
+                    Enter your Ethereum address<br>
                     <input id="eoa" name="eoa" required="required" type="text" class="text-input">
                 </label>
 
-
-                <!-- If the user submits a value through the form
-                     it'll be passed to the server in the request body  -->
                 <button type="submit">Submit</button>
             </form>
-
-            <!-- This randomize link communicates with the server (server.js)
-                 using a querystring and GET request instead of a form POST -->
-            Can't decide? <a href="?randomize=go">Use a random color!</a>
         </div>
 
         <div class="instructions">

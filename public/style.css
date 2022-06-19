@@ -111,6 +111,10 @@ body {
     background-color: var(--color-bg);
 }
 
+.error-message {
+    color: #D73045
+}
+
 /* Page structure */
 .wrapper {
     min-height: var(--wrapper-height);
@@ -267,33 +271,111 @@ h2 {
     background-image: url(./assets/bg/bg-skyblue.png);
 }
 
+.option-base-brown {
+    background-image: url(./assets/baseSkinColor/base-brown.png);
+}
+
+
+.option-base-white {
+    background-image: url(./assets/baseSkinColor/base-white.png);
+}
+
+
+.option-base-black {
+    background-image: url(./assets/baseSkinColor/base-black.png);
+}
+
+
+.option-base-bright {
+    background-image: url(./assets/baseSkinColor/base-bright.png);
+}
+
+
+.option-base-grey {
+    background-image: url(./assets/baseSkinColor/base-grey.png);
+}
+
+
+.option-base-orange {
+    background-image: url(./assets/baseSkinColor/base-orange.png);
+}
+
+.option-pattern-base {
+    background-image: url(./assets/bodyPattern/bp-none.png);
+}
+
+.option-pattern-many {
+    background-image: url(./assets/bodyPattern/bp-many.png);
+}
+
+.option-pattern-forehead {
+    background-image: url(./assets/bodyPattern/bp-forehead.png);
+}
+
+.option-pattern-belly {
+    background-image: url(./assets/bodyPattern/bp-belly.png);
+}
+
+.option-pattern-cheeks {
+    background-image: url(./assets/bodyPattern/bp-cheeks.png);
+}
+
+.option-pattern-eye {
+    background-image: url(./assets/bodyPattern/bp-eye.png);
+}
+
+.option-off-color-brown {
+    background-image: url(./assets/bodyOffColor/oc-brown.png);
+}
+
+.option-off-color-white {
+    background-image: url(./assets/bodyOffColor/oc-white.png);
+}
+
+.option-off-color-black {
+    background-image: url(./assets/bodyOffColor/oc-black.png);
+}
+
+.option-off-color-bright {
+    background-image: url(./assets/bodyOffColor/oc-bright.png);
+}
+
+.option-off-color-grey {
+    background-image: url(./assets/bodyOffColor/oc-grey.png);
+}
+
+.option-off-color-orange {
+    background-image: url(./assets/bodyOffColor/oc-orange.png);
+}
+
 .cc-selector input:active + .drinkcard-cc {
-    opacity: .9;
+
 }
 
 .cc-selector input:checked + .drinkcard-cc {
     -webkit-filter: none;
     -moz-filter: none;
     filter: none;
+    border: 3px solid #000000;
 }
 
 .drinkcard-cc {
     cursor: pointer;
     background-size: contain;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     display: inline-block;
     width: 100px;
-    height: 70px;
+    height: 100px;
     -webkit-transition: all 100ms ease-in;
     -moz-transition: all 100ms ease-in;
     transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
-    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-    filter: brightness(1.8) grayscale(1) opacity(.7);
+    /*-webkit-filter: brightness(1.8) grayscale(1) opacity(.7);*/
+    /*-moz-filter: brightness(1.8) grayscale(1) opacity(.7);*/
+    /*filter: brightness(1.8) grayscale(1) opacity(.7);*/
 }
 
 .drinkcard-cc:hover {
-    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
-    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
-    filter: brightness(1.2) grayscale(.5) opacity(.9);
+    /*-webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);*/
+    /*-moz-filter: brightness(1.2) grayscale(.5) opacity(.9);*/
+    /*filter:  brightness(1.2) grayscale(.5) opacity(.9);*/
 }
