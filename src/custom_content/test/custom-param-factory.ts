@@ -13,7 +13,7 @@ const factory = {
                 bodyMainColor: getRandomHairColorId(),
                 bodyOffColor: getRandomHairColorId(),
                 ears: getRandomEars(),
-                eoa: "",
+                eoa: "0x887C0d2340d2Fa144289C2E2BF835556f5c6C4E0",
                 prop: "",
                 bodyPattern: getRandomBodyPatternId(),
                 voucher: "",
