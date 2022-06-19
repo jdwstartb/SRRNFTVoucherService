@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!--
-      This is the main Handlebars template for the site
-      - When the user visits the homepage or submits a color the app calls the endpoints in server.js
-      - The server script passes data in here and the Handlebars code builds it into the HTML page
-    -->
-
     <meta charset="utf-8"/>
-    <link rel="icon" href="https://glitch.com/favicon.ico"/>
+    <link rel="icon" href="/favicon.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <title>StartBunny Season 1</title>
@@ -32,7 +25,7 @@
     <div class="content" role="main">
 
 
-        <h1 class="title">StartBunny Season 1!</h1>
+        <h1 class="title">{{seo.title}}</h1>
         {{#if error}}
             {{error}}
         {{/if}}
@@ -91,20 +84,25 @@
             Can't decide? <a href="?randomize=go">Use a random color!</a>
         </div>
 
-        <div class="illo-container">
-            <img src="https://cdn.glitch.com/c62efef6-1e75-45cf-b248-afeccdda9477%2Fillustration.svg?v=1618196069568"
-                 class="illustration" alt="Node logo"/>
-        </div>
-
-        <!-- Instructions on using this project -->
         <div class="instructions">
             <h2>
-                Using this project
+                About this project
             </h2>
             <p>
-                This is the Glitch <strong>Hello Node</strong> project. You can
-                use it to build your own app. Check out README.md in the editor for
-                more info and next steps you can take!
+                This project gives you the opportunity to create your own Bunny and mint it as an SRR (Startrail
+                Registry Record) and send it to an Ethereum Address of your choice.<br>
+                Enter your selected features as well as your voucher code and ethereum address and submit, and we will
+                magically pull your rabbit out of the the magic hat and send it to the address. <br>
+                Click <b><a href="/">here</a></b> to see the bunnies others have created for this collection.
+            </p>
+            <h2>
+                Don't have a voucher?
+            </h2>
+            <p>
+                No problem. Let's get in touch, and I will send you one. <br>
+                What? You don't know how? I was afraid this might happen. <br>
+                If you don't know how to get in touch with me, maybe you should not be here :).<br>
+                If that still does not stop you try jens@startbahn.jp
             </p>
         </div>
 
@@ -113,6 +111,17 @@
 <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
 <footer class="footer">
     <div class="links"></div>
+    <a class="btn--remix"
+       target="_blank"
+       href="https://github.com/jdwstartb/SRRNFTVoucherService">
+        <img
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                alt=""
+                width="14"
+                height="14"
+        />
+        View on Github
+    </a>
     <a
             class="btn--remix"
             target="_top"
