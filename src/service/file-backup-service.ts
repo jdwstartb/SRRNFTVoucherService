@@ -9,7 +9,7 @@ export class FileBackupService {
         const folders = parts.join("/")
         await this.ensurePathExists(folders)
 
-        const returnPromise = new Promise<string>((fulfill, reject) => {
+        const returnPromise = await new Promise<string>((fulfill, reject) => {
 
             fs.writeFile(path, content, "base64", (error) => {
 
@@ -17,7 +17,7 @@ export class FileBackupService {
                     console.log(error)
                     reject("error")
                 }
-                fulfill("done")
+                fulfill(path)
             })
         })
         return returnPromise

@@ -1,6 +1,6 @@
 import template from "../data/template.json"
 import {EditionService} from "./edition-service"
-import {isTest} from "../util";
+import {isNotProd} from "../util";
 import {randomInt} from "crypto";
 
 
@@ -20,7 +20,7 @@ export class MetadataService {
         const total = this.editionService.getEditionTotal()
 
         let marker = ""
-        if (isTest()) {
+        if (isNotProd()) {
             marker = `-TEST-${requestBody.eoa.slice(0, 5)}-${randomInt(0, 10000)}`
         }
 

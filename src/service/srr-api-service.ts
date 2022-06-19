@@ -1,4 +1,4 @@
-import {isTest} from "../util";
+import {mockDependencies} from "../util";
 import axios from "axios";
 
 export class SrrApiService {
@@ -8,7 +8,7 @@ export class SrrApiService {
 
         console.log(JSON.stringify(metadata))
 
-        if (isTest()) {
+        if (mockDependencies()) {
             console.log("return success response from startrail mock without issue as environment is test")
             return {success: true}
         }
@@ -24,12 +24,18 @@ export class SrrApiService {
                 "super-header": "testing"
             },
         }
-        const res = await axios.post(config.url, metadata, {headers: config.headers})
-
-        console.log(res.data);
-        if (res.data) {
-            return {success: true}
+        try {
+            const res = await axios.post(config.url, metadata, {headers: config.headers})
+            console.log(res.data);
+            if (res.data) {
+                return {success: true}
+            }
+        } catch (e) {
+            console.log(e)
+            return {success: false}
         }
+
+
         throw new Error("unimplemented")
     }
 }

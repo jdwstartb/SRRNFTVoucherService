@@ -30,17 +30,26 @@ export class MintRequestProcessingService {
 
         const nftImageSource = await svgBuilderService.buildSVGString(requestParams)
 
+        console.log(`${Date.now()}:build SVG string done`)
+
         const pngBuffer = await pngFromSvgGenerator.transform(nftImageSource)
+
+        console.log(`${Date.now()}:transformation done`)
 
         const pinataResponse = await pinataService.uploadImage(pngBuffer, `SBNYv1-${editionNumber}`)
 
+        console.log(`${Date.now()}:pinata done`)
         if (!pinataResponse.success) {
             return {success: false, message: "Error when uploading"}
         }
 
         const srrMetadata = metadataService.getMetadataRequest(requestParams, pinataResponse.payload.url)
 
+        console.log(`${Date.now()}:metadata calculation done`)
+
         const startrailAPIResponse = await srrApiService.issueAndTransferSRR(srrMetadata)
+
+        console.log(`${Date.now()}:issuance done`)
 
         if (startrailAPIResponse.success) {
             voucherService.invalidateVoucher(theVoucher)

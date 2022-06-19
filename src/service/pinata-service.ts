@@ -6,7 +6,8 @@ import {base32} from "multiformats/bases/base32"
 import axios from 'axios'
 import FormData from 'form-data'
 import {FileBackupService} from "./file-backup-service";
-import {isTest} from "../util";
+import {mockDependencies} from "../util";
+import fs from "fs";
 
 const fileBackupService = new FileBackupService()
 
@@ -15,16 +16,16 @@ export class PinataService {
     async uploadImage(imageData, name): Promise<{ success: boolean, message: string, payload: { url: string } }> {
         const cid = await this.calculateCID(imageData)
 
-        const fileSaved = this.backupFile(imageData, cid, name)
+        const savedFilePath = this.backupFile(imageData, cid, name)
 
-        if (!fileSaved) {
+        if (!savedFilePath) {
             return {success: false, message: "file Not uploaded", payload: {url: `https://todo.todo.todo/todo/${cid}`}}
         }
 
-        const uploadResponse = await this.uploadFile(imageData, cid, name)
+        const uploadResponse = await this.uploadFile(imageData, cid, name, savedFilePath)
 
         if (uploadResponse) {
-            return {success: true, message: "", payload: {url: `https://todo.todo.todo/todo/${cid}`}}
+            return {success: true, message: "", payload: {url: `https://gateway.pinata.cloud/ipfs/${uploadResponse}`}}
         }
         return {success: false, message: "failed writing file to pinata", payload: {url: ""}}
     }
@@ -41,28 +42,30 @@ export class PinataService {
         return cid.toString(base32.encoder)
     }
 
-    async backupFile(imageData, cid, name): Promise<boolean> {
+    async backupFile(imageData, cid, name): Promise<string | false> {
         const returnPromise = fileBackupService.writePngToBackupLocation(imageData, name, cid)
 
-        const resultValue = await returnPromise
+        try {
+            const resultValue = await returnPromise
+            return resultValue
+        } catch (err) {
 
-        if (resultValue !== "done") {
-            console.log("return with error when saving file")
+            console.log(err)
             return false
         }
-
-        return true
 
     }
 
 
-    async uploadFile(imageData, cid, name): Promise<boolean> {
-        if (isTest()) {
+    async uploadFile(imageData, cid, name, pathPromise): Promise<string | boolean> {
+        if (mockDependencies()) {
             console.log("return without upload to Pinata in current environment in test")
             return true
         }
         const data = new FormData();
-        data.append('file', imageData);
+        const path = await pathPromise
+        console.log(path)
+        data.append('file', fs.createReadStream(path));
         data.append('pinataOptions', '{"cidVersion": 1}');
         data.append('pinataMetadata', `{"name": "${name}.png", "keyvalues": {"company": "Pinata"}}`);
 
@@ -70,17 +73,24 @@ export class PinataService {
             method: 'post',
             url: 'https://api.pinata.cloud/pinning/pinFileToIPFS',
             headers: {
-                'Authorization': `Bearer PINATA ${process.env.SRR_PINATA_JWT}`,
+                'Authorization': `Bearer ${process.env.SRR_PINATA_JWT}`,
                 ...data.getHeaders()
             },
             data: data
         };
 
-        const res = await axios(config);
+        console.log(`${Date.now()}: requesting pinata ...`)
 
-        console.log(res.data);
-        if (res.data) {
-            return true
+        try {
+            const res = await axios(config);
+            console.log(`${Date.now()}: requesting pinata done`)
+            console.log(res.data);
+            if (res.data) {
+                return res.data.IpfsHash
+            }
+        } catch (err) {
+            console.log(err)
+            return false
         }
         throw new Error("unimplemented")
     }

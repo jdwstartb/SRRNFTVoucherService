@@ -77,7 +77,7 @@ fastify.get("/yours", function (request, reply) {
 
 fastify.post("/yours", function (request, reply) {
     const requestParams: CustomParams = {...request.body, ears: "long", prop: ""}
-    console.log(requestParams)
+    console.log(`${Date.now()}:${JSON.stringify(requestParams)}:entered /yours`)
 
 
     let params: any = {seo: seo};
@@ -88,6 +88,7 @@ fastify.post("/yours", function (request, reply) {
         const error = `voucher code invalid ${theVoucher}`
         console.log(error)
         params.error = error
+        console.log(`${Date.now()}:${JSON.stringify(requestParams)}:exiting /yours`)
         return reply.view("/src/pages/get-yours.hbs", params);
     }
 

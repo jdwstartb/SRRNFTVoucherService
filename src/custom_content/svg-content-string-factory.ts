@@ -1,7 +1,7 @@
 import {CustomParams} from "./custom-params";
 import {fragments} from "./fragments";
 import {hairColor} from "./colors";
-import {isTest} from "../util";
+import {isNotProd} from "../util";
 
 /**
  * Use this class to define your own construction of the image SVG data
@@ -44,7 +44,7 @@ export class SvgContentStringFactory {
     }
 
     getWatermarkFragmentIfTest(params: CustomParams): string {
-        if (isTest()) {
+        if (isNotProd()) {
             const paramsAsString = JSON.stringify(params)
             return fragments.testWatermark.base.replace(/@params/g, paramsAsString)
         }
