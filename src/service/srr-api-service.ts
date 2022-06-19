@@ -1,5 +1,4 @@
 import {isTest} from "../util";
-import FormData from "form-data";
 import axios from "axios";
 
 export class SrrApiService {
@@ -13,22 +12,19 @@ export class SrrApiService {
             console.log("return success response from startrail mock without issue as environment is test")
             return {success: true}
         }
-        const data = new FormData();
-        data.append('file', metadata);
-        data.append('pinataOptions', '{"cidVersion": 1}');
-        data.append('pinataMetadata', `{"name": "${name}.png", "keyvalues": {"company": "Pinata"}}`);
+
 
         const config = {
             method: 'post',
-            url: 'https://api.pinata.cloud/pinning/pinFileToIPFS',
+            url: 'https://api-cert-qa.startrail.startbahn.jp/api/v1/commerce/srrs',
             headers: {
-                'Authorization': `Bearer PINATA ${process.env.SRR_PINATA_JWT}`,
-                ...data.getHeaders()
+                'Content-Type': 'application/json',
+                "commerce-api-key": process.env.SRR_MINTER_API_KEY || "",
+                "issuer-address": process.env.SRR_MINTER_LUW_CONTRACT_ADDRESS || "",
+                "super-header": "testing"
             },
-            data: data
-        };
-
-        const res = await axios(config);
+        }
+        const res = await axios.post(config.url, metadata, {headers: config.headers})
 
         console.log(res.data);
         if (res.data) {

@@ -1,5 +1,7 @@
 import template from "../data/template.json"
 import {EditionService} from "./edition-service"
+import {isTest} from "../util";
+import {randomInt} from "crypto";
 
 
 export class MetadataService {
@@ -17,6 +19,11 @@ export class MetadataService {
         const editionNumber = this.editionService.getEdition(requestBody.voucher)
         const total = this.editionService.getEditionTotal()
 
+        let marker = ""
+        if (isTest()) {
+            marker = `-TEST-${requestBody.eoa.slice(0, 5)}-${randomInt(0, 10000)}`
+        }
+
         const theData = {
             ...template,
             payload:
@@ -24,7 +31,7 @@ export class MetadataService {
                     {
                         ...payloadEntry,
                         to: requestBody.eoa,
-                        externalId: `SBNYv1-${editionNumber}`,
+                        externalId: `SBNYv1-${editionNumber}${marker}`,
                         metadata:
                             {
                                 ...payloadEntry.metadata,
