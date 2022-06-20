@@ -97,11 +97,13 @@ fastify.post("/yours", function (request, reply) {
     reply.view("/src/pages/get-yours.hbs", params);
 });
 
+
 fastify.post("/hook", function (request, reply) {
     console.log(request.body)
     //todo: check api key from startbahn webhook
     // filter response for eoa, tokenid and thumbnail url and put those into a db list
     // then use this list in the gallery page
+
     reply.send({message: "OK"})
 })
 
