@@ -15,7 +15,7 @@ describe("GalleryService", () => {
             result.forEach(entry => {
                 expect(entry.viewerUrl).toBeTruthy()
                 expect(entry.imageUrl).toBeTruthy()
-                expect(entry.tokenId).toBeTruthy()
+                expect(entry.srrId).toBeTruthy()
             })
 
         })

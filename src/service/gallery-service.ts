@@ -6,13 +6,31 @@ export class GalleryService {
     async getGalleryEntries(): Promise<[{
         viewerUrl: string
         imageUrl: string
-        tokenId: string
+        srrId: string
     }]> {
         return [{
             viewerUrl: "string",
             imageUrl: "string",
-            tokenId: "string"
+            srrId: "string"
         }]
     }
+}
+
+class IssuePayload {
+
+    srrId: string
+    externalId: string
+    metadata: {
+        "title": {
+            "en": string
+        },
+        "edition": {
+            "number": 1,
+        },
+        "thumbnailURL": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
+
+    }
+
 
 }
+
