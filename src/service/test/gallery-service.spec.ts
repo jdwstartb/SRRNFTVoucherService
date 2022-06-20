@@ -8,4 +8,16 @@ describe("GalleryService", () => {
             expect(await service.addIssuedSRRByWebhookV1({})).toMatchObject({success: true})
         })
     })
+
+    describe("getGalleryEntries", () => {
+        it("returns the gallery entries for the frontend", async () => {
+            const result = await service.getGalleryEntries()
+            result.forEach(entry => {
+                expect(entry.viewerUrl).toBeTruthy()
+                expect(entry.imageUrl).toBeTruthy()
+                expect(entry.tokenId).toBeTruthy()
+            })
+
+        })
+    })
 })
