@@ -5,12 +5,20 @@
       "used": true
     },
     {
-      "code": "0xEaE8a8bb4af23735210D40fcCDa5CAcC",
+      "code": "0xF68Cf589CDE0DD058afB21eC194b28bA",
       "used": true
+    }
+  ],
+  "galleryEntries": [
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc"
     },
     {
-      "code": "0xD3d3AE5cf364CaD814726be0752ea32D",
-      "used": true
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc"
     }
   ]
 }
