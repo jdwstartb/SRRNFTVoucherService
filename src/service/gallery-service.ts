@@ -34,18 +34,18 @@ export class GalleryService {
         srrId: string
     }[]> {
 
-        let usedVouchers: {
+        let galleryEntries: {
             viewerUrl: string
             imageUrl: string
             srrId: string
         }[] = [];
-        let vouchersEntries = db.get('galleryEntries').value()
-        vouchersEntries.forEach(function (vouch) {
-            usedVouchers.push({viewerUrl: vouch.viewerUrl, imageUrl: vouch.imageUrl, srrId: vouch.srrId});
+        let galleryEntities = db.get('galleryEntries').value()
+        galleryEntities.forEach(function (entry) {
+            galleryEntries.push({viewerUrl: entry.viewerUrl, imageUrl: entry.imageUrl, srrId: entry.srrId});
         });
 
 
-        return usedVouchers
+        return galleryEntries
     }
 
     resetGalleryEntries() {

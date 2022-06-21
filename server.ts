@@ -2,6 +2,7 @@ import {MintRequestProcessingService} from './src/service/mint-request-processin
 import {VoucherService} from './src/service/voucher-service'
 import path from 'path';
 import {CustomParams} from "./src/custom_content/custom-params";
+import {GalleryService} from "./src/service/gallery-service";
 
 const mintRequestProcessingService = new MintRequestProcessingService()
 
@@ -30,7 +31,6 @@ fastify.register(require("point-of-view"), {
     }
 });
 
-
 // Load and parse SEO data
 const seo = require("./src/data/seo.json");
 if (seo.url === "glitch-default") {
@@ -42,27 +42,15 @@ if (seo.url === "glitch-default") {
  *
  * Returns src/pages/index.hbs with data built into it
  */
-fastify.get("/", function (request, reply) {
+fastify.get("/", async function (request, reply) {
 
     // params is an object we'll pass to our handlebars template
     let params: any = {seo: seo};
 
+    params.galleryEntries = await new GalleryService().getGalleryEntries()
 
-    // If someone clicked the option for a random color it'll be passed in the querystring
-    if (request.query.randomize) {
+    console.log(params)
 
-        // We need to load our color data file, pick one at random, and add it to the params
-        const colors = require("./src/data/colors.json");
-        const allColors = Object.keys(colors);
-        let currentColor = allColors[(allColors.length * Math.random()) << 0];
-
-        // Add the color properties to the params object
-        params = {
-            color: colors[currentColor],
-            colorError: null,
-            seo: seo
-        };
-    }
 
     // The Handlebars code will be able to access the parameter values and build them into the page
     reply.view("/src/pages/index.hbs", params);
@@ -75,7 +63,7 @@ fastify.get("/yours", function (request, reply) {
     reply.view("/src/pages/get-yours.hbs", params);
 })
 
-fastify.post("/yours", function (request, reply) {
+fastify.post("/yours", async function (request, reply) {
     const requestParams: CustomParams = {...request.body, ears: "long", prop: ""}
     console.log(`${Date.now()}:${JSON.stringify(requestParams)}:entered /yours`)
 
@@ -92,7 +80,7 @@ fastify.post("/yours", function (request, reply) {
         return reply.view("/src/pages/get-yours.hbs", params);
     }
 
-    const fileInfo = mintRequestProcessingService.generateFileAndUploadAndMint(requestParams)
+    const fileInfo = await mintRequestProcessingService.generateFileAndUploadAndMint(requestParams)
 
     reply.view("/src/pages/get-yours.hbs", params);
 });
