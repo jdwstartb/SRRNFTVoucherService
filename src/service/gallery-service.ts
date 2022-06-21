@@ -9,9 +9,9 @@ export class GalleryService {
         srrId: string
     }]> {
         return [{
-            viewerUrl: "string",
-            imageUrl: "string",
-            srrId: "string"
+            viewerUrl: "https://someurl2.com",
+            imageUrl: "https://someurl.com",
+            srrId: "abc"
         }]
     }
 }
