@@ -6,6 +6,8 @@ export class IssuePayload {
 }
 
 export class IssueWebhookBody {
+    "type": string
+    "version": number
     data: IssuePayload[]
 }
 

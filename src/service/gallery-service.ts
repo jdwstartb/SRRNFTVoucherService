@@ -18,10 +18,14 @@ db.defaults({
 
 export class GalleryService {
     async addIssuedSRRByWebhookV1(issuedWebhookV1: IssueWebhookBody): Promise<{ success: boolean }> {
+        if (issuedWebhookV1.type !== "issueComplete") {
+            return {success: false}
+        }
+
 
         const newEntries: GalleryEntry[] = []
         issuedWebhookV1.data.forEach(entry => {
-            console.log(entry)
+
             newEntries.push({
                 viewerUrl: entry.metadata.thumbnailURL,
                 imageUrl: entry.metadata.thumbnailURL,
