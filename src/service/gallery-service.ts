@@ -18,30 +18,34 @@ db.defaults({
 
 export class GalleryService {
     async addIssuedSRRByWebhookV1(issuedWebhookV1: IssueWebhookBody): Promise<{ success: boolean }> {
-        db.get('galleryEntries')
-            .push({
-                viewerUrl: issuedWebhookV1.data[0].metadata.thumbnailURL,
-                imageUrl: issuedWebhookV1.data[0].metadata.thumbnailURL,
-                srrId: issuedWebhookV1.data[0].srrId
+
+        const newEntries: GalleryEntry[] = []
+        issuedWebhookV1.data.forEach(entry => {
+            console.log(entry)
+            newEntries.push({
+                viewerUrl: entry.metadata.thumbnailURL,
+                imageUrl: entry.metadata.thumbnailURL,
+                srrId: entry.srrId
             })
+        })
+
+        db.get('galleryEntries')
+            .push(...newEntries)
             .write()
         return {success: true}
     }
 
-    async getGalleryEntries(): Promise<{
-        viewerUrl: string
-        imageUrl: string
-        srrId: string
-    }[]> {
+    async getGalleryEntries(): Promise<GalleryEntry[]> {
 
-        let galleryEntries: {
-            viewerUrl: string
-            imageUrl: string
-            srrId: string
-        }[] = [];
+        let galleryEntries: GalleryEntry[] = [];
         let galleryEntities = db.get('galleryEntries').value()
         galleryEntities.forEach(function (entry) {
-            galleryEntries.push({viewerUrl: entry.viewerUrl, imageUrl: entry.imageUrl, srrId: entry.srrId});
+            console.log(entry)
+            galleryEntries.push({
+                viewerUrl: entry.viewerUrl,
+                imageUrl: entry.imageUrl,
+                srrId: entry.srrId
+            });
         });
 
 
@@ -53,4 +57,8 @@ export class GalleryService {
     }
 }
 
-
+export interface GalleryEntry {
+    viewerUrl: string
+    imageUrl: string
+    srrId: string
+}
