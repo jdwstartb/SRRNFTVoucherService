@@ -29,7 +29,8 @@ export class GalleryService {
             newEntries.push({
                 viewerUrl: entry.metadata.thumbnailURL,
                 imageUrl: entry.metadata.thumbnailURL,
-                srrId: entry.srrId
+                srrId: entry.srrId,
+                title: entry.metadata.title.en
             })
         })
 
@@ -48,7 +49,8 @@ export class GalleryService {
             galleryEntries.push({
                 viewerUrl: entry.viewerUrl,
                 imageUrl: entry.imageUrl,
-                srrId: entry.srrId
+                srrId: entry.srrId,
+                title: entry.title
             });
         });
 
@@ -65,4 +67,5 @@ export interface GalleryEntry {
     viewerUrl: string
     imageUrl: string
     srrId: string
+    title: string
 }

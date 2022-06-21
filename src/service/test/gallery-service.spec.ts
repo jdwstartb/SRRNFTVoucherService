@@ -19,7 +19,8 @@ describe("GalleryService", () => {
                     metadata: {
                         imageUrl: "https://someurl.com",
                         external_url: "https://someurl.com",
-                        thumbnailURL: "https://someurl.com"
+                        thumbnailURL: "https://someurl.com",
+                        title: {en: "a Title"}
                     }
                 }]
             }
@@ -31,7 +32,8 @@ describe("GalleryService", () => {
             expect(getResult).toContainEqual({
                 srrId: issueWebhookV1.data[0].srrId,
                 imageUrl: issueWebhookV1.data[0].metadata.imageUrl,
-                viewerUrl: issueWebhookV1.data[0].metadata.external_url
+                viewerUrl: issueWebhookV1.data[0].metadata.external_url,
+                title: issueWebhookV1.data[0].metadata.title.en
             })
 
         })
@@ -44,14 +46,16 @@ describe("GalleryService", () => {
                     metadata: {
                         imageUrl: "https://someurl.com",
                         external_url: "https://someurl.com",
-                        thumbnailURL: "https://someurl.com"
+                        thumbnailURL: "https://someurl.com",
+                        title: {en: "a Title"}
                     }
                 }, {
                     srrId: "def",
                     metadata: {
                         imageUrl: "https://someurl2.com",
                         external_url: "https://someurl2.com",
-                        thumbnailURL: "https://someurl2.com"
+                        thumbnailURL: "https://someurl2.com",
+                        title: {en: "a Title"}
                     }
                 }]
             }
@@ -63,13 +67,15 @@ describe("GalleryService", () => {
             expect(getResult).toContainEqual({
                 srrId: issueWebhookV1.data[0].srrId,
                 imageUrl: issueWebhookV1.data[0].metadata.imageUrl,
-                viewerUrl: issueWebhookV1.data[0].metadata.external_url
+                viewerUrl: issueWebhookV1.data[0].metadata.external_url,
+                title: issueWebhookV1.data[0].metadata.title.en
             })
 
             expect(getResult).toContainEqual({
                 srrId: issueWebhookV1.data[1].srrId,
                 imageUrl: issueWebhookV1.data[1].metadata.imageUrl,
-                viewerUrl: issueWebhookV1.data[1].metadata.external_url
+                viewerUrl: issueWebhookV1.data[1].metadata.external_url,
+                title: issueWebhookV1.data[0].metadata.title.en
             })
         })
 
@@ -84,7 +90,8 @@ describe("GalleryService", () => {
                     metadata: {
                         thumbnailURL: "https://someurl.com",
                         external_url: "https://someurl2.com",
-                        imageUrl: "https://someurl.com"
+                        imageUrl: "https://someurl.com",
+                        title: {en: "a Title"}
                     }
                 }]
             } as any)).toMatchObject({success: true})
