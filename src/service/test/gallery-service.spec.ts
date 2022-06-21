@@ -78,6 +78,7 @@ describe("GalleryService", () => {
     describe("issueWebhookV1", () => {
         it("accepts a valid issue webhook v1", async () => {
             expect(await service.addIssuedSRRByWebhookV1({
+                "type": "issueComplete",
                 data: [{
                     srrId: "abc",
                     metadata: {
@@ -88,6 +89,26 @@ describe("GalleryService", () => {
                 }]
             } as any)).toMatchObject({success: true})
         })
+
+        it('does not save if the webhook type is not issue', async () => {
+            const previousEntries = await service.getGalleryEntries()
+
+            expect(await service.addIssuedSRRByWebhookV1({
+                "type": "otherType",
+                data: [{
+                    srrId: "abc",
+                    metadata: {
+                        thumbnailURL: "https://someurl.com",
+                        external_url: "https://someurl2.com",
+                        imageUrl: "https://someurl.com"
+                    }
+                }]
+            } as any)).toMatchObject({success: false})
+
+
+            expect((await service.getGalleryEntries()).length).toEqual(previousEntries.length)
+        })
+
     })
 
     describe("getGalleryEntries", () => {
