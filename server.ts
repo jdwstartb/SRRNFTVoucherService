@@ -38,9 +38,7 @@ if (seo.url === "glitch-default") {
 }
 
 /**
- * Our home page route
- *
- * Returns src/pages/index.hbs with data built into it
+ * Route to the gallery
  */
 fastify.get("/", async function (request, reply) {
 
@@ -56,6 +54,9 @@ fastify.get("/", async function (request, reply) {
     reply.view("/src/pages/index.hbs", params);
 });
 
+/**
+ * Route to the build a bunny site
+ */
 fastify.get("/yours", function (request, reply) {
 
     let params: any = {seo: seo};
@@ -63,6 +64,9 @@ fastify.get("/yours", function (request, reply) {
     reply.view("/src/pages/get-yours.hbs", params);
 })
 
+/**
+ * Route to accept a bunny building request
+ */
 fastify.post("/yours", async function (request, reply) {
     const requestParams: CustomParams = {...request.body, ears: "long", prop: ""}
     console.log(`${Date.now()}:${JSON.stringify(requestParams)}:entered /yours`)
@@ -85,14 +89,23 @@ fastify.post("/yours", async function (request, reply) {
     reply.view("/src/pages/get-yours.hbs", params);
 });
 
+/**
+ * route to handle issue api webhook requests onIssuance and onTransfer
+ */
+fastify.post("/hook", async function (request, reply) {
+    console.log(`${Date.now()}: entered /hook with ${JSON.stringify(request.body)}`)
+    if (request.headers['x-api-key'] !== process.env.SRR_WEBHOOK_API_KEY) {
+        reply.status(404).send({message: "NOT AUTHORIZED"})
+    }
 
-fastify.post("/hook", function (request, reply) {
-    console.log(request.body)
-    //todo: check api key from startbahn webhook
-    // filter response for eoa, tokenid and thumbnail url and put those into a db list
-    // then use this list in the gallery page
 
-    reply.send({message: "OK"})
+    try {
+        const processResult = await new GalleryService().addIssuedSRRByWebhookV1(request.body)
+        reply.send({message: "OK"})
+    } catch (e) {
+        console.log(e)
+        reply.status(500).send({message: "ERROR"})
+    }
 })
 
 // Run the server and report out to the logs
