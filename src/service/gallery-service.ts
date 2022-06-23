@@ -45,7 +45,6 @@ export class GalleryService {
         let galleryEntries: GalleryEntry[] = [];
         let galleryEntities = db.get('galleryEntries').value()
         galleryEntities.forEach(function (entry) {
-            console.log(entry)
             galleryEntries.push({
                 viewerUrl: entry.viewerUrl,
                 imageUrl: entry.imageUrl,
@@ -55,7 +54,18 @@ export class GalleryService {
         });
 
 
-        return galleryEntries
+        return galleryEntries.sort((a: GalleryEntry, b: GalleryEntry) => a.title < b.title ? -1 : 1)
+    }
+
+    sortByTitle(a: GalleryEntry, b: GalleryEntry) {
+        const ed3 = "Season 1 #30/11"
+        const editionTag = ed3.match(/#.*\//)
+        if (editionTag) {
+            const editionNum = editionTag[0].match(/([0-9]){1,2}/g)
+            if (editionNum) {
+                const editionAsNumber: number = +editionNum[0]
+            }
+        }
     }
 
     resetGalleryEntries() {

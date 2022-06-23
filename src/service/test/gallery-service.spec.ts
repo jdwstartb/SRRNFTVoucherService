@@ -20,7 +20,7 @@ describe("GalleryService", () => {
                         imageUrl: "https://someurl.com",
                         external_url: "https://someurl.com",
                         thumbnailURL: "https://someurl.com",
-                        title: {en: "a Title"}
+                        title: {en: "a Title #4/11"}
                     }
                 }]
             }
@@ -47,7 +47,7 @@ describe("GalleryService", () => {
                         imageUrl: "https://someurl.com",
                         external_url: "https://someurl.com",
                         thumbnailURL: "https://someurl.com",
-                        title: {en: "a Title"}
+                        title: {en: "a Title #9/11"}
                     }
                 }, {
                     srrId: "def",
@@ -55,7 +55,7 @@ describe("GalleryService", () => {
                         imageUrl: "https://someurl2.com",
                         external_url: "https://someurl2.com",
                         thumbnailURL: "https://someurl2.com",
-                        title: {en: "a Title"}
+                        title: {en: "a Title #11/11"}
                     }
                 }]
             }
@@ -91,7 +91,7 @@ describe("GalleryService", () => {
                         thumbnailURL: "https://someurl.com",
                         external_url: "https://someurl2.com",
                         imageUrl: "https://someurl.com",
-                        title: {en: "a Title"}
+                        title: {en: "a Title #1/11"}
                     }
                 }]
             } as any)).toMatchObject({success: true})
@@ -107,7 +107,7 @@ describe("GalleryService", () => {
                     metadata: {
                         thumbnailURL: "https://someurl.com",
                         external_url: "https://someurl2.com",
-                        imageUrl: "https://someurl.com"
+                        imageUrl: "https://someurl.com", title: "Test Edition #2/11"
                     }
                 }]
             } as any)).toMatchObject({success: false})
@@ -125,8 +125,64 @@ describe("GalleryService", () => {
                 expect(entry.viewerUrl).toBeTruthy()
                 expect(entry.imageUrl).toBeTruthy()
                 expect(entry.srrId).toBeTruthy()
+                expect(entry.title).toBeTruthy()
             })
 
         })
+
+        it("sorts the entries by edition number", async () => {
+
+            await service.addIssuedSRRByWebhookV1({
+                "type": "issueComplete",
+                data: [{
+                    srrId: "abc",
+                    metadata: {
+                        thumbnailURL: "https://someurl.com",
+                        external_url: "https://someurl2.com",
+                        imageUrl: "https://someurl.com",
+                        title: {en: "a Title #10/11"}
+                    }
+                },
+                    {
+                        srrId: "abc",
+                        metadata: {
+                            thumbnailURL: "https://someurl.com",
+                            external_url: "https://someurl2.com",
+                            imageUrl: "https://someurl.com",
+                            title: {en: "a Title #5/11"}
+                        }
+                    },
+                    {
+                        srrId: "abc",
+                        metadata: {
+                            thumbnailURL: "https://someurl.com",
+                            external_url: "https://someurl2.com",
+                            imageUrl: "https://someurl.com",
+                            title: {en: "a Title #7/11"}
+                        }
+                    },
+                    {
+                        srrId: "abc",
+                        metadata: {
+                            thumbnailURL: "https://someurl.com",
+                            external_url: "https://someurl2.com",
+                            imageUrl: "https://someurl.com",
+                            title: {en: "a Title #2/11"}
+                        }
+                    }]
+            } as any)
+
+            const sortedEntries = await service.getGalleryEntries()
+
+            const index2 = sortedEntries.findIndex((e) => e.title === "a Title #2/11")
+            const index7 = sortedEntries.findIndex((e) => e.title === "a Title #7/11")
+            const index5 = sortedEntries.findIndex((e) => e.title === "a Title #5/11")
+            const index10 = sortedEntries.findIndex((e) => e.title === "a Title #10/11")
+
+            expect(index2 < index5).toBeTruthy()
+            expect(index5 < index7).toBeTruthy()
+            expect(index7 < index10).toBeTruthy()
+        })
+
     })
 })
