@@ -1,9 +1,6 @@
 import low from 'lowdb';
 
-import {EditionService} from './edition-service'
 import {IssueWebhookBody} from "../types/StartrailAPITypes";
-
-const editionService = new EditionService()
 
 const FileSync = require('lowdb/adapters/FileSync');
 
@@ -58,7 +55,7 @@ export class GalleryService {
     }
 
     resetGalleryEntries() {
-        let vouchersEntries = db.set('galleryEntries', []).write()
+        db.set('galleryEntries', []).write()
     }
 }
 

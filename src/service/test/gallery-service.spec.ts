@@ -75,7 +75,7 @@ describe("GalleryService", () => {
                 srrId: issueWebhookV1.data[1].srrId,
                 imageUrl: issueWebhookV1.data[1].metadata.imageUrl,
                 viewerUrl: issueWebhookV1.data[1].metadata.external_url,
-                title: issueWebhookV1.data[0].metadata.title.en
+                title: issueWebhookV1.data[1].metadata.title.en
             })
         })
 
