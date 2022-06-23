@@ -6,7 +6,7 @@ import {IssueRequestRoot} from "../types/StartrailAPITypes";
 
 const templateRoot: IssueRequestRoot = originalTemplate
 
-export class MetadataService {
+export class IssueRequestPayloadService {
 
 
     editionService: EditionService
@@ -15,7 +15,7 @@ export class MetadataService {
         this.editionService = editionService
     }
 
-    getIssueSRRRequest(requestBody, imgUrl): IssueRequestRoot {
+    getIssueSRRRequestPayload(requestBody, imgUrl): IssueRequestRoot {
 
         const payloadEntry = templateRoot.payload[0]
 

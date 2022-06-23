@@ -1,4 +1,4 @@
-import {MetadataService} from "../metadata-service"
+import {IssueRequestPayloadService} from "../issue-request-payload-service"
 import {getValidCustomParams} from "../../custom_content/test/custom-param-factory";
 
 describe('MetadataService', () => {
@@ -9,11 +9,11 @@ describe('MetadataService', () => {
             getEdition: jest.fn().mockReturnValue(2),
             getEditionTotal: jest.fn().mockReturnValue("12")
         }
-        service = new MetadataService(editionServiceMock)
+        service = new IssueRequestPayloadService(editionServiceMock)
     })
     it("returns  external id and the edition number naming", () => {
         const imgUrl = "https://www.google.com/url"
-        const file = service.getIssueSRRRequest(getValidCustomParams().params, imgUrl)
+        const file = service.getIssueSRRRequestPayload(getValidCustomParams().params, imgUrl)
         expect(file).toMatchObject({
             payload: [{
                 externalId: /^SBNYv1-2.*/,
@@ -24,7 +24,7 @@ describe('MetadataService', () => {
 
     it("returns the given URLs at the correct position", () => {
         const imgUrl = "https://www.google.com/url"
-        const file = service.getIssueSRRRequest(getValidCustomParams().params, imgUrl)
+        const file = service.getIssueSRRRequestPayload(getValidCustomParams().params, imgUrl)
         expect(JSON.stringify(file)).toMatch(/https:\/\/www.google.com\/url/)
         expect(file).toMatchObject({payload: [{metadata: {thumbnailURL: imgUrl, image: imgUrl}}]})
     })

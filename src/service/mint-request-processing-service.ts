@@ -1,5 +1,5 @@
 import {PNGFromSvgGenerator} from './svg-generator-service'
-import {MetadataService} from './metadata-service'
+import {IssueRequestPayloadService} from './issue-request-payload-service'
 import {VoucherService} from './voucher-service'
 import {NFTSVGBuilderService} from './nft-svg-builder-service'
 import {EditionService} from "./edition-service";
@@ -13,7 +13,7 @@ const voucherService = new VoucherService()
 const svgBuilderService = new NFTSVGBuilderService()
 const editionService = new EditionService()
 const pinataService = new PinataService()
-const metadataService = new MetadataService(editionService)
+const metadataService = new IssueRequestPayloadService(editionService)
 const srrApiService = new SrrApiService()
 
 export class MintRequestProcessingService {
@@ -43,7 +43,7 @@ export class MintRequestProcessingService {
             return {success: false, message: "Error when uploading"}
         }
 
-        const srrMetadata = metadataService.getIssueSRRRequest(requestParams, pinataResponse.payload.url)
+        const srrMetadata = metadataService.getIssueSRRRequestPayload(requestParams, pinataResponse.payload.url)
 
         console.log(`${Date.now()}:metadata calculation done`)
 
