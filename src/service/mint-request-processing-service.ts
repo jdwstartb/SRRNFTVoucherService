@@ -18,13 +18,14 @@ const srrApiService = new SrrApiService()
 
 export class MintRequestProcessingService {
 
-    async generateFileAndUploadAndMint(requestParams: MintRequestParams): Promise<{ success: boolean, message: string }> {
+    async performMintRequest(requestParams: MintRequestParams): Promise<{ success: boolean, message: string }> {
 
 
         const theVoucher = requestParams.voucher
 
-        if (!voucherService.isValidVoucher(theVoucher)) {
-            return {success: false, message: "validation Error"}
+        const validationResult = await this.validateRequest(theVoucher)
+        if (!validationResult.success) {
+            return validationResult
         }
         const editionNumber = voucherService.getEdition(theVoucher)
 
@@ -57,4 +58,15 @@ export class MintRequestProcessingService {
         }
         return {success: false, message: "error"}
     }
+
+
+    async validateRequest(theVoucher: string): Promise<{ success: boolean, message: string }> {
+        if (!voucherService.isValidVoucher(theVoucher)) {
+            return {success: false, message: "validation Error"}
+        }
+
+        return {success: true, message: "OK"}
+    }
+
+
 }

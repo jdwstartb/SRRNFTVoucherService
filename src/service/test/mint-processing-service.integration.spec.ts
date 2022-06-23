@@ -17,13 +17,13 @@ describe("MintProcessingService Integration", () => {
 
     it("returns an error if key invalid", async () => {
         const invalidKeyParams = {voucher: invalidKey} as MintRequestParams
-        const result = await service.generateFileAndUploadAndMint(invalidKeyParams)
+        const result = await service.performMintRequest(invalidKeyParams)
         expect(result).toMatchObject({success: false})
     })
 
     it("returns a successful object", async () => {
         const validParams = {...getValidCustomParams().params, voucher: validKey} as any
-        const result = await service.generateFileAndUploadAndMint(validParams)
+        const result = await service.performMintRequest(validParams)
         expect(result).toMatchObject({success: true})
     })
 })

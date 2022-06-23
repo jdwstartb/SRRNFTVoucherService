@@ -84,7 +84,7 @@ fastify.post("/yours", async function (request, reply) {
         return reply.view("/src/pages/get-yours.hbs", params);
     }
 
-    const fileInfo = await mintRequestProcessingService.generateFileAndUploadAndMint(requestParams)
+    const fileInfo = await mintRequestProcessingService.performMintRequest(requestParams)
 
     reply.view("/src/pages/get-yours.hbs", params);
 });
