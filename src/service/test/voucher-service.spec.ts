@@ -30,7 +30,7 @@ describe("VoucherService", () => {
             service.invalidateVoucher(keyToUse)
             expect(service.isValidVoucher(keyToUse)).toBeFalsy()
 
-            expect(() => service.invalidateVoucher(keyToUse)).toThrowError(/invalid/)
+            expect(() => service.invalidateVoucher(keyToUse)).rejects.toThrowError(/invalid/)
         })
     })
 

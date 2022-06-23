@@ -27,33 +27,19 @@ export class MintRequestProcessingService {
         if (!validationResult.success) {
             return validationResult
         }
-        const editionNumber = voucherService.getEdition(theVoucher)
 
-        const nftImageSource = await svgBuilderService.buildSVGString(requestParams)
+        const pngData = await this.generatePng(requestParams)
 
-        console.log(`${Date.now()}:build SVG string done`)
+        const pinataResponse = await this.uploadPng(pngData, theVoucher)
 
-        const pngBuffer = await pngFromSvgGenerator.transform(nftImageSource)
-
-        console.log(`${Date.now()}:transformation done`)
-
-        const pinataResponse = await pinataService.uploadImage(pngBuffer, `SBNYv1-${editionNumber}`)
-
-        console.log(`${Date.now()}:pinata done`)
         if (!pinataResponse.success) {
-            return {success: false, message: "Error when uploading"}
+            return {success: false, message: "Error when uploading requested image"}
         }
 
-        const srrMetadata = metadataService.getIssueSRRRequestPayload(requestParams, pinataResponse.payload.url)
-
-        console.log(`${Date.now()}:metadata calculation done`)
-
-        const startrailAPIResponse = await srrApiService.issueAndTransferSRR(srrMetadata)
-
-        console.log(`${Date.now()}:issuance done`)
+        const startrailAPIResponse = await this.handleStartrailRequest(requestParams, pinataResponse.payload.url)
 
         if (startrailAPIResponse.success) {
-            voucherService.invalidateVoucher(theVoucher)
+            await voucherService.invalidateVoucher(theVoucher)
             return {success: true, message: "ok"}
         }
         return {success: false, message: "error"}
@@ -68,5 +54,46 @@ export class MintRequestProcessingService {
         return {success: true, message: "OK"}
     }
 
+
+    async generatePng(requestParams: MintRequestParams): Promise<string | Buffer> {
+
+        console.log(`${Date.now()}:starting SVG generation`)
+
+        const nftImageSource = await svgBuilderService.buildSVGString(requestParams)
+
+        console.log(`${Date.now()}:build SVG string done`)
+
+        const pngBuffer = await pngFromSvgGenerator.transform(nftImageSource)
+
+        console.log(`${Date.now()}:transformation done`)
+
+        return ""
+    }
+
+    async uploadPng(fileContentData: Buffer | string, theVoucher: string): Promise<{ success: boolean, message: string, payload: { url: string } }> {
+        const editionNumber = voucherService.getEdition(theVoucher)
+
+        const fileName = `SBNYv1-${editionNumber}`
+
+        console.log(`${Date.now()}:pinata start`)
+        const pinataResponse = await pinataService.uploadImage(fileContentData, fileName)
+        console.log(`${Date.now()}:pinata done`)
+        return pinataResponse
+    }
+
+    async handleStartrailRequest(requestParams: MintRequestParams, imageUrl): Promise<{ success: boolean }> {
+
+        console.log(`${Date.now()}:preparing issue request payload ...`)
+        const srrMetadata = metadataService.getIssueSRRRequestPayload(requestParams, imageUrl)
+
+        console.log(`${Date.now()}:preparing issue request payload done`)
+
+        console.log(`${Date.now()}:starting issue request ...`)
+
+        const startrailAPIResponse = await srrApiService.issueAndTransferSRR(srrMetadata)
+
+        console.log(`${Date.now()}:issue request done`)
+        return startrailAPIResponse
+    }
 
 }

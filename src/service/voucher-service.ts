@@ -19,7 +19,7 @@ db.defaults({
 
 export class VoucherService {
 
-    invalidateVoucher(voucherCode) {
+    async invalidateVoucher(voucherCode): Promise<void> {
         if (!this.isValidVoucher(voucherCode)) {
             throw new Error("voucher code invalid")
         }
