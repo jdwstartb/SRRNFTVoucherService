@@ -54,18 +54,7 @@ export class GalleryService {
         });
 
 
-        return galleryEntries.sort((a: GalleryEntry, b: GalleryEntry) => a.title < b.title ? -1 : 1)
-    }
-
-    sortByTitle(a: GalleryEntry, b: GalleryEntry) {
-        const ed3 = "Season 1 #30/11"
-        const editionTag = ed3.match(/#.*\//)
-        if (editionTag) {
-            const editionNum = editionTag[0].match(/([0-9]){1,2}/g)
-            if (editionNum) {
-                const editionAsNumber: number = +editionNum[0]
-            }
-        }
+        return galleryEntries.sort(sortByTitle)
     }
 
     resetGalleryEntries() {
@@ -78,4 +67,26 @@ export interface GalleryEntry {
     imageUrl: string
     srrId: string
     title: string
+}
+
+
+function sortByTitle(a: GalleryEntry, b: GalleryEntry): number {
+    const aEditionNumber = getEditionNumber(a.title)
+    const bEditionNumber = getEditionNumber(b.title)
+
+
+    return aEditionNumber < bEditionNumber ? -1 : 1
+
+}
+
+function getEditionNumber(title: string): number {
+    const editionTag = title.match(/#.*\//)
+    if (editionTag) {
+        const editionNum = editionTag[0].match(/([0-9]){1,2}/g)
+        if (editionNum) {
+            const editionAsNumber: number = +editionNum[0]
+            return editionAsNumber
+        }
+    }
+    return 0
 }
