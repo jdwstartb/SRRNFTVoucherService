@@ -1,4 +1,4 @@
-export class IssuePayload {
+export class IssueWebhookPayload {
 
     srrId: string
     externalId: string
@@ -8,19 +8,33 @@ export class IssuePayload {
 export class IssueWebhookBody {
     "type": string
     "version": number
-    data: IssuePayload[]
+    data: IssueWebhookPayload[]
 }
+
+export interface IssueRequestPayload {
+    to: string;
+    externalId: string;
+    metadata: StartrailMetadataV2;
+    lockExternalTransfer: boolean;
+    isPrimaryIssuer: boolean;
+    artistAddress: string;
+}
+
+export interface IssueRequestRoot {
+    payload: IssueRequestPayload[];
+}
+
 
 export class StartrailMetadataV2 {
     "$schema": string = "https://api.startrail.io/api/v1/schema/registry-record-metadata.v2.0.schema.json"
     "$schemaIntegrity": string = "sha256-f63238ce3b8c4f8a99fb453d716d5451f75508c2e403a58af0412014187e7a61"
-    title: StartrailMultilang
+    title: Partial<StartrailMultilang>
     size: StartrailArtworkSize
-    medium: StartrailMultilang
+    medium: Partial<StartrailMultilang>
     edition: StartrailEdition
-    note: StartrailMultilang
+    note: Partial<StartrailMultilang>
     thumbnailURL: string
-    yearOfCreation: StartrailMultilang
+    yearOfCreation: Partial<StartrailMultilang>
     isDigital: boolean
     digitalDataHash: string
     name: string
@@ -48,5 +62,4 @@ interface StartrailEdition {
     totalNumber: number
 
 }
-
 

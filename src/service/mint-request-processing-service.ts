@@ -43,7 +43,7 @@ export class MintRequestProcessingService {
             return {success: false, message: "Error when uploading"}
         }
 
-        const srrMetadata = metadataService.getMetadataRequest(requestParams, pinataResponse.payload.url)
+        const srrMetadata = metadataService.getIssueSRRRequest(requestParams, pinataResponse.payload.url)
 
         console.log(`${Date.now()}:metadata calculation done`)
 

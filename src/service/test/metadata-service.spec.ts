@@ -13,7 +13,7 @@ describe('MetadataService', () => {
     })
     it("returns  external id and the edition number naming", () => {
         const imgUrl = "https://www.google.com/url"
-        const file = service.getMetadataRequest(getValidCustomParams().params, imgUrl)
+        const file = service.getIssueSRRRequest(getValidCustomParams().params, imgUrl)
         expect(file).toMatchObject({
             payload: [{
                 externalId: /^SBNYv1-2.*/,
@@ -24,7 +24,7 @@ describe('MetadataService', () => {
 
     it("returns the given URLs at the correct position", () => {
         const imgUrl = "https://www.google.com/url"
-        const file = service.getMetadataRequest(getValidCustomParams().params, imgUrl)
+        const file = service.getIssueSRRRequest(getValidCustomParams().params, imgUrl)
         expect(JSON.stringify(file)).toMatch(/https:\/\/www.google.com\/url/)
         expect(file).toMatchObject({payload: [{metadata: {thumbnailURL: imgUrl, image: imgUrl}}]})
     })

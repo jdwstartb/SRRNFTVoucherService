@@ -31,28 +31,37 @@ export class GalleryService {
             })
         })
 
-        db.get('galleryEntries')
-            .push(...newEntries)
-            .write()
-        return {success: true}
+
+        return this.saveNewEntries(newEntries)
     }
+
 
     async getGalleryEntries(): Promise<GalleryEntry[]> {
 
         let galleryEntries: GalleryEntry[] = [];
-        let galleryEntities = db.get('galleryEntries').value()
+        let galleryEntities = await this.getAllEntries()
         galleryEntities.forEach(function (entry) {
             galleryEntries.push({
-                viewerUrl: entry.viewerUrl,
-                imageUrl: entry.imageUrl,
-                srrId: entry.srrId,
-                title: entry.title
+                ...entry
             });
         });
 
 
         return galleryEntries.sort(sortByTitle)
     }
+
+
+    async getAllEntries(): Promise<GalleryEntry[]> {
+        return db.get('galleryEntries').value()
+    }
+
+    async saveNewEntries(newEntries): Promise<{ success: boolean }> {
+        db.get('galleryEntries')
+            .push(...newEntries)
+            .write()
+        return {success: true}
+    }
+
 
     resetGalleryEntries() {
         db.set('galleryEntries', []).write()

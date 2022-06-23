@@ -1,10 +1,13 @@
-import template from "../data/template.json"
+import originalTemplate from "../data/template.json"
 import {EditionService} from "./edition-service"
 import {isNotProd} from "../util";
 import {randomInt} from "crypto";
+import {IssueRequestRoot} from "../types/StartrailAPITypes";
 
+const templateRoot: IssueRequestRoot = originalTemplate
 
 export class MetadataService {
+
 
     editionService: EditionService
 
@@ -12,9 +15,9 @@ export class MetadataService {
         this.editionService = editionService
     }
 
-    getMetadataRequest(requestBody, imgUrl): any {
+    getIssueSRRRequest(requestBody, imgUrl): IssueRequestRoot {
 
-        const payloadEntry = template.payload[0]
+        const payloadEntry = templateRoot.payload[0]
 
         const editionNumber = this.editionService.getEdition(requestBody.voucher)
         const total = this.editionService.getEditionTotal()
@@ -25,7 +28,7 @@ export class MetadataService {
         }
 
         const theData = {
-            ...template,
+            ...templateRoot,
             payload:
                 [
                     {
