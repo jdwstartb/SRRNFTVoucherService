@@ -6,6 +6,7 @@ import {EditionService} from "./edition-service";
 import {PinataService} from "./pinata-service";
 import {MintRequestParams} from "../mint-request-params";
 import {SrrApiService} from "./srr-api-service";
+import {Logger} from "../util";
 
 
 const pngFromSvgGenerator = new PNGFromSvgGenerator()
@@ -57,17 +58,15 @@ export class MintRequestProcessingService {
 
     async generatePng(requestParams: MintRequestParams): Promise<string | Buffer> {
 
-        console.log(`${Date.now()}:starting SVG generation`)
-
+        this.logger.log('starting SVG generation')
         const nftImageSource = await svgBuilderService.buildSVGString(requestParams)
+        this.logger.log('build SVG string done')
 
-        console.log(`${Date.now()}:build SVG string done`)
 
         const pngBuffer = await pngFromSvgGenerator.transform(nftImageSource)
-
-        console.log(`${Date.now()}:transformation done`)
-
-        return ""
+        this.logger.log('transformation done')
+        
+        return pngBuffer
     }
 
     async uploadPng(fileContentData: Buffer | string, theVoucher: string): Promise<{ success: boolean, message: string, payload: { url: string } }> {
@@ -75,25 +74,27 @@ export class MintRequestProcessingService {
 
         const fileName = `SBNYv1-${editionNumber}`
 
-        console.log(`${Date.now()}:pinata start`)
+        this.logger.log('pinata start')
         const pinataResponse = await pinataService.uploadImage(fileContentData, fileName)
-        console.log(`${Date.now()}:pinata done`)
+        this.logger.log('pinata done')
+
         return pinataResponse
     }
 
     async handleStartrailRequest(requestParams: MintRequestParams, imageUrl): Promise<{ success: boolean }> {
 
-        console.log(`${Date.now()}:preparing issue request payload ...`)
+        this.logger.log('preparing issue request payload ...')
         const srrMetadata = metadataService.getIssueSRRRequestPayload(requestParams, imageUrl)
+        this.logger.log('preparing issue request payload done')
 
-        console.log(`${Date.now()}:preparing issue request payload done`)
 
-        console.log(`${Date.now()}:starting issue request ...`)
-
+        this.logger.log('starting issue request ...')
         const startrailAPIResponse = await srrApiService.issueAndTransferSRR(srrMetadata)
+        this.logger.log('issue request done')
 
-        console.log(`${Date.now()}:issue request done`)
         return startrailAPIResponse
     }
+
+    logger: Logger = new Logger(this.constructor.name)
 
 }
