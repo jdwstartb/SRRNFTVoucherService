@@ -5,66 +5,28 @@
       "used": true
     },
     {
-      "code": "0xbFEFF265EaBE9eBa197b2092d8D551E6",
-      "used": true
-    },
-    {
-      "code": "0x0C8fBDd955ceF84f0d5458b21CeBfeAc",
-      "used": true
-    },
-    {
-      "code": "0x35974498e5cC496D96AcDAFe9Ad82962",
+      "code": "0x583E5c81bfDcC0e27fB9e9dE22e8aD49",
       "used": true
     }
   ],
   "galleryEntries": [
     {
-      "viewerUrl": "https://someurl.com",
-      "imageUrl": "https://someurl.com",
-      "srrId": "abc",
-      "title": "a Title #4/11"
+      "viewerUrl": "https://cert.startbahn.co/srr/604054367012",
+      "imageUrl": "/assets/galleryExample/bunny.png",
+      "srrId": "604054367012",
+      "title": "Startbunny SRR Season 1 #11/11"
     },
     {
-      "viewerUrl": "https://someurl.com",
-      "imageUrl": "https://someurl.com",
-      "srrId": "abc",
-      "title": "a Title #9/11"
+      "viewerUrl": "https://cert.startbahn.co/srr/312436839149",
+      "imageUrl": "/assets/galleryExample/bunny.png",
+      "srrId": "312436839149",
+      "title": "Startbunny SRR Season 1 #4/11"
     },
     {
-      "viewerUrl": "https://someurl2.com",
-      "imageUrl": "https://someurl2.com",
-      "srrId": "def",
-      "title": "a Title #11/11"
-    },
-    {
-      "viewerUrl": "https://someurl.com",
-      "imageUrl": "https://someurl.com",
-      "srrId": "abc",
-      "title": "a Title #1/11"
-    },
-    {
-      "viewerUrl": "https://someurl.com",
-      "imageUrl": "https://someurl.com",
-      "srrId": "abc",
-      "title": "a Title #10/11"
-    },
-    {
-      "viewerUrl": "https://someurl.com",
-      "imageUrl": "https://someurl.com",
-      "srrId": "abc",
-      "title": "a Title #5/11"
-    },
-    {
-      "viewerUrl": "https://someurl.com",
-      "imageUrl": "https://someurl.com",
-      "srrId": "abc",
-      "title": "a Title #7/11"
-    },
-    {
-      "viewerUrl": "https://someurl.com",
-      "imageUrl": "https://someurl.com",
-      "srrId": "abc",
-      "title": "a Title #2/11"
+      "viewerUrl": "https://cert.startbahn.co/srr/89408429901",
+      "imageUrl": "/assets/galleryExample/bunny.png",
+      "srrId": "89408429901",
+      "title": "Startbunny SRR Season 1 #9/11"
     }
   ]
 }

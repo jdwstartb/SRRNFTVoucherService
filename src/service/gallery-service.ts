@@ -27,7 +27,7 @@ export class GalleryService {
                 viewerUrl: entry.metadata.thumbnailURL,
                 imageUrl: entry.metadata.thumbnailURL,
                 srrId: entry.srrId,
-                title: entry.metadata.title.en
+                title: entry.metadata.title.en || ""
             })
         })
 
