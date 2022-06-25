@@ -8,7 +8,7 @@ to this section's matching END comment to see page-specific styles.
 ******************************************************************************/
 /* Our default values set as CSS variables */
 :root {
-    --color-bg: #B6DBF4;
+    --color-bg: #EFEFEF;
     --color-text-main: #4C4C4C;
     --color-primary: #4C4C4C;
     --wrapper-height: 87vh;
@@ -143,6 +143,8 @@ p {
     font-size: 100px;
     line-height: 105%;
     margin: 2rem 0 0;
+    align-self: center;
+
 }
 
 /* Very light scaling for our illustration */
@@ -236,7 +238,7 @@ h2 {
 }
 
 .option-darkRed {
-    background-image: url(./assets/bg/db-darkRed.png);
+    background-image: url(./assets/bg/bg-darkRed.png);
 }
 
 .option-darkGreen {
@@ -360,6 +362,9 @@ h2 {
 }
 
 .drinkcard-cc {
+    margin: 10px;
+    background-color: #FEFEFE;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
     background-size: contain;
     background-repeat: repeat;
@@ -382,18 +387,17 @@ h2 {
 
 
 div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
+    margin: 20px;
+    /*border: 1px solid #000000;*/
     float: left;
-    width: 180px;
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
+    width: 300px;
+    background-color: #FEFEFE;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 div.gallery img {
-    width: 100%;
+    width: 90%;
+    margin: 5%;
     height: auto;
 }
 
