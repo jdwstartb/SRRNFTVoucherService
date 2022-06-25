@@ -108,6 +108,14 @@ fastify.post("/hook", async function (request, reply) {
     }
 })
 
+fastify.get("/faq", function (request, reply) {
+
+    let params: any = {seo: seo};
+
+    reply.view("/src/pages/faq.hbs", params);
+})
+
+
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, '0.0.0.0', function (err, address) {
     if (err) {

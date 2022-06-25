@@ -5,7 +5,7 @@
     <link rel="icon" href="/favicon.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>{{seo.title}}</title>
+    <title>Get Your own {{seo.title}}</title>
 
     <link rel="canonical" href="{{seo.url}}">
     <meta name="description" content="{{seo.description}}">
@@ -23,10 +23,22 @@
     <div class="content" role="main">
 
 
-        <h1 class="title">{{seo.title}}</h1>
+        <h1 class="title">Get your own {{seo.title}}</h1>
         {{#if error}}
             <div class="error-message">{{error}}</div>
         {{/if}}
+
+        <div class="instructions">
+            <h2>
+                How To:
+            </h2>
+            <p>
+                Select the features for your Startbahninchen as well as your voucher code and ethereum address and
+                submit. Once you have done taht we will
+                pull your rabbit out of the magic hat and send it to the specified address. <br>
+            </p>
+
+        </div>
 
         <div class="bunny-builder">
             <form class="bunny-builder-form" method="post">
@@ -146,34 +158,13 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
-
-        <div class="instructions">
-            <h2>
-                About this project
-            </h2>
-            <p>
-                This project gives you the opportunity to create your own Bunny and mint it as an SRR (Startrail
-                Registry Record) and send it to an Ethereum Address of your choice.<br>
-                Enter your selected features as well as your voucher code and ethereum address and submit, and we will
-                magically pull your rabbit out of the the magic hat and send it to the address. <br>
-                Click <b><a href="/">here</a></b> to see the bunnies others have created for this collection.
-            </p>
-            <h2>
-                Don't have a voucher?
-            </h2>
-            <p>
-                No problem. Let's get in touch, and I will send you one. <br>
-                What? You don't know how? I was afraid this might happen. <br>
-                If you don't know how to get in touch with me, maybe you should not be here :).<br>
-                If that still does not stop you try jens@startbahn.jp
-            </p>
-        </div>
-
+        Click <b><a href="/">here</a></b> to see the bunnies others have created for this collection.
     </div>
 </div>
 
 <footer class="footer">
     <div class="links"></div>
+
     <a class="btn--remix"
        target="_blank"
        href="https://github.com/jdwstartb/SRRNFTVoucherService">

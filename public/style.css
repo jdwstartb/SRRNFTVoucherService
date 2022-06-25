@@ -49,14 +49,14 @@ to this section's matching END comment to see page-specific styles.
     height: 2.75rem;
     align-items: center;
     cursor: pointer;
-    background: #FFFFFF;
-    border: 1px solid #000000;
+    background: #FEFEFE;
+    border: 2px solid #000000;
     box-sizing: border-box;
-    border-radius: 4px;
+
     text-decoration: none;
     color: #000;
     white-space: nowrap;
-    margin-left: auto;
+    margin-left: 20px;
 }
 
 .btn--remix img {
@@ -64,7 +64,7 @@ to this section's matching END comment to see page-specific styles.
 }
 
 .btn--remix:hover {
-    background-color: #D0FFF1;
+    background-color: #A4A4A4;
 }
 
 /* Navigation grid */
@@ -75,7 +75,7 @@ to this section's matching END comment to see page-specific styles.
     padding: 1rem 0 0.75rem 0;
     width: 100%;
     flex-wrap: wrap;
-    border-top: 4px solid #fff;
+    border-top: 8px solid #FEFEFE;
 }
 
 .footer a:not(.btn--remix):link,
