@@ -1,34 +1,32 @@
-import fs from "fs";
-
+import {promises as fsPromises} from "fs";
 
 export class FileBackupService {
     async writePngToBackupLocation(content, name, cid): Promise<string> {
         const path = `./.data/images/${name}_${cid}.png`
+        return this.writeFile(path, content, "base64")
+    }
+
+    async ensurePathExists(path): Promise<void> {
+        await fsPromises.mkdir(path, {recursive: true})
+        return
+    }
+
+    async writeFile(path, content, encoding): Promise<string> {
         const parts = path.split("/")
         parts.pop()
         const folders = parts.join("/")
         await this.ensurePathExists(folders)
 
-        const returnPromise = await new Promise<string>((fulfill, reject) => {
-
-            fs.writeFile(path, content, "base64", (error) => {
-
-                if (error) {
-                    console.log(error)
-                    reject("error")
-                }
-                fulfill(path)
-            })
-        })
-        return returnPromise
+        await fsPromises.writeFile(path, content, encoding)
+        return path
     }
 
-    async ensurePathExists(path): Promise<void> {
-        return new Promise<void>((fulfill, reject) => {
-            fs.mkdir(path, {recursive: true}, (err) => {
+    async getFileContent(path): Promise<string> {
+        return ""
+    }
 
-                fulfill()
-            });
-        })
+    async writeOptionsCSSToBuildLocation(content): Promise<string> {
+        const path = `./custom_data_build/option-css.css`
+        return this.writeFile(path, content, "base64")
     }
 }

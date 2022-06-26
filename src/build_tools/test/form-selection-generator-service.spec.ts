@@ -128,6 +128,4 @@ describe("FormSelectionGeneratorService", () => {
 
         })
     })
-
-
 })
