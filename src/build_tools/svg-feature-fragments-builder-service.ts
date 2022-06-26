@@ -12,7 +12,7 @@ export class SvgFeatureFragmentsBuilderService {
                 const characteristics = this.getCharacteristics(child)
 
                 resultingFragments.push({
-                    featureName: child.attributes['inkscape:label'],
+                    featureName: `${this.getInkscapeName(child)}`,
                     characteristics,
                     orderNumber
                 })
@@ -24,9 +24,16 @@ export class SvgFeatureFragmentsBuilderService {
     getCharacteristics(featureLayer): Characteristic[] {
         const characteristics: Characteristic[] = []
         featureLayer.children.forEach(characteristic => {
-            characteristics.push({name: "props-glasses", content: ""})
+            characteristics.push({
+                name: `${this.getInkscapeName(featureLayer)}-${this.getInkscapeName(characteristic)}`,
+                content: ""
+            })
         })
         return characteristics
+    }
+
+    getInkscapeName(element): string {
+        return element.attributes['inkscape:label']
     }
 }
 
