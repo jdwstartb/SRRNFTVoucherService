@@ -4,6 +4,7 @@ import path from 'path';
 import {CustomParams} from "./src/custom_content/custom-params";
 import {GalleryService} from "./src/service/gallery-service";
 
+
 const mintRequestProcessingService = new MintRequestProcessingService()
 
 const voucherService = new VoucherService()
@@ -27,7 +28,8 @@ fastify.register(require("fastify-formbody"));
 // point-of-view is a templating manager for fastify
 fastify.register(require("point-of-view"), {
     engine: {
-        handlebars: require("handlebars")
+        handlebars: require("handlebars"),
+        //layout: './src/pages/layout/main.hbs'
     }
 });
 
