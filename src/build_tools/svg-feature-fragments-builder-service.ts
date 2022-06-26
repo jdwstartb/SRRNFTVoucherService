@@ -1,4 +1,4 @@
-import {parse} from 'svgson'
+import {INode, parse, stringify} from 'svgson'
 
 export class SvgFeatureFragmentsBuilderService {
 
@@ -24,9 +24,11 @@ export class SvgFeatureFragmentsBuilderService {
     getCharacteristics(featureLayer): Characteristic[] {
         const characteristics: Characteristic[] = []
         featureLayer.children.forEach(characteristic => {
+            console.log(characteristic)
             characteristics.push({
                 name: `${this.getInkscapeName(featureLayer)}-${this.getInkscapeName(characteristic)}`,
-                content: ""
+
+                content: stringify(this.cleanupSodipodi(characteristic))
             })
         })
         return characteristics
@@ -35,6 +37,12 @@ export class SvgFeatureFragmentsBuilderService {
     getInkscapeName(element): string {
         return element.attributes['inkscape:label']
     }
+
+    cleanupSodipodi(node: INode): INode {
+        const newNode: INode = {name: node.name, type: node.type, value: node.value, children: [], attributes: {}}
+        return newNode
+    }
+
 }
 
 class Characteristic {
