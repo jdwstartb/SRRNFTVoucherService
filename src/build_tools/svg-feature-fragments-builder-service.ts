@@ -60,9 +60,3 @@ export class SvgFeatureFragmentsBuilderService {
 
 }
 
-function updatePathStyleById(containerElem, pathId, oldStyle, newStyle) {
-    // pathElem = containerElem.children.find(elem => elem.attributes.id == pathId);
-    // pathElem.attributes.style = pathElem.attributes.style.replace(oldStyle,
-    //     newStyle);
-}
-
