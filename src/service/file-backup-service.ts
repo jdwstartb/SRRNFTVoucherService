@@ -27,6 +27,6 @@ export class FileBackupService {
 
     async writeOptionsCSSToBuildLocation(content): Promise<string> {
         const path = `./custom_data_build/option-css.css`
-        return this.writeFile(path, content, "base64")
+        return this.writeFile(path, content, "utf-8")
     }
 }

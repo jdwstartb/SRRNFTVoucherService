@@ -1,6 +1,11 @@
 import {Characteristic, FeatureDefinition} from "./Types";
 
 export class FormSelectionGeneratorService {
+
+    enhanceOutputInformation(features: FeatureDefinition[]): void {
+
+    }
+
     addInputHtmlToCharacteristics(feature: FeatureDefinition): void {
         feature.characteristics.forEach((characteristic) => {
             const aInputElement = `<input id="${feature.featureName}-${characteristic.name}" type="radio" name="${feature.featureName}" value="${characteristic.name}"/>`
@@ -25,6 +30,10 @@ export class FormSelectionGeneratorService {
         feature.characteristics.forEach((characteristic) => {
             characteristic.exampleFileLocation = `./public${this.getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic, feature)}`
         })
+    }
+
+    addSVGFragment(feature: FeatureDefinition): void {
+
     }
 
     getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic: Characteristic, feature: FeatureDefinition): string {
