@@ -1,12 +1,3 @@
-/******************************************************************************
-START Glitch hello-app default styles
-
-The styles in this section do some minimal CSS resets, set default fonts and
-colors, and handle the layout for our footer and "Remix on Glitch" button. If
-you're new to CSS they may seem a little complicated, but you can scroll down
-to this section's matching END comment to see page-specific styles.
-******************************************************************************/
-/* Our default values set as CSS variables */
 :root {
     --color-bg: #EFEFEF;
     --color-text-main: #4C4C4C;
@@ -68,10 +59,37 @@ to this section's matching END comment to see page-specific styles.
 }
 
 /* Navigation grid */
+
+.about-wrapper {
+    background-color: #4C4C4C;
+}
+
+.about {
+    margin-left: 40px;
+    padding: 1rem 0 0.75rem 0;
+
+}
+
+.about-head {
+    color: #FEFEFE;
+}
+
+.about-text {
+    color: #FEFEFE;
+    font-size: 1rem;
+    white-space: normal;
+}
+
+
+.header {
+    margin-left: 40px;
+    padding: 1rem 0 0.75rem 0;
+}
+
 .footer {
     display: flex;
     justify-content: space-between;
-    margin: 1rem auto 0;
+    margin: 0rem auto 0;
     padding: 1rem 0 0.75rem 0;
     width: 100%;
     flex-wrap: wrap;

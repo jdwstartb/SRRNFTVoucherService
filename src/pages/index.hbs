@@ -19,11 +19,12 @@
     <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
+<div class="header">
+    <h1 class="title">{{seo.title}} Gallery</h1>
+</div>
+
 <div class="wrapper">
     <div class="content" role="main">
-
-
-        <h1 class="title">{{seo.title}} Gallery</h1>
 
 
         <div id="collection">
@@ -36,46 +37,23 @@
                     <div class="desc">"{{title}}"<br>(SRR Token: {{srrId}})</div>
                 </div>
             {{/each}}
-            {{#each galleryEntries}}
-                <div class="gallery">
-
-                    <a target="_blank" href="{{viewerUrl}}">
-                        <img src="{{imageUrl}}" alt="SRR Token: {{srrId}}" width="600" height="400">
-                    </a>
-                    <div class="desc">"{{title}}"<br>(SRR Token: {{srrId}})</div>
-                </div>
-            {{/each}}
-            {{#each galleryEntries}}
-                <div class="gallery">
-
-                    <a target="_blank" href="{{viewerUrl}}">
-                        <img src="{{imageUrl}}" alt="SRR Token: {{srrId}}" width="600" height="400">
-                    </a>
-                    <div class="desc">"{{title}}"<br>(SRR Token: {{srrId}})</div>
-                </div>
-            {{/each}}
-            {{#each galleryEntries}}
-                <div class="gallery">
-
-                    <a target="_blank" href="{{viewerUrl}}">
-                        <img src="{{imageUrl}}" alt="SRR Token: {{srrId}}" width="600" height="400">
-                    </a>
-                    <div class="desc">"{{title}}"<br>(SRR Token: {{srrId}})</div>
-                </div>
-            {{/each}}
         </div>
 
-        <div class="instructions">
-            <h2>
-                About this project
-            </h2>
-            <p>
-                This project celebrates the love for all things art and blockchain as well as the respect for creativity
-                and diversity.
-            </p>
-        </div>
+
     </div>
 </div>
+<div class="about-wrapper">
+    <div class="about">
+        <h2 class="about-head">
+            About this project
+        </h2>
+        <p class="about-text">
+            This project celebrates the love for all things art and blockchain as well as the respect for creativity
+            and diversity.
+        </p>
+    </div>
+</div>
+
 <footer class="footer">
     <div class="links">
         <a class="btn--remix"
