@@ -1,6 +1,10 @@
 export class Characteristic {
     name: string
     content: string
+    inputHtml?: string
+    css?: string
+    labelHtml?: string
+    exampleFileLocation?: string
 }
 
 

@@ -14,14 +14,19 @@ describe("FormSelectionGeneratorService", () => {
                 characteristics: [{name: characteristicsName, content: "someIrrelevant Content"}]
             }
 
-            const testInputElement = service.getCharacteristicInputElement(testFeature)
+            service.addInputHtmlToCharacteristics(testFeature)
 
-            const expectedInputElement = `<input id="${featureName}-${characteristicsName}" type="radio" name="${featureName}" value="${characteristicsName}"/>`
-            const expectedLabelElement = `<input id="${featureName}-${characteristicsName}" type="radio" name="${featureName}" value="${characteristicsName}"/>`
+            const expectedRegexes = [
+                /^<input.*\/>$/,
+                `id="${featureName}-${characteristicsName}"`,
+                'type="radio"',
+                `name="${featureName}"`,
+                `value="${characteristicsName}"`
+            ]
 
-            const inputTagRegex = /^<input.*\/>$/
-
-            expect(testInputElement).toMatch(inputTagRegex)
+            expectedRegexes.forEach(anExpectedRegex => {
+                expect(testFeature.characteristics[0].inputHtml).toMatch(anExpectedRegex)
+            })
 
 
             // <input id="oc-brown" type="radio" name="bodyOffColor" value="brown"/>
