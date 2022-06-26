@@ -50,6 +50,7 @@ match searches against color names.
 You can use the template builder best, if you follow these guidelines in the structure of your SVG:
 
 - Use Inkscape to create your source file
+- Start from the SVG given in ./source-images/base-template.svg
 - All elements are at the position where they should be in the final version of the image.
 - The First level of layers are feature in the image generation process that can be
   randomized. Their name will be used in the process: e.g. if the Inkscape name of a top level layer is "hats" there
