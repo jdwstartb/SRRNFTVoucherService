@@ -44,3 +44,16 @@ match searches against color names.
 ## Try this next 🏗️
 
 ## Built on Glitch!
+
+## Create your own designs
+
+You can use the template builder best, if you follow these guidelines in the structure of your SVG:
+
+- Use Inkscape to create your source file
+- All elements are at the position where they should be in the final version of the image.
+- The First level of layers are feature in the image generation process that can be
+  randomized. Their name will be used in the process: e.g. if the Inkscape name of a top level layer is "hats" there
+  will be a "hats" feature
+- The direct sub-layers will contain the possible elements of that feature, eg. a sub-layer could be a cowboy hat, and a
+  second sub-layer of hats could be a pirate hat.
+
