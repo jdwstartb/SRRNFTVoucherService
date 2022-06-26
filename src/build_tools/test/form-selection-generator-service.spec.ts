@@ -62,10 +62,31 @@ describe("FormSelectionGeneratorService", () => {
 
     describe("addLabelHtmlToCharacteristics", () => {
         it('adds the label fragment', () => {
+            service.addLabelHtmlToCharacteristics(testFeature)
 
-            service
-            // <label
-            //     class="drinkcard-cc option-off-color-brown" for="oc-brown"></label>
+            const expectedRegexes = [
+                /^<label.*><\/label>$/,
+                `class="drinkcard-cc option-${featureName}-${characteristicsName}"`,
+                `for="${featureName}-${characteristicsName}"`,
+            ]
+            expectedRegexes.forEach(anExpectedRegex => {
+                expect(testFeature.characteristics[0].labelHtml).toMatch(anExpectedRegex)
+            })
+        })
+        it('adds the label fragment for multiple entries', () => {
+            service.addLabelHtmlToCharacteristics(testFeatureMore)
+
+            testFeatureMore.characteristics.forEach((characteristic) => {
+                const expectedRegexes = [
+                    /^<label.*><\/label>$/,
+                    `class="drinkcard-cc option-${testFeatureMore.featureName}-${characteristic.name}"`,
+                    `for="${testFeatureMore.featureName}-${characteristic.name}"`,
+                ]
+                expectedRegexes.forEach(anExpectedRegex => {
+                    expect(characteristic.labelHtml).toMatch(anExpectedRegex)
+                })
+            })
+
         })
     })
 
@@ -98,4 +119,14 @@ describe("FormSelectionGeneratorService", () => {
             expectUrlCorrect(testFeatureMore)
         })
     })
+
+    describe("addExampleFileLocation", () => {
+        it('adds the expected file location', () => {
+            service.addExampleFileLocation(testFeature)
+
+            expect(testFeature.characteristics[0].exampleFileLocation).toEqual(`./public/assets/${testFeature.featureName}/${testFeature.featureName}-${testFeature.characteristics[0].name}.png`)
+
+        })
+    })
+
 })

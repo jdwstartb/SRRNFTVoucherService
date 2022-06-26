@@ -1,14 +1,34 @@
-import {FeatureDefinition} from "./Types";
+import {Characteristic, FeatureDefinition} from "./Types";
 
 export class FormSelectionGeneratorService {
     addInputHtmlToCharacteristics(feature: FeatureDefinition): void {
-        const aInputElement = `<input id="${feature.featureName}-${feature.characteristics[0].name}" type="radio" name="${feature.featureName}" value="${feature.characteristics[0].name}"/>`
-        feature.characteristics[0].inputHtml = aInputElement
+        feature.characteristics.forEach((characteristic) => {
+            const aInputElement = `<input id="${feature.featureName}-${characteristic.name}" type="radio" name="${feature.featureName}" value="${characteristic.name}"/>`
+            characteristic.inputHtml = aInputElement
+        })
+
     }
 
     addCSSFragments(feature: FeatureDefinition): void {
         feature.characteristics.forEach((characteristic) => {
-            characteristic.css = `.option-${feature.featureName}-${characteristic.name} {background-image:  url(./assets/${feature.featureName}/${feature.featureName}-${characteristic.name}.png); }`
+            characteristic.css = `.option-${feature.featureName}-${characteristic.name} {background-image:  url(.${this.getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic, feature)}); }`
         })
     }
+
+    addLabelHtmlToCharacteristics(feature: FeatureDefinition): void {
+        feature.characteristics.forEach((characteristic) => {
+            characteristic.labelHtml = `<label class="drinkcard-cc option-${feature.featureName}-${characteristic.name}" for="${feature.featureName}-${characteristic.name}"></label>`
+        })
+    }
+
+    addExampleFileLocation(feature: FeatureDefinition): void {
+        feature.characteristics.forEach((characteristic) => {
+            characteristic.exampleFileLocation = `./public${this.getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic, feature)}`
+        })
+    }
+
+    getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic: Characteristic, feature: FeatureDefinition): string {
+        return `/assets/${feature.featureName}/${feature.featureName}-${characteristic.name}.png`
+    }
+
 }
