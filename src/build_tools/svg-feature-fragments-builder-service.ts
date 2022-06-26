@@ -1,4 +1,5 @@
 import {INode, parse, stringify} from 'svgson'
+import {Characteristic, FeatureDefinition} from "./Types";
 
 export class SvgFeatureFragmentsBuilderService {
 
@@ -24,13 +25,16 @@ export class SvgFeatureFragmentsBuilderService {
     getCharacteristics(featureLayer): Characteristic[] {
         const characteristics: Characteristic[] = []
         featureLayer.children.forEach(characteristic => {
-            console.log(characteristic)
-            characteristics.push({
+            const cleanedUp = this.cleanupSodipodiAndAddPathID(characteristic, `${this.getInkscapeName(featureLayer)}-${this.getInkscapeName(characteristic)}`)
+            const extractedCharacteristic = {
                 name: `${this.getInkscapeName(featureLayer)}-${this.getInkscapeName(characteristic)}`,
 
-                content: stringify(this.cleanupSodipodi(characteristic))
-            })
+                content: stringify(cleanedUp)
+            }
+            characteristics.push(extractedCharacteristic)
+            console.log(extractedCharacteristic.content)
         })
+
         return characteristics
     }
 
@@ -38,25 +42,23 @@ export class SvgFeatureFragmentsBuilderService {
         return element.attributes['inkscape:label']
     }
 
-    cleanupSodipodi(node: INode): INode {
+    cleanupSodipodiAndAddPathID(node: INode, characteristicPath): INode {
         const newNode: INode = {name: node.name, type: node.type, value: node.value, children: [], attributes: {}}
+
+        Object.keys(node.attributes).forEach(attributeKey => {
+            if (!attributeKey.match(/(inkscape|sodipodi)/)) {
+                newNode.attributes[attributeKey] = node.attributes[attributeKey]
+            }
+        })
+        newNode.attributes["id"] = `${newNode.attributes["id"]}-${characteristicPath}`
+
+        node.children.forEach(childNode => {
+            newNode.children.push(this.cleanupSodipodiAndAddPathID(childNode, characteristicPath))
+        })
         return newNode
     }
 
 }
-
-class Characteristic {
-    name: string
-    content: string
-}
-
-
-class FeatureDefinition {
-    featureName: string
-    orderNumber: number
-    characteristics: Characteristic[]
-}
-
 
 function updatePathStyleById(containerElem, pathId, oldStyle, newStyle) {
     // pathElem = containerElem.children.find(elem => elem.attributes.id == pathId);
