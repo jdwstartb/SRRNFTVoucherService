@@ -6,20 +6,22 @@ jest.mock("../../service/file-backup-service")
 
 describe('ImageSourceConverterTextOutputService', function () {
     const mockWriter: FileBackupService = new FileBackupService()
+    const mockWriteCSSFileFunction = mockWriter.writeFile as any
+
     const service: ImageSourceConverterTextOutputService = new ImageSourceConverterTextOutputService(mockWriter)
 
     afterEach(() => {
         jest.clearAllMocks()
     })
+    const targetOutputFolder = "afolder"
+    const testNoFeatures: FeatureDefinition[] = []
 
-    describe("writeCSSToBuildDir", () => {
-        const mockWriteCSSFileFunction = mockWriter.writeFile as any
-        const targetOutputFolder = "afolder"
+    describe("createCSSFile", () => {
 
-        const testFeatures: FeatureDefinition[] = []
+
         it('builds for no features and dispatches an empty css', async () => {
 
-            await service.createCSSFile(testFeatures, targetOutputFolder)
+            await service.createCSSFile(testNoFeatures, targetOutputFolder)
             expect(mockWriteCSSFileFunction).toHaveBeenCalledTimes(1)
             expect(mockWriteCSSFileFunction.mock.calls[0][1]).toEqual("")
             expect(mockWriteCSSFileFunction.mock.calls[0][0]).toMatch(targetOutputFolder)
@@ -36,5 +38,33 @@ describe('ImageSourceConverterTextOutputService', function () {
         })
 
     })
+
+    describe('createFormFragmentsFile', function () {
+
+        it('creates a form file', async () => {
+            await service.createFormFragmentsFile(testNoFeatures, targetOutputFolder)
+            expect(mockWriteCSSFileFunction).toHaveBeenCalledTimes(1)
+            expect(mockWriteCSSFileFunction.mock.calls[0][1]).toEqual("")
+            expect(mockWriteCSSFileFunction.mock.calls[0][0]).toMatch(targetOutputFolder)
+        })
+
+        it('builds for multiple features with multiple characteristics', async () => {
+            const features = [{
+                htmlFormFeaturePrefix: "pre",
+                htmlFormFeaturePostfix: "post",
+                characteristics: [{labelHtml: "label1", inputHtml: "input1"}, {
+                    labelHtml: "label2",
+                    inputHtml: "input2"
+                }] as any
+            } as FeatureDefinition,]
+            await service.createFormFragmentsFile(features, targetOutputFolder)
+            expect(mockWriteCSSFileFunction).toHaveBeenCalledTimes(1)
+            const htmlContent = mockWriteCSSFileFunction.mock.calls[0][1]
+            expect(htmlContent).toMatch(/pre\sinput1\slabel1\sinput2\slabel2\spost/)
+
+        })
+
+    });
+
 
 });
