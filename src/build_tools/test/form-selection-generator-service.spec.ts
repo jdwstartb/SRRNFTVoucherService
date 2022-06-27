@@ -56,7 +56,14 @@ describe("FormSelectionGeneratorService", () => {
                     expect(characteristic.inputHtml).toMatch(anExpectedRegex)
                 })
             })
+        })
+    })
 
+    describe("addFormHtmlToFeature", () => {
+        it('adds prefix and postfix', () => {
+            service.addFormHtmlToFeature(testFeature)
+            expect(testFeature.htmlFormFeaturePrefix).toBeTruthy()
+            expect(testFeature.htmlFormFeaturePostfix).toBeTruthy()
         })
     })
 

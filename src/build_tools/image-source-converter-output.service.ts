@@ -9,7 +9,9 @@ export class ImageSourceConverterTextOutputService {
     }
 
     async handleFeatureToFilesTransformation(features: FeatureDefinition[], targetFolder: string): Promise<void> {
-
+        await this.createCSSFile(features, targetFolder)
+        await this.createSVGFragmentsFile(features, targetFolder)
+        await this.createFormFragmentsFile(features, targetFolder)
     }
 
     async createCSSFile(features: FeatureDefinition[], targetFolder: string): Promise<void> {
@@ -19,15 +21,11 @@ export class ImageSourceConverterTextOutputService {
                 cssContent.push(characteristic.css || "")
             })
         })
-        await this.fileWriterService.writeOptionsCSSToBuildLocation(cssContent.join("\n"))
+        await this.fileWriterService.writeFile(`${targetFolder}/feature-options.css`, cssContent.join("\n"), "utf-8")
     }
-
-    async loadSourceFileContent(pathToFile: string): Promise<string> {
-        throw new Error("NOT IMPLEMENTED")
-    }
-
 
     async createSVGFragmentsFile(features: FeatureDefinition[], targetFolder: string): Promise<void> {
+
 
     }
 

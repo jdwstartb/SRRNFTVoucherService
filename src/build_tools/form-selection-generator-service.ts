@@ -6,7 +6,12 @@ export class FormSelectionGeneratorService {
 
     }
 
+    addFormHtmlToFeature(feature: FeatureDefinition): void {
+        
+    }
+
     addInputHtmlToCharacteristics(feature: FeatureDefinition): void {
+
         feature.characteristics.forEach((characteristic) => {
             const aInputElement = `<input id="${feature.featureName}-${characteristic.name}" type="radio" name="${feature.featureName}" value="${characteristic.name}"/>`
             characteristic.inputHtml = aInputElement
