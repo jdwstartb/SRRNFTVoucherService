@@ -7,7 +7,8 @@ export class FormSelectionGeneratorService {
     }
 
     addFormHtmlToFeature(feature: FeatureDefinition): void {
-        
+        feature.htmlFormFeaturePrefix = "prefix"
+        feature.htmlFormFeaturePostfix = "postfix"
     }
 
     addInputHtmlToCharacteristics(feature: FeatureDefinition): void {
