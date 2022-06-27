@@ -12,4 +12,6 @@ export class FeatureDefinition {
     featureName: string
     orderNumber: number
     characteristics: Characteristic[]
+    htmlFormFeaturePrefix?: string
+    htmlFormFeaturePostfix?: string
 }

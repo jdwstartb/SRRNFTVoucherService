@@ -2,7 +2,7 @@ import {Characteristic, FeatureDefinition} from "./Types";
 
 export class FormSelectionGeneratorService {
 
-    enhanceOutputInformation(features: FeatureDefinition[]): void {
+    enhanceTextOutputInformation(features: FeatureDefinition[]): void {
 
     }
 
