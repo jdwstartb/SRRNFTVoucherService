@@ -65,6 +65,35 @@ describe("FormSelectionGeneratorService", () => {
             expect(testFeature.htmlFormFeaturePrefix).toBeTruthy()
             expect(testFeature.htmlFormFeaturePostfix).toBeTruthy()
         })
+
+
+        it("adds prefix details ", () => {
+            service.addFormHtmlToFeature(testFeature)
+
+
+            const expectedRegexes = [
+                `<label for="${testFeature.featureName}">`,
+                `Select ${testFeature.featureName}`,
+                '<div class="cc-selector">',
+            ]
+            expectedRegexes.forEach(anExpectedRegex => {
+                expect(testFeature.htmlFormFeaturePrefix).toMatch(anExpectedRegex)
+            })
+        })
+
+
+        it('adds postfix details', () => {
+            service.addFormHtmlToFeature(testFeature)
+
+
+            const expectedRegexes = [
+                /<\/div>.*<\/label>.*<br>/
+            ]
+            expectedRegexes.forEach(anExpectedRegex => {
+                expect(testFeature.htmlFormFeaturePostfix).toMatch(anExpectedRegex)
+            })
+
+        })
     })
 
     describe("addLabelHtmlToCharacteristics", () => {
