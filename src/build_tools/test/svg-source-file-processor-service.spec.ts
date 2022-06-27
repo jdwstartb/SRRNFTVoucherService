@@ -4,26 +4,23 @@ import {FormSelectionGeneratorService} from "../form-selection-generator-service
 import {FileLoaderService} from "../file-loader.service";
 import {ImageSourceConverterTextOutputService} from "../image-source-converter-output.service";
 import {ImageSourceConverterImageOutputService} from "../image-source-converter-image-output.service";
+import {FileBackupService} from "../../service/file-backup-service";
 
-
-jest.mock('../file-loader.service')
 
 describe("SVGSourceFileProcessorService", () => {
     const fileLoader: FileLoaderService = new FileLoaderService()
     const svgFragmentsBuilder: SvgFeatureFragmentsBuilderService = new SvgFeatureFragmentsBuilderService()
     const formSelectionGenerator: FormSelectionGeneratorService = new FormSelectionGeneratorService()
-    const converterTextOutputService: ImageSourceConverterTextOutputService = new ImageSourceConverterTextOutputService({} as any)
+    const fileWriterService: FileBackupService = new FileBackupService()
+    const converterTextOutputService: ImageSourceConverterTextOutputService = new ImageSourceConverterTextOutputService(fileWriterService)
     const converterImageOutputService: ImageSourceConverterImageOutputService = new ImageSourceConverterImageOutputService()
 
-    afterEach(() => {
-        jest.clearAllMocks()
-    })
 
     const service: SvgSourceFileProcessorService = new SvgSourceFileProcessorService(fileLoader, svgFragmentsBuilder, formSelectionGenerator, converterTextOutputService, converterImageOutputService)
 
     describe("processSourceFile", () => {
-        it('does something', () => {
-            service.processSourceFile("./source-images/automation.svg", "./test-output/unit")
+        it('does something', async () => {
+            await service.processSourceFile("./source-images/automation.svg", "./test-output/unit")
         })
     })
 })

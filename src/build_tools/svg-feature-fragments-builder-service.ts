@@ -32,7 +32,7 @@ export class SvgFeatureFragmentsBuilderService {
                 content: stringify(cleanedUp)
             }
             characteristics.push(extractedCharacteristic)
-            console.log(extractedCharacteristic.content)
+
         })
 
         return characteristics

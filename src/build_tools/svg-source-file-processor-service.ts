@@ -22,8 +22,11 @@ export class SvgSourceFileProcessorService {
 
     async processSourceFile(pathToFile: string, targetFolder: string) {
         const svgDataString = await this.fileLoader.loadSourceFileContent(pathToFile)
+
         const svgFeatures = await this.svgFragmentsBuilder.getFeatureFragmentsFromSVGString(svgDataString)
+
         this.formSelectionGenerator.enhanceTextOutputInformation(svgFeatures)
+
         await this.converterTextOutputService.handleFeatureToFilesTransformation(svgFeatures, targetFolder)
         await this.converterImageOutputService.handleImageFileCreation(svgFeatures, targetFolder)
     }

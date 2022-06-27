@@ -21,14 +21,13 @@ export class FileBackupService {
         return path
     }
 
-    async getFileContent(path): Promise<string> {
-        return ""
-    }
-
     async writeOptionsCSSToBuildLocation(content): Promise<string> {
         const path = `./custom_data_build/option-css.css`
         return this.writeFile(path, content, "utf-8")
     }
 
+    async getFileContent(path): Promise<Buffer> {
+        return fsPromises.readFile(path)
+    }
 
 }
