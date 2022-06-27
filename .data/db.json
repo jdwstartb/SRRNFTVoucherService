@@ -8,27 +8,21 @@
   "galleryEntries": [
     {
       "viewerUrl": "https://cert.startbahn.co/srr/604054367012",
-      "imageUrl": "https://gateway.pinata.cloud/ipfs/bafkreifvx7yk5h3t6dg35okfaeqbram3zfvgq46qkjjr4lnu7cwfdeb67m",
+      "imageUrl": "./assets/galleryExample/bunny9.png",
       "srrId": "604054367012",
       "title": "Startbahninchen Season 1 #9/11"
     },
     {
       "viewerUrl": "https://cert.startbahn.co/srr/312436839149",
-      "imageUrl": "https://gateway.pinata.cloud/ipfs/bafkreigmjihfrcgrqsxjxa2nfnyabaxrfbaiqcdn5dq35n6lsseimg5pga",
+      "imageUrl": "./assets/galleryExample/bunny4.png",
       "srrId": "312436839149",
-      "title": "Startbahninchen Season 1 #9/11"
+      "title": "Startbahninchen Season 1 #4/11"
     },
     {
       "viewerUrl": "https://cert.startbahn.co/srr/89408429901",
-      "imageUrl": "https://gateway.pinata.cloud/ipfs/bafkreiepk55kpbv36st2vdykmncth4hhyqnuvqflp7xdty6slg5v3bvxge",
+      "imageUrl": "./assets/galleryExample/bunny11.png",
       "srrId": "89408429901",
-      "title": "Startbahninchen Season 1 #9/11"
-    },
-    {
-      "viewerUrl": "https://cert.startbahn.co/srr/89408429901",
-      "imageUrl": "/assets/galleryExample/bunny.png",
-      "srrId": "89408429901",
-      "title": "Startbahninchen Season 1 #9/11"
+      "title": "Startbahninchen Season 1 #11/11"
     }
   ]
 }
