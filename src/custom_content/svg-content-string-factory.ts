@@ -30,7 +30,7 @@ export class SvgContentStringFactory {
 
         const facialFeatureFragment = fragments.eyesAndMouth.base
 
-        const propFragment = ""
+        const propFragment = fragments.props[params.props]
 
         const watermarkOrNothing = this.getWatermarkFragmentIfTest(params)
 
