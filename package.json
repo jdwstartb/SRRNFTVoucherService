@@ -17,6 +17,7 @@
     "fastify-formbody": "^5.2.0",
     "fastify-static": "^4.6.1",
     "handlebars": "^4.7.7",
+    "hbs": "^4.2.0",
     "jest": "^28.1.1",
     "lowdb": "1.x",
     "point-of-view": "^5.2.0",

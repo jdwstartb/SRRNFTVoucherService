@@ -22,14 +22,18 @@ fastify.register(require("fastify-static"), {
     prefix: "/" // optional: default '/'
 });
 
+const hbs = require("hbs")
+
+hbs.registerPartials("./src/pages/partials/")
+
 // fastify-formbody lets us parse incoming forms
 fastify.register(require("fastify-formbody"));
 
 // point-of-view is a templating manager for fastify
 fastify.register(require("point-of-view"), {
     engine: {
-        handlebars: require("handlebars"),
-        //layout: './src/pages/layout/main.hbs'
+        handlebars: hbs,
+
     }
 });
 
