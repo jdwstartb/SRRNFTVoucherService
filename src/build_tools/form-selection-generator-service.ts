@@ -3,7 +3,15 @@ import {Characteristic, FeatureDefinition} from "./Types";
 export class FormSelectionGeneratorService {
 
     enhanceTextOutputInformation(features: FeatureDefinition[]): void {
+        features.forEach((feature) => {
+            this.addFormHtmlToFeature(feature)
+            this.addCSSFragments(feature)
+            this.addInputHtmlToCharacteristics(feature)
+            this.addLabelHtmlToCharacteristics(feature)
+            this.addExampleFileLocation(feature)
+            this.addSVGFragment(feature)
 
+        })
     }
 
     addFormHtmlToFeature(feature: FeatureDefinition): void {

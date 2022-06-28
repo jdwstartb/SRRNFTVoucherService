@@ -25,7 +25,18 @@ export class ImageSourceConverterTextOutputService {
     }
 
     async createSVGFragmentsFile(features: FeatureDefinition[], targetFolder: string): Promise<void> {
+        const svgSourceFileContentJson = {}
 
+        features.forEach(feature => {
+            const featureObject = {}
+            svgSourceFileContentJson[feature.featureName] = featureObject
+            feature.characteristics.forEach(characteristic => {
+                featureObject[characteristic.name] = characteristic.content
+            })
+        })
+
+
+        await this.writeOutputTextFile(targetFolder, "svgFragments.json", [JSON.stringify(svgSourceFileContentJson)])
     }
 
     async createFormFragmentsFile(features: FeatureDefinition[], targetFolder: string): Promise<void> {
@@ -39,7 +50,7 @@ export class ImageSourceConverterTextOutputService {
     }
 
     async writeOutputTextFile(folder: string, filename: string, contentParts: string[]): Promise<void> {
-        await this.fileWriterService.writeFile(`${folder}/${filename}`, contentParts.join("\n"), "utf-8")
+        await this.fileWriterService.writeFile(`${folder}/${filename}`, [...contentParts, ""].join("\n"), "utf-8")
     }
 
     getFormForSingleFeature(feature: FeatureDefinition): string[] {

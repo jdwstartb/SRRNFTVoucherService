@@ -5,6 +5,5 @@ describe('FileLoaderService', function () {
 
     it('loads the source file as utf8', async () => {
         const content = await service.loadSourceFileContent('./source-images/automation.svg')
-        console.log(content)
     })
 });

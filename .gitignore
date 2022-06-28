@@ -111,3 +111,4 @@ node_modules
 /.data/*
 /source-images/original-source.svg
 /source-images/baseBunny.svg
+/test-output/
