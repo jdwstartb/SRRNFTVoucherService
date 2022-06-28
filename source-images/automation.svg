@@ -27,9 +27,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
      inkscape:cx="862.00775"
-     inkscape:cy="652.35438"
+     inkscape:cy="823.78295"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="svg2250"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -788,7 +788,7 @@
        inkscape:groupmode="layer"
        id="layer47"
        inkscape:label="bodyMainColor-bg"
-       style="display:none"
+       style="display:inline"
        sodipodi:insensitive="true">
       <g
          inkscape:groupmode="layer"
@@ -1060,7 +1060,7 @@
        inkscape:groupmode="layer"
        id="layer20"
        inkscape:label="brown"
-       style="display:none"
+       style="display:inline"
        sodipodi:insensitive="true">
       <path
          style="opacity:1;fill:#ba4a00;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1134,7 +1134,7 @@
        inkscape:groupmode="layer"
        id="layer21"
        inkscape:label="black"
-       style="display:none"
+       style="display:inline"
        sodipodi:insensitive="true">
       <g
          id="g8663">
@@ -1439,7 +1439,7 @@
        inkscape:groupmode="layer"
        id="layer24"
        inkscape:label="orange"
-       style="display:none"
+       style="display:inline"
        sodipodi:insensitive="true">
       <path
          style="opacity:1;fill:#e46a18;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1541,7 +1541,7 @@
        inkscape:groupmode="layer"
        id="layer25"
        inkscape:label="grey"
-       style="display:none"
+       style="display:inline"
        sodipodi:insensitive="true">
       <path
          style="opacity:1;fill:#6b6073;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1615,7 +1615,7 @@
        inkscape:groupmode="layer"
        id="layer23"
        inkscape:label="bright"
-       style="display:none"
+       style="display:inline"
        sodipodi:insensitive="true">
       <path
          style="opacity:1;fill:#fedcc6;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:20;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1689,7 +1689,7 @@
        inkscape:groupmode="layer"
        id="layer45"
        inkscape:label="bodyMainColor-fg"
-       style="display:none"
+       style="display:inline"
        sodipodi:insensitive="true">
       <g
          style="display:inline"
@@ -2432,7 +2432,8 @@
      inkscape:groupmode="layer"
      id="layer39"
      inkscape:label="misc"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <g
        inkscape:groupmode="layer"
        id="layer41"
