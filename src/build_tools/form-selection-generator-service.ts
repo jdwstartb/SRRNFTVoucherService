@@ -46,29 +46,43 @@ export class FormSelectionGeneratorService {
     }
 
     enhancePreviewFragment(feature: FeatureDefinition): void {
-        let previewBG
-        let previewFG
+        let previewBG = {}
+        let previewFG = {}
 
         feature.characteristics.forEach((characteristic) => {
-            if (characteristic.name === `${feature.featureName}-${feature.featureName}-bg`) {
-                previewBG = characteristic
+            if (characteristic.name.match(/-bg$/)) {
+                previewBG[characteristic.name] = characteristic
             }
-            if (characteristic.name === `${feature.featureName}-${feature.featureName}-fg`) {
-                previewFG = characteristic
+            if (characteristic.name.match(/-fg$/)) {
+                previewFG[characteristic.name] = characteristic
             }
         })
 
+
+        feature.characteristics = feature.characteristics.filter((characteristic) => (!characteristic.name.match(/-fg/)) && (!characteristic.name.match(/-bg/)))
+
+        if (previewFG !== {} || previewBG !== {}) {
+
+            console.log(Object.keys(previewFG))
+            console.log(Object.keys(previewBG))
+        }
+
         feature.characteristics.forEach((characteristic) => {
 
-            if (characteristic.name !== `${feature.featureName}-bg` && characteristic.name !== `${feature.featureName}-fg`) {
-                const previewBGFragment = previewBG?.content || ''
-                const previewFGFragment = previewFG?.content || ''
 
-                characteristic.previewContent = `${previewBGFragment}${characteristic.content}${previewFGFragment}`
-            }
+            console.log(`${feature.featureName}-bg`)
+            console.log(`${characteristic.name}-fg`)
+            const previewBGGeneric = previewBG[`${feature.featureName}-${feature.featureName}-bg`] || ''
+            const previewFGGeneric = previewFG[`${feature.featureName}-${feature.featureName}-fg`] || ''
+            const previewBGFragment = previewBG[`${characteristic.name}-bg`] || ''
+            const previewFGFragment = previewFG[`${characteristic.name}-fg`] || ''
+
+
+            characteristic.previewContent = `${previewBGGeneric.content}${previewBGFragment.content}${characteristic.content}${previewFGFragment.content}${previewFGGeneric.content}`
+
         })
 
-        feature.characteristics = feature.characteristics.filter((characteristic) => characteristic !== previewFG && characteristic !== previewBG)
+
     }
 
     getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic: Characteristic, feature: FeatureDefinition): string {
