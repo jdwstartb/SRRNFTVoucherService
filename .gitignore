@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+.glitchdotcom.json
+.node-gyp
+node_modules
+/.idea/vcs.xml
+/.idea/modules.xml
+/.idea/.gitignore
+/.data/*
+/source-images/original-source.svg
+/source-images/baseBunny.svg
+/test-output/

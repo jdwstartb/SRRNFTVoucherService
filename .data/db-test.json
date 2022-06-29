@@ -1,0 +1,66 @@
+{
+  "vouchers": [
+    {
+      "code": "keyToConsume",
+      "used": true
+    },
+    {
+      "code": "0xc60d9a8d1f9Cb61365Bda34B8F71f1f7",
+      "used": true
+    },
+    {
+      "code": "0",
+      "used": true
+    }
+  ],
+  "galleryEntries": [
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc",
+      "title": "a Title #4/11"
+    },
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc",
+      "title": "a Title #9/11"
+    },
+    {
+      "viewerUrl": "https://someurl2.com",
+      "imageUrl": "https://someurl2.com",
+      "srrId": "def",
+      "title": "a Title #11/11"
+    },
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc",
+      "title": "a Title #1/11"
+    },
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc",
+      "title": "a Title #10/11"
+    },
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc",
+      "title": "a Title #5/11"
+    },
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc",
+      "title": "a Title #7/11"
+    },
+    {
+      "viewerUrl": "https://someurl.com",
+      "imageUrl": "https://someurl.com",
+      "srrId": "abc",
+      "title": "a Title #2/11"
+    }
+  ]
+}

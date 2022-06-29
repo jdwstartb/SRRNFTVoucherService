@@ -1,0 +1,44 @@
+<br>
+    <label for="bodyOffColor">
+        Select a dots color
+        <div class="cc-selector">
+            <input id="oc-brown" type="radio" name="bodyOffColor" value="oc-brown"/>
+            <label
+                    class="drinkcard-cc option-pattern-brown" for="oc-brown"></label>
+            <input id="oc-white" type="radio" name="bodyOffColor" value="oc-white"/>
+            <label
+                    class="drinkcard-cc option-pattern-white" for="oc-white"></label>
+            <input id="oc-black" type="radio" name="bodyOffColor" value="oc-black"/>
+            <label
+                    class="drinkcard-cc option-pattern-black" for="oc-black"></label>
+            <input id="oc-bright" type="radio" name="bodyOffColor" value="oc-bright"/>
+            <label
+                    class="drinkcard-cc option-pattern-bright" for="oc-bright"></label>
+            <input id="oc-grey" type="radio" name="bodyOffColor" value="oc-grey"/>
+            <label
+                    class="drinkcard-cc option-pattern-grey" for="oc-grey"></label>
+            <input id="oc-orange" type="radio" name="bodyOffColor" value="oc-orange"/>
+            <label
+                    class="drinkcard-cc option-pattern-orange" for="oc-orange"></label>
+        </div>
+
+    </label>
+
+.option-off-color-brown {
+        background-image: url(./assets/bodyOffColor/oc-brown.png);
+        }
+        .option-off-color-white {
+        background-image: url(./assets/bodyOffColor/oc-white.png);
+        }
+        .option-off-color-black {
+        background-image: url(./assets/bodyOffColor/oc-black.png);
+        }
+        .option-off-color-bright {
+        background-image: url(./assets/bodyOffColor/oc-bright.png);
+        }
+        .option-off-color-grey {
+        background-image: url(./assets/bodyOffColor/oc-grey.png);
+        }
+        .option-off-color-orange {
+        background-image: url(./assets/bodyOffColor/oc-orange.png);
+        }

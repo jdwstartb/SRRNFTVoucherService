@@ -1,0 +1,28 @@
+{
+  "vouchers": [
+    {
+      "code": "prodKey",
+      "used": true
+    }
+  ],
+  "galleryEntries": [
+    {
+      "viewerUrl": "https://cert.startbahn.co/srr/604054367012",
+      "imageUrl": "./assets/galleryExample/bunny9.png",
+      "srrId": "604054367012",
+      "title": "Startbahninchen Season 1 #9/11"
+    },
+    {
+      "viewerUrl": "https://cert.startbahn.co/srr/312436839149",
+      "imageUrl": "./assets/galleryExample/bunny4.png",
+      "srrId": "312436839149",
+      "title": "Startbahninchen Season 1 #4/11"
+    },
+    {
+      "viewerUrl": "https://cert.startbahn.co/srr/89408429901",
+      "imageUrl": "./assets/galleryExample/bunny11.png",
+      "srrId": "89408429901",
+      "title": "Startbahninchen Season 1 #11/11"
+    }
+  ]
+}
