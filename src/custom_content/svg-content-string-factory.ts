@@ -14,27 +14,25 @@ export class SvgContentStringFactory {
 
         const backgroundFragment = fragments.background[params.background]
 
-        const feetAndTailFragment = this.adaptSkinColor(fragments.feetAndTail.base)
 
-        const bodyFragment = this.adaptSkinColor(fragments.bodyAndBelly.base)
+        const bodyFragment = fragments.bodyMainColor[params.bodyMainColor]
 
-        const earFragment = this.adaptSkinColor(fragments.ears[params.ears])
+        const earFragment = this.adaptSkinColor(fragments.earShape[params.earShape])
 
-        const headFragment = this.adaptSkinColor(fragments.head.base)
 
-        const handsFragment = this.adaptSkinColor(fragments.hands.base)
+        const bodyPattern = this.adaptSkinColor(fragments.spotPattern[params.spotPattern])
 
-        const bodyPattern = this.adaptSkinColor(fragments.bodyPattern[params.bodyPattern])
+        const snoutFragment = this.adaptSkinColor(fragments.misc["misc-snout"])
 
-        const snoutFragment = this.adaptSkinColor(fragments.snout.base)
+        const mouthNoseFragment = fragments.misc["misc-mouthNose"]
 
-        const facialFeatureFragment = fragments.eyesAndMouth.base
+        const eyesFragment = fragments.misc["misc-eyes"]
 
         const propFragment = fragments.props[params.props]
 
         const watermarkOrNothing = this.getWatermarkFragmentIfTest(params)
 
-        return `${backgroundFragment}${feetAndTailFragment}${bodyFragment}${earFragment}${headFragment}${handsFragment}${bodyPattern}${snoutFragment}${facialFeatureFragment}${propFragment}${watermarkOrNothing}`
+        return `${backgroundFragment}${bodyFragment}${earFragment}${bodyPattern}${snoutFragment}${mouthNoseFragment}${eyesFragment}${propFragment}${watermarkOrNothing}`
     }
 
     adaptSkinColor(fragment: string): string {

@@ -6,5 +6,6 @@ export class CustomParams extends MintRequestParams {
     props: string = ""
     bodyMainColor!: string
     bodyOffColor!: string
-    bodyPattern!: string
+    spotPattern!: string
+    earShape!: string
 }

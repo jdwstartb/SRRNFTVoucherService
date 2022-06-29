@@ -108,7 +108,7 @@ a:not(.btn--remix):visited {
 }
 
 .footer a:hover {
-    background: #A4A4A4 `;
+    background: #A4A4A4;
 }
 
 .footer .links {
@@ -255,59 +255,6 @@ h2 {
 }
 
 
-.option-base-brown {
-    background-image: url(./assets/baseSkinColor/base-brown.png);
-}
-
-
-.option-base-white {
-    background-image: url(./assets/baseSkinColor/base-white.png);
-}
-
-
-.option-base-black {
-    background-image: url(./assets/baseSkinColor/base-black.png);
-}
-
-
-.option-base-bright {
-    background-image: url(./assets/baseSkinColor/base-bright.png);
-}
-
-
-.option-base-grey {
-    background-image: url(./assets/baseSkinColor/base-grey.png);
-}
-
-
-.option-base-orange {
-    background-image: url(./assets/baseSkinColor/base-orange.png);
-}
-
-.option-pattern-base {
-    background-image: url(./assets/bodyPattern/bp-none.png);
-}
-
-.option-pattern-many {
-    background-image: url(./assets/bodyPattern/bp-many.png);
-}
-
-.option-pattern-forehead {
-    background-image: url(./assets/bodyPattern/bp-forehead.png);
-}
-
-.option-pattern-belly {
-    background-image: url(./assets/bodyPattern/bp-belly.png);
-}
-
-.option-pattern-cheeks {
-    background-image: url(./assets/bodyPattern/bp-cheeks.png);
-}
-
-.option-pattern-eye {
-    background-image: url(./assets/bodyPattern/bp-eye.png);
-}
-
 .option-off-color-brown {
     background-image: url(./assets/bodyOffColor/oc-brown.png);
 }
@@ -388,7 +335,6 @@ div.desc {
     text-align: center;
 }
 
-
 .option-background-background-midblue {
     background-image: url(./assets/background/background-background-midblue.png);
 }
@@ -427,4 +373,96 @@ div.desc {
 
 .option-background-background-midOrange {
     background-image: url(./assets/background/background-background-midOrange.png);
+}
+
+.option-earShape-earShape-long {
+    background-image: url(./assets/earShape/earShape-earShape-long.png);
+}
+
+.option-earShape-earShape-short {
+    background-image: url(./assets/earShape/earShape-earShape-short.png);
+}
+
+.option-earShape-earShape-oneBent {
+    background-image: url(./assets/earShape/earShape-earShape-oneBent.png);
+}
+
+.option-earShape-earShape-twoBent {
+    background-image: url(./assets/earShape/earShape-earShape-twoBent.png);
+}
+
+.option-bodyMainColor-bodyMainColor-brown {
+    background-image: url(./assets/bodyMainColor/bodyMainColor-bodyMainColor-brown.png);
+}
+
+.option-bodyMainColor-bodyMainColor-black {
+    background-image: url(./assets/bodyMainColor/bodyMainColor-bodyMainColor-black.png);
+}
+
+.option-bodyMainColor-bodyMainColor-white {
+    background-image: url(./assets/bodyMainColor/bodyMainColor-bodyMainColor-white.png);
+}
+
+.option-bodyMainColor-bodyMainColor-orange {
+    background-image: url(./assets/bodyMainColor/bodyMainColor-bodyMainColor-orange.png);
+}
+
+.option-bodyMainColor-bodyMainColor-grey {
+    background-image: url(./assets/bodyMainColor/bodyMainColor-bodyMainColor-grey.png);
+}
+
+.option-bodyMainColor-bodyMainColor-bright {
+    background-image: url(./assets/bodyMainColor/bodyMainColor-bodyMainColor-bright.png);
+}
+
+.option-spotPattern-spotPattern-many {
+    background-image: url(./assets/spotPattern/spotPattern-spotPattern-many.png);
+}
+
+.option-spotPattern-spotPattern-belly {
+    background-image: url(./assets/spotPattern/spotPattern-spotPattern-belly.png);
+}
+
+.option-spotPattern-spotPattern-cheeks {
+    background-image: url(./assets/spotPattern/spotPattern-spotPattern-cheeks.png);
+}
+
+.option-spotPattern-spotPattern-eye {
+    background-image: url(./assets/spotPattern/spotPattern-spotPattern-eye.png);
+}
+
+.option-spotPattern-spotPattern-forehead {
+    background-image: url(./assets/spotPattern/spotPattern-spotPattern-forehead.png);
+}
+
+.option-props-props-geisha {
+    background-image: url(./assets/props/props-props-geisha.png);
+}
+
+.option-props-props-punk {
+    background-image: url(./assets/props/props-props-punk.png);
+}
+
+.option-props-props-pirate {
+    background-image: url(./assets/props/props-props-pirate.png);
+}
+
+.option-props-props-crown {
+    background-image: url(./assets/props/props-props-crown.png);
+}
+
+.option-props-props-magic {
+    background-image: url(./assets/props/props-props-magic.png);
+}
+
+.option-props-props-glasses {
+    background-image: url(./assets/props/props-props-glasses.png);
+}
+
+.option-props-props-hijab {
+    background-image: url(./assets/props/props-props-hijab.png);
+}
+
+.option-props-props-bow {
+    background-image: url(./assets/props/props-props-bow.png);
 }
