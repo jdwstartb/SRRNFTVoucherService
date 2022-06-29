@@ -43,6 +43,7 @@
             <form class="bunny-builder-form" method="post">
 
 
+                {{> fragments}}
                 <label for="bodyOffColor">
                     Select spot color
                     <div class="cc-selector">
@@ -68,9 +69,6 @@
 
                 </label>
                 <br>
-
-                {{> fragments}}
-
                 <label for="voucher">
                     Enter your voucher code.<br>
                     <input id="voucher" name="voucher" required="required" type="text" class="text-input">
