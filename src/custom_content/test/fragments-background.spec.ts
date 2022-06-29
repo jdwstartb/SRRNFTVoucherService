@@ -18,7 +18,7 @@ describe("background-colors", () => {
     ${"midviolet"}
     ${"skyblue"}
     `("returns a fragment that can be templated", async ({color}) => {
-        const svgFragment = getAsSVG(fragments.background.get(color))
+        const svgFragment = getAsSVG(fragments.background[color])
         const pngContent = await pngFromSVGGenerator.transform(svgFragment)
         await fileBackupService.writePngToBackupLocation(pngContent, `verification/bgcolor/${color}`, "only")
     })
