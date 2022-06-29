@@ -18,7 +18,7 @@ export class ImageSourceConverterImageOutputService {
 
     async processSingleCharacteristic(characteristic, targetFolder): Promise<void> {
 
-        const pngBuffer = await this.pngGenerator.transform(getAsPreviewSVG(characteristic.content))
+        const pngBuffer = await this.pngGenerator.transform(getAsPreviewSVG(characteristic.previewContent))
         await this.service.writeFile(`${targetFolder}/${characteristic.exampleFileLocation}`, pngBuffer, "base64")
         return
     }

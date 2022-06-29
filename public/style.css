@@ -108,7 +108,7 @@ a:not(.btn--remix):visited {
 }
 
 .footer a:hover {
-    background: #A4A4A4`;
+    background: #A4A4A4 `;
 }
 
 .footer .links {
@@ -254,46 +254,6 @@ h2 {
     appearance: none;
 }
 
-.option-midBlue {
-    background-image: url(./assets/bg/bg-midBlue.png);
-}
-
-.option-darkRed {
-    background-image: url(./assets/bg/bg-darkRed.png);
-}
-
-.option-darkGreen {
-    background-image: url(./assets/bg/bg-darkGreen.png);
-}
-
-.option-midOrange {
-    background-image: url(./assets/bg/bg-midOrange.png);
-}
-
-.option-darkTurquoise {
-    background-image: url(./assets/bg/bg-darkTurquoise.png);
-}
-
-.option-darkBlue {
-
-    background-image: url(./assets/bg/bg-darkBlue.png);
-}
-
-.option-darkOrange {
-    background-image: url(./assets/bg/bg-darkOrange.png);
-}
-
-.option-deepPurple {
-    background-image: url(./assets/bg/bg-deepPurple.png);
-}
-
-.option-midviolet {
-    background-image: url(./assets/bg/bg-midviolet.png);
-}
-
-.option-skyblue {
-    background-image: url(./assets/bg/bg-skyblue.png);
-}
 
 .option-base-brown {
     background-image: url(./assets/baseSkinColor/base-brown.png);
@@ -426,4 +386,45 @@ div.gallery img {
 div.desc {
     padding: 15px;
     text-align: center;
+}
+
+
+.option-background-background-midblue {
+    background-image: url(./assets/background/background-background-midblue.png);
+}
+
+.option-background-background-darkRed {
+    background-image: url(./assets/background/background-background-darkRed.png);
+}
+
+.option-background-background-darkGreen {
+    background-image: url(./assets/background/background-background-darkGreen.png);
+}
+
+.option-background-background-darkTurquoise {
+    background-image: url(./assets/background/background-background-darkTurquoise.png);
+}
+
+.option-background-background-midViolet {
+    background-image: url(./assets/background/background-background-midViolet.png);
+}
+
+.option-background-background-skyBlue {
+    background-image: url(./assets/background/background-background-skyBlue.png);
+}
+
+.option-background-background-deepPurple {
+    background-image: url(./assets/background/background-background-deepPurple.png);
+}
+
+.option-background-background-darkOrange {
+    background-image: url(./assets/background/background-background-darkOrange.png);
+}
+
+.option-background-background-darkBlue {
+    background-image: url(./assets/background/background-background-darkBlue.png);
+}
+
+.option-background-background-midOrange {
+    background-image: url(./assets/background/background-background-midOrange.png);
 }

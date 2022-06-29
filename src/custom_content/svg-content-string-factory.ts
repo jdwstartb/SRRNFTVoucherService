@@ -12,7 +12,7 @@ export class SvgContentStringFactory {
     build(params: CustomParams): string {
         this.currentParams = params
 
-        const backgroundFragment = fragments.background.get(params.background)
+        const backgroundFragment = fragments.background[params.background]
 
         const feetAndTailFragment = this.adaptSkinColor(fragments.feetAndTail.base)
 

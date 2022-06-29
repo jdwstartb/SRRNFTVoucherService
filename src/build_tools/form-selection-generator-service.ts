@@ -9,8 +9,7 @@ export class FormSelectionGeneratorService {
             this.addInputHtmlToCharacteristics(feature)
             this.addLabelHtmlToCharacteristics(feature)
             this.addExampleFileLocation(feature)
-            this.addSVGFragment(feature)
-
+            this.enhancePreviewFragment(feature)
         })
     }
 
@@ -46,8 +45,30 @@ export class FormSelectionGeneratorService {
         })
     }
 
-    addSVGFragment(feature: FeatureDefinition): void {
+    enhancePreviewFragment(feature: FeatureDefinition): void {
+        let previewBG
+        let previewFG
 
+        feature.characteristics.forEach((characteristic) => {
+            if (characteristic.name === `${feature.featureName}-${feature.featureName}-bg`) {
+                previewBG = characteristic
+            }
+            if (characteristic.name === `${feature.featureName}-${feature.featureName}-fg`) {
+                previewFG = characteristic
+            }
+        })
+
+        feature.characteristics.forEach((characteristic) => {
+
+            if (characteristic.name !== `${feature.featureName}-bg` && characteristic.name !== `${feature.featureName}-fg`) {
+                const previewBGFragment = previewBG?.content || ''
+                const previewFGFragment = previewFG?.content || ''
+
+                characteristic.previewContent = `${previewBGFragment}${characteristic.content}${previewFGFragment}`
+            }
+        })
+
+        feature.characteristics = feature.characteristics.filter((characteristic) => characteristic !== previewFG && characteristic !== previewBG)
     }
 
     getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic: Characteristic, feature: FeatureDefinition): string {

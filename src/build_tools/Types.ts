@@ -5,6 +5,7 @@ export class Characteristic {
     css?: string
     labelHtml?: string
     exampleFileLocation?: string
+    previewContent?: string
 }
 
 
