@@ -61,28 +61,14 @@ export class FormSelectionGeneratorService {
 
         feature.characteristics = feature.characteristics.filter((characteristic) => (!characteristic.name.match(/-fg/)) && (!characteristic.name.match(/-bg/)))
 
-        if (previewFG !== {} || previewBG !== {}) {
-
-            console.log(Object.keys(previewFG))
-            console.log(Object.keys(previewBG))
-        }
-
         feature.characteristics.forEach((characteristic) => {
-
-
-            console.log(`${feature.featureName}-bg`)
-            console.log(`${characteristic.name}-fg`)
             const previewBGGeneric = previewBG[`${feature.featureName}-${feature.featureName}-bg`] || ''
             const previewFGGeneric = previewFG[`${feature.featureName}-${feature.featureName}-fg`] || ''
             const previewBGFragment = previewBG[`${characteristic.name}-bg`] || ''
             const previewFGFragment = previewFG[`${characteristic.name}-fg`] || ''
 
-
             characteristic.previewContent = `${previewBGGeneric.content}${previewBGFragment.content}${characteristic.content}${previewFGFragment.content}${previewFGGeneric.content}`
-
         })
-
-
     }
 
     getFilePathForCharacteristicOfFeatureInAssetsFolder(characteristic: Characteristic, feature: FeatureDefinition): string {
