@@ -1,6 +1,6 @@
 import {FeatureDefinition} from "./Types";
 import {FileBackupService} from "../service/file-backup-service";
-import {getAsSVG} from "../util";
+import {getAsPreviewSVG} from "../util";
 import {PNGFromSvgGenerator} from "../service/svg-generator-service";
 
 export class ImageSourceConverterImageOutputService {
@@ -18,7 +18,7 @@ export class ImageSourceConverterImageOutputService {
 
     async processSingleCharacteristic(characteristic, targetFolder): Promise<void> {
 
-        const pngBuffer = await this.pngGenerator.transform(getAsSVG(characteristic.content))
+        const pngBuffer = await this.pngGenerator.transform(getAsPreviewSVG(characteristic.content))
         await this.service.writeFile(`${targetFolder}/${characteristic.exampleFileLocation}`, pngBuffer, "base64")
         return
     }
