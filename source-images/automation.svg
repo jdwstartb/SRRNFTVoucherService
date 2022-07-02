@@ -29,7 +29,7 @@
      inkscape:cx="1023.4094"
      inkscape:cy="810.68439"
      inkscape:document-units="px"
-     inkscape:current-layer="svg2250"
+     inkscape:current-layer="layer49"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
@@ -2220,6 +2220,10 @@
     </g>
     <g
        inkscape:groupmode="layer"
+       id="layer56"
+       inkscape:label="noSpots" />
+    <g
+       inkscape:groupmode="layer"
        id="layer37"
        inkscape:label="eye"
        style="display:inline"
@@ -4069,6 +4073,10 @@
         </g>
       </g>
     </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer49"
+       inkscape:label="noProps" />
     <g
        inkscape:groupmode="layer"
        id="layer38"
