@@ -32,7 +32,7 @@ export class SvgContentStringFactory {
 
         const watermarkOrNothing = this.getWatermarkFragmentIfTest(params)
 
-        return `${backgroundFragment}${bodyFragment}${earFragment}${bodyPattern}${snoutFragment}${mouthNoseFragment}${eyesFragment}${propFragment}${watermarkOrNothing}`
+        return `${backgroundFragment}${earFragment}${bodyFragment}${bodyPattern}${snoutFragment}${mouthNoseFragment}${eyesFragment}${propFragment}${watermarkOrNothing}`
     }
 
     adaptSkinColor(fragment: string): string {

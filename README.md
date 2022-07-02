@@ -18,6 +18,17 @@ Was tested under Ubuntu 18 LTS
 - Startrail API Key (requires being a Startrail Licensed User)
 - Pinata API Key
 
+## Running on GLITCH.io
+
+to setup you need to install yarn on your glitch instance
+
+- open console
+- `touch .bash_profile`
+- `curl -o -L https://yarnpkg.com/install.sh | bash`
+- exit the console
+- open new console
+- yarn install
+
 ## What's in this project?
 
 ← `README.md`: That’s this file, describing the scope of the project

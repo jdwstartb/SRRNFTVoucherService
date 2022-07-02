@@ -10,3 +10,8 @@ Integrate Props Customization
 - [x] Geisha Hair
 - [x] Hijab
 - [x] magic hat
+
+TODO:
+
+- [ ] No Prop Option
+- [ ] No Spot Option
