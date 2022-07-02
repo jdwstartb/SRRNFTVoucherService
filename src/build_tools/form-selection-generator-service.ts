@@ -14,8 +14,13 @@ export class FormSelectionGeneratorService {
     }
 
     addFormHtmlToFeature(feature: FeatureDefinition): void {
-        feature.htmlFormFeaturePrefix = `<label for="${feature.featureName}">Select ${feature.featureName}<div class="cc-selector">`
+        feature.htmlFormFeaturePrefix = `<label for="${feature.featureName}">Select ${this.decamelize(feature.featureName)}<div class="cc-selector">`
         feature.htmlFormFeaturePostfix = `</div></label><br>`
+    }
+
+    decamelize(aString: string): string {
+        const separator = " "
+        return aString.replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2').replace(/([A-Z+]([A-Z][a-z\d]+))/g, '$1' + separator + '$2').toLowerCase()
     }
 
     addInputHtmlToCharacteristics(feature: FeatureDefinition): void {

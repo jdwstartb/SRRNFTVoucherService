@@ -25,6 +25,16 @@ describe("FormSelectionGeneratorService", () => {
         ]
     }
 
+    describe('decamelize', function () {
+        it.each`
+        source     | target
+        ${'aTest'} | ${'a test'}
+        ${'aMoreExplicitTest'} | ${'a more explicit test'}
+        ${'aTestWithABC'} | ${'a test with abc'}
+        `('decamelizes $source into $target', ({source, target}) => {
+            expect(service.decamelize(source)).toEqual(target)
+        })
+    });
 
     describe('addInputHtmlToCharacteristics', function () {
         it('generates a single characteristic correctly', () => {
@@ -73,7 +83,7 @@ describe("FormSelectionGeneratorService", () => {
 
             const expectedRegexes = [
                 `<label for="${testFeature.featureName}">`,
-                `Select ${testFeature.featureName}`,
+                `Select a feature name`,
                 '<div class="cc-selector">',
             ]
             expectedRegexes.forEach(anExpectedRegex => {
