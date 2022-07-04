@@ -112,3 +112,4 @@ node_modules
 /source-images/original-source.svg
 /source-images/baseBunny.svg
 /test-output/
+/aTestFolderForIntegration/
