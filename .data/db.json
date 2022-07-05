@@ -1,9 +1,12 @@
 {
   "vouchers": [
-    {
-      "code": "prodKey",
-      "used": true
-    }
+    { "code": "s1-qa-aac9a63f", "used": true},
+    { "code": "s1-qa-45c340fa", "used": true},
+    { "code": "s1-qa-ad82a86a", "used": true},
+    { "code": "s1-qa-768ee252", "used": true},
+    { "code": "s1-qa-940ced69", "used": true},
+    { "code": "s1-qa-dcc31bfa", "used": true},
+    { "code": "s1-qa-8e631a8f", "used": true}
   ],
   "galleryEntries": [
     {
