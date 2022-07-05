@@ -20,6 +20,8 @@
     "hbs": "^4.2.0",
     "jest": "^28.1.1",
     "lowdb": "1.x",
+    "form-data": "^4.0.0",
+    "@babel/core": "^7.18.6",
     "point-of-view": "^5.2.0",
     "svg-to-img": "2.0.9",
     "ts-jest": "^28.0.5",
