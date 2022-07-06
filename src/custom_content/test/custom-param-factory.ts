@@ -12,16 +12,20 @@ const factory = {
                 background: getRandomBackgroundColorId(),
                 bodyMainColor: getRandomHairColorId(),
                 bodyOffColor: getRandomHairColorId(),
-                ears: getRandomEars(),
+                earShape: getRandomEars(),
                 eoa: "0x887C0d2340d2Fa144289C2E2BF835556f5c6C4E0",
-                prop: "",
-                bodyPattern: getRandomBodyPatternId(),
+                props: getRandomProp(),
+                spotPattern: getRandomBodyPatternId(),
                 voucher: "",
             }, contentDescription: `factoryBunny${counter}`
         }
     }
 }
 
+const getRandomProp = (): string => {
+    const keys = Object.keys(fragments.props)
+    return keys[randomInt(0, keys.length)]
+}
 
 const getRandomBackgroundColorId = (): string => {
     const keys = Object.keys(backGroundColors)
@@ -35,12 +39,12 @@ const getRandomHairColorId = (): string => {
 }
 
 const getRandomEars = (): string => {
-    const keys = Object.keys(fragments.ears)
+    const keys = Object.keys(fragments.earShape)
     return keys[randomInt(0, keys.length)]
 }
 
 const getRandomBodyPatternId = (): string => {
-    const keys = Object.keys(fragments.bodyPattern)
+    const keys = Object.keys(fragments.spotPattern)
     return keys[randomInt(0, keys.length)]
 }
 

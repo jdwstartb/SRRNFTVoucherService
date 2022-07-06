@@ -4,7 +4,7 @@ import {VoucherService} from './voucher-service'
 import {NFTSVGBuilderService} from './nft-svg-builder-service'
 import {EditionService} from "./edition-service";
 import {PinataService} from "./pinata-service";
-import {MintRequestParams} from "../mint-request-params";
+import {MintRequestParams} from "../types/mint-request-params";
 import {SrrApiService} from "./srr-api-service";
 import {Logger} from "../util";
 
@@ -65,7 +65,7 @@ export class MintRequestProcessingService {
 
         const pngBuffer = await pngFromSvgGenerator.transform(nftImageSource)
         this.logger.log('transformation done')
-        
+
         return pngBuffer
     }
 
