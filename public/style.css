@@ -435,6 +435,10 @@ div.desc {
     background-image: url(./assets/spotPattern/spotPattern-spotPattern-forehead.png);
 }
 
+.option-spotPattern-spotPattern-noSpots {
+    background-image: url(./assets/spotPattern/spotPattern-spotPattern-noSpots.png);
+}
+
 .option-props-props-geisha {
     background-image: url(./assets/props/props-props-geisha.png);
 }
@@ -445,6 +449,10 @@ div.desc {
 
 .option-props-props-pirate {
     background-image: url(./assets/props/props-props-pirate.png);
+}
+
+.option-props-props-noProps {
+    background-image: url(./assets/props/props-props-noProps.png);
 }
 
 .option-props-props-crown {
