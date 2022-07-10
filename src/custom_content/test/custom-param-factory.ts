@@ -1,4 +1,4 @@
-import {backGroundColors, hairColor} from "../colors";
+import {hairColor} from "../colors";
 import {CustomParams} from "../custom-params";
 import {randomInt} from "crypto";
 import {fragments} from "../fragments";
@@ -10,8 +10,8 @@ const factory = {
         return {
             params: {
                 background: getRandomBackgroundColorId(),
-                bodyMainColor: getRandomHairColorId(),
-                bodyOffColor: getRandomHairColorId(),
+                bodyMainColor: getRandomMainHairColorId(),
+                bodyOffColor: getRandomOffColorId(),
                 earShape: getRandomEars(),
                 eoa: "0x887C0d2340d2Fa144289C2E2BF835556f5c6C4E0",
                 props: getRandomProp(),
@@ -28,14 +28,20 @@ const getRandomProp = (): string => {
 }
 
 const getRandomBackgroundColorId = (): string => {
-    const keys = Object.keys(backGroundColors)
+    const keys = Object.keys(fragments.background)
     return keys[randomInt(0, keys.length)]
 }
 
-
-const getRandomHairColorId = (): string => {
+const getRandomMainHairColorId = (): string => {
     const keys = Object.keys(hairColor)
-    return hairColor[keys[randomInt(0, keys.length)]].name
+
+    return hairColor[keys[(randomInt(0, keys.length / 2) * 2 + 1)]].name
+}
+
+const getRandomOffColorId = (): string => {
+    const keys = Object.keys(hairColor)
+
+    return hairColor[keys[(randomInt(0, 12 / 2) * 2 + 0)]].name
 }
 
 const getRandomEars = (): string => {

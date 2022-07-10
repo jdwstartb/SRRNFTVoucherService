@@ -40,17 +40,33 @@ export const colorSchema = {
 }
 export const hairColor = {
     "brown": {color: colorSchema.darkOrange, highlight: colorSchema.midOrange, name: "brown"},
-    "bodyMainColor-brown": {color: colorSchema.darkOrange, highlight: colorSchema.midOrange, name: "brown"},
+    "bodyMainColor-brown": {
+        color: colorSchema.darkOrange,
+        highlight: colorSchema.midOrange,
+        name: "bodyMainColor-brown"
+    },
     "white": {color: colorSchema.offwhite, highlight: colorSchema.lightestRed, name: "white"},
-    "bodyMainColor-white": {color: colorSchema.offwhite, highlight: colorSchema.lightestRed, name: "white"},
+    "bodyMainColor-white": {
+        color: colorSchema.offwhite,
+        highlight: colorSchema.lightestRed,
+        name: "bodyMainColor-white"
+    },
     "black": {color: colorSchema.darkGrey, highlight: colorSchema.midGrey, name: "black"},
-    "bodyMainColor-black": {color: colorSchema.darkGrey, highlight: colorSchema.midGrey, name: "black"},
+    "bodyMainColor-black": {color: colorSchema.darkGrey, highlight: colorSchema.midGrey, name: "bodyMainColor-black"},
     "bright": {color: colorSchema.lightOrange, highlight: colorSchema.lightestOrange, name: "bright"},
-    "bodyMainColor-bright": {color: colorSchema.lightOrange, highlight: colorSchema.lightestOrange, name: "bright"},
+    "bodyMainColor-bright": {
+        color: colorSchema.lightOrange,
+        highlight: colorSchema.lightestOrange,
+        name: "bodyMainColor-bright"
+    },
     "grey": {color: colorSchema.midGrey, highlight: colorSchema.lighterGrey, name: "grey"},
-    "bodyMainColor-grey": {color: colorSchema.midGrey, highlight: colorSchema.lighterGrey, name: "grey"},
+    "bodyMainColor-grey": {color: colorSchema.midGrey, highlight: colorSchema.lighterGrey, name: "bodyMainColor-grey"},
     "orange": {color: colorSchema.midOrange, highlight: colorSchema.lightOrange, name: "orange"},
-    "bodyMainColor-orange": {color: colorSchema.midOrange, highlight: colorSchema.lightOrange, name: "orange"},
+    "bodyMainColor-orange": {
+        color: colorSchema.midOrange,
+        highlight: colorSchema.lightOrange,
+        name: "bodyMainColor-orange"
+    },
 }
 
 
