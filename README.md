@@ -2,23 +2,28 @@
 
 # SRR NFT builder
 
-This project implements a generator for digital SRR (Startrail Registry Records)
+This project implements a generator for digital SRR (Startrail Registry Records) NFTs.
 
 ## Who is it for?
 
-### New Startrail API users
+### New Startrail API developers
 
-Wondering how to implement the API? This project gives you some code snippets to start implementing your own solutions.
+Wondering how to implement the Startrail Issue API? This project gives you some code snippets to start implementing your
+own solutions.
 
 ### Artists
 
 Want to start issuing SRR NFTs and have creative ideas using SVG files? Become a Licensed API user and use the processes
 implemented here to start minting your own SRRs.
 
-### Startbahn Services
+### Startbahn Team
 
-Want to integrate this into a business process? Run an instance to create custom SRR whenever the process requires it:
-Marketing, Sales, HR, Tech... The possibilities are limitless
+Want to integrate this into our business process? Run an instance to create custom SRR whenever the process requires it:
+
+- Marketing: Send vouchers or SRR to prospect or old customers for them to use the service again
+- Sales: Show API features and a possible process during your pitch and send your client a SRR in the end
+- HR: Raise employee engagement by having company projects based on our own products
+- Tech: Learn about our architecture
 
 ## Compatibility
 
@@ -90,4 +95,10 @@ template which builds these parameter values into the web page the visitor sees.
     - `./pages/`: Contains the handlebars templates as well as partials
 
 - `src/data/`: some json formats
+
+## API
+
+In theory the API can be called without the page interaction, and thus be integrated in other services.
+
+Call POST '/yours' with the body params specified in `./src/custom_content/custom-params.ts`
 
