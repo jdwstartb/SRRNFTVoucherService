@@ -4,59 +4,49 @@
 
 This project implements a generator for digital SRR (Startrail Registry Records)
 
-## Possibilities of use:
+## Who is it for?
 
-- Sales pitch: Have a running instance of this thing and issue and send your client and SRR during the pitch.
-- Startup project for Clients: Give clients an idea how they can get started and interact with our API
+### New Startrail API users
+
+Wondering how to implement the API? This project gives you some code snippets to start implementing your own solutions.
+
+### Artists
+
+Want to start issuing SRR NFTs and have creative ideas using SVG files? Become a Licensed API user and use the processes
+implemented here to start minting your own SRRs.
+
+### Startbahn Services
+
+Want to integrate this into a business process? Run an instance to create custom SRR whenever the process requires it:
+Marketing, Sales, HR, Tech... The possibilities are limitless
 
 ## Compatibility
 
-Was tested under Ubuntu 18 LTS
+Was tested under Ubuntu 18 LTS in local deployment.
 
 ## Requirements to run your own
 
-- Startrail API Key (requires being a Startrail Licensed User)
-- Pinata API Key
+- Startrail API Key (requires being a Startrail Licensed API User)
+- Pinata API Key (Free account with some restrictions available on pinata.cloud (no affiliation))
+    - If you want to use another image storage, integrate that instead of `./src/service/pinata-service.ts`
 
 ## Running on GLITCH.io
 
-to setup you need to install yarn on your glitch instance
+With the current version, running on glitch should work out of the box. Just deploy a new application from github or via
+this running instance.
 
-- open console
-- `touch .bash_profile`
-- `curl -o -L https://yarnpkg.com/install.sh | bash`
-- exit the console
-- open new console
-- yarn install
+## Artists: Create your own SRR NFTs
 
-## What's in this project?
+As an Artist you can use this project to start a generated art project based on source SVG files.
+By default the generated images are 1600x1600 pixel png files.
 
-← `README.md`: That’s this file, describing the scope of the project
+### Steps
 
-← `public/style.css`: The styling rules for the pages in your site.
+1. Make your artwork as SVG following some rules formatting the file (see below)
+2. Generate source fragments from your source images
+3. Integrate source fragments into the rest of the project
 
-← `server.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site
-back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars
-template which builds these parameter values into the web page the visitor sees.
-
-← `package.json`: The NPM packages for your project's dependencies.
-
-← `src/`: This folder holds the site template along with some basic data files.
-
-← `src/pages/index.hbs`: This is the main page template for your site. The template receives parameters from the server
-script, which it includes in the page HTML. The page sends the user submitted color value in the body of a request, or
-as a query parameter to choose a random color.
-
-← `src/colors.json`: A collection of CSS color names. We use this in the server script to pick a random color, and to
-match searches against color names.
-
-← `src/seo.json`: When you're ready to share your new site or add a custom domain, change SEO/meta settings in here.
-
-## Try this next 🏗️
-
-## Built on Glitch!
-
-## Create your own designs
+### 1. How to make your art project come to life?
 
 You can use the template builder best, if you follow these guidelines in the structure of your SVG:
 
@@ -68,4 +58,36 @@ You can use the template builder best, if you follow these guidelines in the str
   will be a "hats" feature
 - The direct sub-layers will contain the possible elements of that feature, eg. a sub-layer could be a cowboy hat, and a
   second sub-layer of hats could be a pirate hat.
+
+### 2. Run Generator
+
+### 3. Integrate
+
+The generated data needs to be integrated. Check the content of the following files.
+
+- `src/pages/partials/fragments.hbs` & `src/pages/partials/generatedFragments.hbs`: sets up the feature selection form
+    - html fragments generated from the build script go here
+- `public/style.css` : generated css options fragments go here
+- `src/custom_content` : contains the backend files to generate the PNG from SVGs
+    - `fragments.ts`: generated svg fragments go here.
+    - `svg-content-string-factory`: builds the svg file from the fragments. Here you can put the fragments together as
+      needed by your project.
+
+## Architecture and important files
+
+- `README.md`: That’s this file, describing the scope of the project
+
+- `/public/`:  web files like css, images etc.
+    - `/style.css`: The styling rules for the pages in your site.
+
+← `server.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site
+back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars
+template which builds these parameter values into the web page the visitor sees.
+
+← `package.json`: The NPM packages for your project's dependencies.
+
+- `./src/`:
+    - `./pages/`: Contains the handlebars templates as well as partials
+
+- `src/data/`: some json formats
 

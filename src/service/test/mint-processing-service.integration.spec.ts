@@ -1,6 +1,6 @@
 import faker from '@faker-js/faker';
 import {MintRequestProcessingService} from "../mint-request-processing-service";
-import {MintRequestParams} from "../../mint-request-params";
+import {MintRequestParams} from "../../types/mint-request-params";
 import {getValidCustomParams} from "../../custom_content/test/custom-param-factory";
 
 
