@@ -77,6 +77,7 @@ The generated data needs to be integrated. Check the content of the following fi
     - `fragments.ts`: generated svg fragments go here.
     - `svg-content-string-factory`: builds the svg file from the fragments. Here you can put the fragments together as
       needed by your project.
+- `public/assets`: the selection preview icons go here.
 
 ## Architecture and important files
 
