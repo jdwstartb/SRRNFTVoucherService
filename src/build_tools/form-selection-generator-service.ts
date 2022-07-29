@@ -40,7 +40,7 @@ export class FormSelectionGeneratorService {
 
     addLabelHtmlToCharacteristics(feature: FeatureDefinition): void {
         feature.characteristics.forEach((characteristic) => {
-            characteristic.labelHtml = `<label class="drinkcard-cc option-${feature.featureName}-${characteristic.name}" for="${feature.featureName}-${characteristic.name}"></label>`
+            characteristic.labelHtml = `<label tabindex="-1" class="drinkcard-cc option-${feature.featureName}-${characteristic.name}" for="${feature.featureName}-${characteristic.name}"></label>`
         })
     }
 
