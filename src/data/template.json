@@ -1,7 +1,7 @@
 {
   "payload": [
     {
-      "to":"0x52b24Ac0D06f19688E2DecC2B5a9DC20147278d4",
+      "to": "0x52b24Ac0D06f19688E2DecC2B5a9DC20147278d4",
       "externalId": "SBNY-1",
       "metadata": {
         "$schema": "https://api.startrail.io/api/v1/schema/registry-record-metadata.v2.0.schema.json",
@@ -26,7 +26,7 @@
         },
         "note": {
           "en": "Startbahn employee memorial NFT",
-          "jp": "スタートバーン会社員のNFT"
+          "ja": "スタートバーン会社員のNFT"
         },
         "thumbnailURL": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
         "yearOfCreation": {
