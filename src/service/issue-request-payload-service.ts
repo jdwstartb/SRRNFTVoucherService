@@ -3,6 +3,7 @@ import {EditionService} from "./edition-service"
 import {isNotProd} from "../util";
 import {randomInt} from "crypto";
 import {IssueRequestRoot} from "../types/StartrailAPITypes";
+import {CustomParams} from "../custom_content/custom-params";
 
 const templateRoot: IssueRequestRoot = originalTemplate
 
@@ -15,7 +16,7 @@ export class IssueRequestPayloadService {
         this.editionService = editionService
     }
 
-    getIssueSRRRequestPayload(requestBody, imgUrl): IssueRequestRoot {
+    getIssueSRRRequestPayload(requestBody: CustomParams, imgUrl): IssueRequestRoot {
 
         const payloadEntry = templateRoot.payload[0]
 
@@ -26,6 +27,8 @@ export class IssueRequestPayloadService {
         if (isNotProd()) {
             marker = `-TEST-${requestBody.eoa.slice(0, 5)}-${randomInt(0, 10000)}`
         }
+
+        const placementText = ''
 
         const theData = {
             ...templateRoot,
@@ -46,8 +49,14 @@ export class IssueRequestPayloadService {
                                     },
                                 title:
                                     {
-                                        en: `Startbunny SRR Season 1 #${editionNumber}/${total}`
+                                        en: `${requestBody.customText}, my Startbunny (Summer '22 Edition)`,
+                                        ja: `${requestBody.customText}, my Startbunny (Summer '22 Edition)`
                                     },
+                                note: {
+                                    en: `NFT Buy & Share Event #2 \n
+                                    ${placementText}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`,
+                                    ja: ``
+                                },
                                 image: imgUrl,
                                 thumbnailURL: imgUrl
                             }
@@ -56,4 +65,9 @@ export class IssueRequestPayloadService {
         }
         return theData
     }
+
+    getFeatureText(unformatted: string): string {
+        return unformatted.replace(/^.*-/, "")
+    }
+
 }

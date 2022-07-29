@@ -7,6 +7,7 @@ import {PinataService} from "./pinata-service";
 import {MintRequestParams} from "../types/mint-request-params";
 import {SrrApiService} from "./srr-api-service";
 import {Logger} from "../util";
+import {CustomParams} from "../custom_content/custom-params";
 
 
 const pngFromSvgGenerator = new PNGFromSvgGenerator()
@@ -84,7 +85,7 @@ export class MintRequestProcessingService {
     async handleStartrailRequest(requestParams: MintRequestParams, imageUrl): Promise<{ success: boolean }> {
 
         this.logger.log('preparing issue request payload ...')
-        const srrMetadata = metadataService.getIssueSRRRequestPayload(requestParams, imageUrl)
+        const srrMetadata = metadataService.getIssueSRRRequestPayload(requestParams as CustomParams, imageUrl)
         this.logger.log('preparing issue request payload done')
 
 

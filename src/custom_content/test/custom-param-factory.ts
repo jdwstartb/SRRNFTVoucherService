@@ -17,6 +17,7 @@ const factory = {
                 props: getRandomProp(),
                 spotPattern: getRandomBodyPatternId(),
                 voucher: "",
+                customText: "a Text"
             }, contentDescription: `factoryBunny${counter}`
         }
     }
