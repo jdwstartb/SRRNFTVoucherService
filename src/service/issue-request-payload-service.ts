@@ -28,7 +28,8 @@ export class IssueRequestPayloadService {
             marker = `-TEST-${requestBody.eoa.slice(0, 5)}-${randomInt(0, 10000)}`
         }
 
-        const placementText = ''
+        const placementTextEn = this.getPlacementTextEn(editionNumber)
+        const placementTextJa = this.getPlacementTextJa(editionNumber)
 
         const theData = {
             ...templateRoot,
@@ -54,8 +55,8 @@ export class IssueRequestPayloadService {
                                     },
                                 note: {
                                     en: `NFT Buy & Share Event #2 \n
-                                    ${placementText}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`,
-                                    ja: ``
+                                    ${placementTextEn}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`,
+                                    ja: `${placementTextJa}`
                                 },
                                 image: imgUrl,
                                 thumbnailURL: imgUrl
@@ -68,6 +69,32 @@ export class IssueRequestPayloadService {
 
     getFeatureText(unformatted: string): string {
         return unformatted.replace(/^.*-/, "")
+    }
+
+    getPlacementTextEn(editionNumber: number): string {
+        switch (editionNumber) {
+            case 1:
+                return "1st Place"
+            case 2:
+                return "2nd Place"
+            case 3:
+                return "3rd Place"
+            default:
+                return ""
+        }
+    }
+
+    getPlacementTextJa(editionNumber: number): string {
+        switch (editionNumber) {
+            case 1:
+                return "1st Place"
+            case 2:
+                return "2nd Place"
+            case 3:
+                return "3rd Place"
+            default:
+                return ""
+        }
     }
 
 }

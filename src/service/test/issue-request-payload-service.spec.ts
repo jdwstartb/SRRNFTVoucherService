@@ -37,4 +37,34 @@ describe('MetadataService', () => {
             expect(service.getFeatureText("orange-orange")).toEqual("orange")
         })
     })
+
+    describe("getPlacementTextEn", () => {
+        it('returns place 1', () => {
+            expect(service.getPlacementTextEn(1)).toEqual("1st Place")
+        })
+        it('returns place 2', () => {
+            expect(service.getPlacementTextEn(2)).toEqual("2nd Place")
+        })
+        it('returns place 3', () => {
+            expect(service.getPlacementTextEn(3)).toEqual("3rd Place")
+        })
+        it('returns other places', () => {
+            expect(service.getPlacementTextEn(4)).toEqual("")
+        })
+    })
+
+    describe("getPlacementTextJa", () => {
+        it('returns place 1', () => {
+            expect(service.getPlacementTextJa(1)).toEqual("1st Place")
+        })
+        it('returns place 2', () => {
+            expect(service.getPlacementTextJa(2)).toEqual("2nd Place")
+        })
+        it('returns place 3', () => {
+            expect(service.getPlacementTextJa(3)).toEqual("3rd Place")
+        })
+        it('returns other places', () => {
+            expect(service.getPlacementTextJa(4)).toEqual("")
+        })
+    })
 })
