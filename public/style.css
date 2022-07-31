@@ -135,6 +135,10 @@ body {
     color: #D73045
 }
 
+.success-message {
+    color: #3F8000
+}
+
 /* Page structure */
 .wrapper {
     min-height: var(--wrapper-height);

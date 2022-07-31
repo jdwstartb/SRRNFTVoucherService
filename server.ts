@@ -91,8 +91,16 @@ fastify.post("/yours", async function (request, reply) {
     }
 
     const fileInfo = await mintRequestProcessingService.performMintRequest(requestParams)
-
-    reply.view("/src/pages/get-yours.hbs", params);
+    console.log(fileInfo)
+    if (!fileInfo.success) {
+        const error = `${fileInfo.message}`
+        console.log(error)
+        params.error = error
+    } else {
+        params.success = `Successfully sent request for ${requestParams.eoa}`
+    }
+    console.log(`${Date.now()}:${JSON.stringify(requestParams)}:exiting /yours`)
+    return reply.view("/src/pages/get-yours.hbs", params);
 });
 
 /**
