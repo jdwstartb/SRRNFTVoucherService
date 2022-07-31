@@ -25,6 +25,13 @@
         <div class="bunny-builder">
             <form class="bunny-builder-form" method="post">
                 {{> fragments}}
+
+                <label for="customText" tabindex="-1">
+                    Give your bunny a name.<br>
+                    <input id="customText" name="customText" required="required" type="text" class="text-input">
+                </label>
+
+                <br>
                 <label for="voucher" tabindex="-1">
                     Enter your voucher code.<br>
                     <input id="voucher" name="voucher" required="required" type="text" class="text-input">

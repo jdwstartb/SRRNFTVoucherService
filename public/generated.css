@@ -102,18 +102,6 @@
     background-image: url(./assets/spotPattern/spotPattern-spotPattern-forehead.png);
 }
 
-.option-misc-misc-snout {
-    background-image: url(./assets/misc/misc-misc-snout.png);
-}
-
-.option-misc-misc-mouthNose {
-    background-image: url(./assets/misc/misc-misc-mouthNose.png);
-}
-
-.option-misc-misc-eyes {
-    background-image: url(./assets/misc/misc-misc-eyes.png);
-}
-
 .option-props-props-geisha {
     background-image: url(./assets/props/props-props-geisha.png);
 }
@@ -132,6 +120,18 @@
 
 .option-props-props-crown {
     background-image: url(./assets/props/props-props-crown.png);
+}
+
+.option-props-props-crownfirst {
+    background-image: url(./assets/props/props-props-crownfirst.png);
+}
+
+.option-props-props-crownsecond {
+    background-image: url(./assets/props/props-props-crownsecond.png);
+}
+
+.option-props-props-crownthird {
+    background-image: url(./assets/props/props-props-crownthird.png);
 }
 
 .option-props-props-magic {
