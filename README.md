@@ -37,8 +37,14 @@ Was tested under Ubuntu 18 LTS in local deployment.
 
 ## Running on GLITCH.io
 
-With the current version, running on glitch should work out of the box. Just deploy a new application from github or via
-this running instance.
+to setup you need to install yarn on your glitch instance
+
+- open console
+- `touch .bash_profile`
+- `curl -o- -L https://yarnpkg.com/install.sh | bash`
+- exit the console
+- open new console
+- yarn install
 
 ## Artists: Create your own SRR NFTs
 

@@ -39,6 +39,7 @@ export class IssueRequestPayloadService {
                         ...payloadEntry,
                         to: requestBody.eoa,
                         externalId: `SBNYv1-${editionNumber}${marker}`,
+                        artistAddress: process.env.SRR_MINTER_LUW_CONTRACT_ADDRESS || "",
                         metadata:
                             {
                                 ...payloadEntry.metadata,

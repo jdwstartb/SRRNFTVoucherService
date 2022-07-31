@@ -22,7 +22,7 @@ describe("MintProcessingService Integration", () => {
     })
 
     it("returns a successful object", async () => {
-        const validParams = {...getValidCustomParams().params, voucher: validKey} as any
+        const validParams = {...getValidCustomParams().params, props: "props-props-pirate", voucher: validKey} as any
         const result = await service.performMintRequest(validParams)
         expect(result).toMatchObject({success: true})
     })
