@@ -16,7 +16,7 @@ export class SrrApiService {
 
         const config = {
             method: 'post',
-            url: 'https://api-cert-qa.startrail.startbahn.jp/api/v1/commerce/srrs',
+            url: process.env.SRR_MINTER_API_URL || 'https://api-cert-qa.startrail.startbahn.jp/api/v1/commerce/srrs',
             headers: {
                 'Content-Type': 'application/json',
                 "commerce-api-key": process.env.SRR_MINTER_API_KEY || "",
