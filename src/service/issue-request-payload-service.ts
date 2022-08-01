@@ -49,7 +49,7 @@ export class IssueRequestPayloadService {
                                 title:
                                     {
                                         en: `${requestBody.customText}, my Startbunny (Summer '22 Edition)`,
-                                        ja: `${requestBody.customText}, my Startbunny (Summer '22 Edition)`
+                                        ja: `${requestBody.customText}, マイ・スタートバニー (22'サマーエディション)`
                                     },
                                 note: {
                                     en: this.getEnNoteText(requestBody, editionNumber),
@@ -77,7 +77,7 @@ export class IssueRequestPayloadService {
         const placementTextJa = this.getPlacementTextJa(editionNumber)
         
         return `NFT Buy & Share Event #2 \n
-                                    ${placementTextJa}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`
+                                    ${placementTextJa}\n  背景色: ${this.getFeatureText(requestBody.background)}\n 皮の色: ${this.getFeatureText(requestBody.bodyMainColor)}\n スポットの色: ${this.getFeatureText(requestBody.bodyOffColor)}\n スポットのパターン: ${this.getFeatureText(requestBody.spotPattern)}\n 耳の形: ${this.getFeatureText(requestBody.earShape)}\n 小道具: ${this.getFeatureText(requestBody.props)}`
     }
 
     getFeatureText(unformatted: string): string {
@@ -100,11 +100,11 @@ export class IssueRequestPayloadService {
     getPlacementTextJa(editionNumber: number): string {
         switch (editionNumber) {
             case 1:
-                return "1st Place"
+                return "順位：第一位"
             case 2:
-                return "2nd Place"
+                return "順位：第二位"
             case 3:
-                return "3rd Place"
+                return "順位：第三位"
             default:
                 return ""
         }
