@@ -28,9 +28,6 @@ export class IssueRequestPayloadService {
             marker = `-TEST-${requestBody.eoa.slice(0, 5)}-${randomInt(0, 10000)}`
         }
 
-        const placementTextEn = this.getPlacementTextEn(editionNumber)
-        const placementTextJa = this.getPlacementTextJa(editionNumber)
-
         const theData = {
             ...templateRoot,
             payload:
@@ -55,9 +52,8 @@ export class IssueRequestPayloadService {
                                         ja: `${requestBody.customText}, my Startbunny (Summer '22 Edition)`
                                     },
                                 note: {
-                                    en: `NFT Buy & Share Event #2 \n
-                                    ${placementTextEn}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`,
-                                    ja: `${placementTextJa}`
+                                    en: this.getEnNoteText(requestBody, editionNumber),
+                                    ja: this.getJaNoteText(requestBody, editionNumber)
                                 },
                                 image: imgUrl,
                                 thumbnailURL: imgUrl
@@ -66,6 +62,22 @@ export class IssueRequestPayloadService {
                 ]
         }
         return theData
+    }
+
+    getEnNoteText(requestBody: CustomParams, editionNumber: number): string {
+
+        const placementTextEn = this.getPlacementTextEn(editionNumber)
+
+        return `NFT Buy & Share Event #2 \n
+                                    ${placementTextEn}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`
+
+    }
+
+    getJaNoteText(requestBody: CustomParams, editionNumber: number): string {
+        const placementTextJa = this.getPlacementTextJa(editionNumber)
+        
+        return `NFT Buy & Share Event #2 \n
+                                    ${placementTextJa}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`
     }
 
     getFeatureText(unformatted: string): string {
