@@ -55,13 +55,13 @@ describe('MetadataService', () => {
 
     describe("getPlacementTextJa", () => {
         it('returns place 1', () => {
-            expect(service.getPlacementTextJa(1)).toEqual("1st Place")
+            expect(service.getPlacementTextJa(1)).toEqual("順位：第一位")
         })
         it('returns place 2', () => {
-            expect(service.getPlacementTextJa(2)).toEqual("2nd Place")
+            expect(service.getPlacementTextJa(2)).toEqual("順位：第二位")
         })
         it('returns place 3', () => {
-            expect(service.getPlacementTextJa(3)).toEqual("3rd Place")
+            expect(service.getPlacementTextJa(3)).toEqual("順位：第三位")
         })
         it('returns other places', () => {
             expect(service.getPlacementTextJa(4)).toEqual("")
