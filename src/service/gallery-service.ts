@@ -24,7 +24,7 @@ export class GalleryService {
         issuedWebhookV1.data.forEach(entry => {
 
             newEntries.push({
-                viewerUrl: entry.metadata.thumbnailURL,
+                viewerUrl: entry.metadata.external_url,
                 imageUrl: entry.metadata.thumbnailURL,
                 srrId: entry.srrId,
                 title: entry.metadata.title.en || ""
