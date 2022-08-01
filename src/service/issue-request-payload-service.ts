@@ -69,7 +69,7 @@ export class IssueRequestPayloadService {
         const placementTextEn = this.getPlacementTextEn(editionNumber)
 
         return `NFT Buy & Share Event #2 \n
-                                    ${placementTextEn}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`
+                                    ${placementTextEn}\n  background color: ${this.getFeatureText(requestBody.background)}\n main color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`
 
     }
 
@@ -77,7 +77,7 @@ export class IssueRequestPayloadService {
         const placementTextJa = this.getPlacementTextJa(editionNumber)
         
         return `NFT Buy & Share Event #2 \n
-                                    ${placementTextJa}\n  背景色: ${this.getFeatureText(requestBody.background)}\n 皮の色: ${this.getFeatureText(requestBody.bodyMainColor)}\n スポットの色: ${this.getFeatureText(requestBody.bodyOffColor)}\n スポットのパターン: ${this.getFeatureText(requestBody.spotPattern)}\n 耳の形: ${this.getFeatureText(requestBody.earShape)}\n 小道具: ${this.getFeatureText(requestBody.props)}`
+                                    ${placementTextJa}\n  背景色: ${this.getFeatureText(requestBody.background)}\n メインカラー: ${this.getFeatureText(requestBody.bodyMainColor)}\n 模様の色: ${this.getFeatureText(requestBody.bodyOffColor)}\n 模様のパターン: ${this.getFeatureText(requestBody.spotPattern)}\n 耳の形: ${this.getFeatureText(requestBody.earShape)}\n オプションアイテム: ${this.getFeatureText(requestBody.props)}`
     }
 
     getFeatureText(unformatted: string): string {
