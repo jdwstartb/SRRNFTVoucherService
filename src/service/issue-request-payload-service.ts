@@ -28,9 +28,6 @@ export class IssueRequestPayloadService {
             marker = `-TEST-${requestBody.eoa.slice(0, 5)}-${randomInt(0, 10000)}`
         }
 
-        const placementTextEn = this.getPlacementTextEn(editionNumber)
-        const placementTextJa = this.getPlacementTextJa(editionNumber)
-
         const theData = {
             ...templateRoot,
             payload:
@@ -39,6 +36,7 @@ export class IssueRequestPayloadService {
                         ...payloadEntry,
                         to: requestBody.eoa,
                         externalId: `SBNYv1-${editionNumber}${marker}`,
+                        artistAddress: process.env.SRR_MINTER_LUW_CONTRACT_ADDRESS || "",
                         metadata:
                             {
                                 ...payloadEntry.metadata,
@@ -51,12 +49,11 @@ export class IssueRequestPayloadService {
                                 title:
                                     {
                                         en: `${requestBody.customText}, my Startbunny (Summer '22 Edition)`,
-                                        ja: `${requestBody.customText}, my Startbunny (Summer '22 Edition)`
+                                        ja: `${requestBody.customText}, マイ・スタートバニー (22'サマーエディション)`
                                     },
                                 note: {
-                                    en: `NFT Buy & Share Event #2 \n
-                                    ${placementTextEn}\n  background color: ${this.getFeatureText(requestBody.background)}\n main hide color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`,
-                                    ja: `${placementTextJa}`
+                                    en: this.getEnNoteText(requestBody, editionNumber),
+                                    ja: this.getJaNoteText(requestBody, editionNumber)
                                 },
                                 image: imgUrl,
                                 thumbnailURL: imgUrl
@@ -65,6 +62,22 @@ export class IssueRequestPayloadService {
                 ]
         }
         return theData
+    }
+
+    getEnNoteText(requestBody: CustomParams, editionNumber: number): string {
+
+        const placementTextEn = this.getPlacementTextEn(editionNumber)
+
+        return `NFT Buy & Share Event #2 \n
+                                    ${placementTextEn}\n  background color: ${this.getFeatureText(requestBody.background)}\n main color: ${this.getFeatureText(requestBody.bodyMainColor)}\n spot color: ${this.getFeatureText(requestBody.bodyOffColor)}\n spot pattern: ${this.getFeatureText(requestBody.spotPattern)}\n ear shape: ${this.getFeatureText(requestBody.earShape)}\n prop: ${this.getFeatureText(requestBody.props)}`
+
+    }
+
+    getJaNoteText(requestBody: CustomParams, editionNumber: number): string {
+        const placementTextJa = this.getPlacementTextJa(editionNumber)
+        
+        return `NFT Buy & Share Event #2 \n
+                                    ${placementTextJa}\n  背景色: ${this.getFeatureText(requestBody.background)}\n メインカラー: ${this.getFeatureText(requestBody.bodyMainColor)}\n 模様の色: ${this.getFeatureText(requestBody.bodyOffColor)}\n 模様のパターン: ${this.getFeatureText(requestBody.spotPattern)}\n 耳の形: ${this.getFeatureText(requestBody.earShape)}\n オプションアイテム: ${this.getFeatureText(requestBody.props)}`
     }
 
     getFeatureText(unformatted: string): string {
@@ -87,11 +100,11 @@ export class IssueRequestPayloadService {
     getPlacementTextJa(editionNumber: number): string {
         switch (editionNumber) {
             case 1:
-                return "1st Place"
+                return "順位：第一位"
             case 2:
-                return "2nd Place"
+                return "順位：第二位"
             case 3:
-                return "3rd Place"
+                return "順位：第三位"
             default:
                 return ""
         }

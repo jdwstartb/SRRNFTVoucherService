@@ -23,7 +23,7 @@ export class Logger {
     }
 
     log(logString: string) {
-        console.log(`${Date.now()}: ${this.logName}: ${logString}`)
+        console.log(`${new Date(Date.now())}: ${this.logName}: ${logString}`)
     }
 
 }

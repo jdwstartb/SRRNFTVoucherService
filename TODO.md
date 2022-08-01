@@ -7,7 +7,7 @@ Integrate Props Customization
 - [X] Samurai Mask
 - [x] Hair bow
 - [x] Glasses
-- [x] Geisha Hair
+- [x] nihongami Hair
 - [x] Hijab
 - [x] magic hat
 -

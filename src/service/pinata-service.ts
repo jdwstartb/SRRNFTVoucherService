@@ -25,7 +25,11 @@ export class PinataService {
         const uploadResponse = await this.uploadFile(imageData, cid, name, savedFilePath)
 
         if (uploadResponse) {
-            return {success: true, message: "", payload: {url: `https://gateway.pinata.cloud/ipfs/${uploadResponse}`}}
+            return {
+                success: true,
+                message: "",
+                payload: {url: `https://startbunnies.mypinata.cloud/ipfs/${uploadResponse}`}
+            }
         }
         return {success: false, message: "failed writing file to pinata", payload: {url: ""}}
     }
