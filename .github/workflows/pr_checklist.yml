@@ -19,5 +19,5 @@ jobs:
 
       - name: "containing minimum files"
         id: "minfiles"
-        if: !false # steps.changedfiles.outputs.files
+        if: ${{ !contains("Hello World", "xllo" ) }}
         run: echo "package-lock.json1 has changed"
