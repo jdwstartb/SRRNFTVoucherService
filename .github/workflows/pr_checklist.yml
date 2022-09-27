@@ -2,7 +2,7 @@ name: pr-checklist
 
 on:
   pull_request:
-    branches: [ develop ]
+    branches: [ develop, main ]
 
 jobs:
   build:
@@ -19,5 +19,5 @@ jobs:
 
       - name: "containing minimum files"
         id: "minfiles"
-        if:  !false # steps.changedfiles.outputs.files
-        run:   echo "package-lock.json1 has changed"
+        if: !false # steps.changedfiles.outputs.files
+        run: echo "package-lock.json1 has changed"
