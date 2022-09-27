@@ -24,5 +24,5 @@ jobs:
 
       - name: "containing minimum files"
         id: "minfiles"
-        if: ${{ !contains("Hello World", "xllo" ) }}
+        if: ${{ true }}
         run: echo "package-lock.json1 has changed"
