@@ -15,7 +15,7 @@ db.defaults({
 
 export class GalleryService {
     async addIssuedSRRByWebhookV1(issuedWebhookV1: IssueWebhookBody): Promise<{ success: boolean }> {
-        if (issuedWebhookV1.type !== "issueComplete") {
+        if (issuedWebhookV1.type !== "issue_complete") {
             return {success: false}
         }
 
