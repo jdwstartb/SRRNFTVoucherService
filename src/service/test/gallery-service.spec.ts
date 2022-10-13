@@ -13,7 +13,7 @@ describe("GalleryService", () => {
     describe('module integration', () => {
         it('saves entries and lets them be retrieved later', async () => {
             const issueWebhookV1 = {
-                type: "issueComplete",
+                type: "issue_complete",
                 data: [{
                     srrId: "abc",
                     metadata: {
@@ -40,7 +40,7 @@ describe("GalleryService", () => {
 
         it('saves multiple entries', async () => {
             const issueWebhookV1 = {
-                type: "issueComplete",
+                type: "issue_complete",
                 data: [{
                     srrId: "abc",
                     metadata: {
@@ -84,7 +84,7 @@ describe("GalleryService", () => {
     describe("issueWebhookV1", () => {
         it("accepts a valid issue webhook v1", async () => {
             expect(await service.addIssuedSRRByWebhookV1({
-                "type": "issueComplete",
+                "type": "issue_complete",
                 data: [{
                     srrId: "abc",
                     metadata: {
@@ -133,7 +133,7 @@ describe("GalleryService", () => {
         it("sorts the entries by edition number", async () => {
 
             await service.addIssuedSRRByWebhookV1({
-                "type": "issueComplete",
+                "type": "issue_complete",
                 data: [{
                     srrId: "abc",
                     metadata: {
